@@ -73,7 +73,7 @@ export function SettingsScreen({ pal, t, setTweak, purchased, onBack, onStory, o
             <Text style={{ fontFamily: FONT.mono, fontSize: 11, letterSpacing: 1, color: pal.player }}>✓ OWNED</Text>
           </Row>
         ) : (
-          <NavRow label="Unlock Attune" desc="Premium · one-time $2.99 · no ads, no IAP." onClick={onPaywall} />
+          <NavRow label="Unlock Attune" desc="Premium · one-time $2.99 · no ads, no microtransactions." onClick={onPaywall} />
         )}
         <NavRow label="Restore purchase" desc="Already bought on this Apple ID?" onClick={onRestore} />
         <NavRow label="Redeem gift code" desc="Unlock everything with a code." onClick={onRedeem} />

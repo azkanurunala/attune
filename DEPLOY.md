@@ -81,6 +81,33 @@ Then in App Store Connect: attach the build to the version, confirm the `lifetim
 
 ---
 
+---
+
+## Troubleshooting
+
+### Build fails: provisioning profile doesn't include the Game Center capability
+```
+Provisioning profile "…" doesn't include the com.apple.developer.game-center entitlement.
+```
+The entitlement is declared in `app.json`, but the **App ID** must also have the
+Game Center capability turned on, and the profile must be regenerated afterwards.
+
+1. **developer.apple.com → Certificates, Identifiers & Profiles → Identifiers →
+   `com.attune.game`** → scroll to **Game Center** → tick it → **Save**.
+2. Force EAS to regenerate the (now-stale) provisioning profile, then rebuild:
+   ```bash
+   eas credentials --platform ios
+   #  → production → "Provisioning Profile" → Delete (EAS recreates it on build)
+   eas build --platform ios --profile production
+   ```
+   (Re-running the build alone often suffices, since EAS reconciles the App ID's
+   capabilities and regenerates the profile to match.)
+
+To unblock a build *without* Game Center temporarily, remove
+`"entitlements": { "com.apple.developer.game-center": true }` from
+`app.json` → `ios` and the Ranks screen falls back to its seeded preview; add it
+back (and re-do step 1–2) when you want live leaderboards.
+
 ### Sanity checks before submitting
 - [ ] Paid Apps Agreement **Active**.
 - [ ] `src/config.js` has your real `appl_…` key (not the `REPLACE_ME` placeholder).

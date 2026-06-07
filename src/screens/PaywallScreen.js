@@ -18,7 +18,7 @@ const FEATURES = [
   { icon: '∞', t: 'Endless Drift mode', d: 'A procedural channel without end. Chase the line.' },
   { icon: '◍', t: 'Adaptive soundtrack', d: 'The music is the obstacle — it blooms as you attune.' },
   { icon: '♚', t: 'Game Center leaderboards', d: 'Global ranks, weekly boards, phase-perfect bragging rights.' },
-  { icon: '⛒', t: 'No ads. No IAP. Ever.', d: 'One payment, for life. No subscriptions, timers, or loot.' },
+  { icon: '⛒', t: 'No ads. No microtransactions.', d: 'One payment, for life. No subscriptions, timers, or loot.' },
   { icon: '⤓', t: 'Plays fully offline', d: 'No account, no network, no data collected.' },
 ];
 
