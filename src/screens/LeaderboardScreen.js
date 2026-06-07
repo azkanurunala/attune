@@ -51,6 +51,7 @@ export function LeaderboardScreen({ pal, progress, onBack }) {
     || atnLeaderRows(seed).map((x) => ({ ...x, score: Math.round(x.score * scale) })).sort((a, b) => b.score - a.score);
   const myRank = board === 'endless' ? atnRankFor(playerScore) : Math.max(3, 4200 - Math.min(4100, Math.round(playerScore / 20)));
   const medal = ['#F5C84B', '#C9D2E0', '#D9925A'];
+  const isLive = !!live; // real Game Center rows vs. the seeded sample
 
   const PlayerRow = () => (
     <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12, padding: 11, paddingHorizontal: 12, borderRadius: 13, backgroundColor: withAlpha(pal.player, 0.12), borderWidth: 1, borderColor: withAlpha(pal.player, 0.33) }}>
@@ -92,20 +93,28 @@ export function LeaderboardScreen({ pal, progress, onBack }) {
       <View style={{ paddingHorizontal: 18, gap: 8, paddingBottom: 10 }}>
         <Seg value={board} onChange={setBoard} opts={[{ v: 'endless', l: 'Endless · Distance' }, { v: 'score', l: 'Total Score' }]} />
         <Seg value={frame} onChange={setFrame} opts={[{ v: 'today', l: 'Today' }, { v: 'week', l: 'This Week' }, { v: 'all', l: 'All Time' }]} />
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 7, paddingHorizontal: 2 }}>
+          <View style={{ width: 7, height: 7, borderRadius: 4, backgroundColor: isLive ? '#5BF2A8' : '#FFC24B' }} />
+          <Text style={{ fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: 1.2, textTransform: 'uppercase', color: ATN_BASE.ink3 }}>
+            {isLive ? 'Live · Game Center' : 'Sample ranks — sign in to Game Center on a device for live global ranks'}
+          </Text>
+        </View>
       </View>
 
       <ScrollView style={{ flex: 1 }} contentContainerStyle={{ paddingHorizontal: 18, paddingBottom: insets.bottom + 24 }} showsVerticalScrollIndicator={false}>
-        {rows.slice(0, 40).map((row, i) => {
-          const rank = i + 1;
-          return (
-            <View key={i} style={{ flexDirection: 'row', alignItems: 'center', gap: 12, paddingVertical: 10, paddingHorizontal: 12, borderRadius: 13, marginBottom: 5 }}>
-              <Text style={{ width: 32, textAlign: 'center', fontFamily: FONT.monoSemi, fontSize: 14, color: rank <= 3 ? medal[rank - 1] : ATN_BASE.ink3 }}>{rank}</Text>
-              <AtnAvatar name={row.name} size={32} />
-              <Text numberOfLines={1} style={{ flex: 1, fontFamily: FONT.sansMed, fontSize: 14, color: ATN_BASE.ink }}>{row.name}</Text>
-              <Text style={{ fontFamily: FONT.mono, fontSize: 14, color: ATN_BASE.ink2 }}>{(row.score || 0).toLocaleString()}</Text>
-            </View>
-          );
-        })}
+        <View style={{ opacity: isLive ? 1 : 0.5 }}>
+          {rows.slice(0, 40).map((row, i) => {
+            const rank = i + 1;
+            return (
+              <View key={i} style={{ flexDirection: 'row', alignItems: 'center', gap: 12, paddingVertical: 10, paddingHorizontal: 12, borderRadius: 13, marginBottom: 5 }}>
+                <Text style={{ width: 32, textAlign: 'center', fontFamily: FONT.monoSemi, fontSize: 14, color: rank <= 3 ? medal[rank - 1] : ATN_BASE.ink3 }}>{rank}</Text>
+                <AtnAvatar name={row.name} size={32} />
+                <Text numberOfLines={1} style={{ flex: 1, fontFamily: FONT.sansMed, fontSize: 14, color: ATN_BASE.ink }}>{row.name}</Text>
+                <Text style={{ fontFamily: FONT.mono, fontSize: 14, color: ATN_BASE.ink2 }}>{(row.score || 0).toLocaleString()}</Text>
+              </View>
+            );
+          })}
+        </View>
         <View style={{ borderTopWidth: 1, borderTopColor: ATN_BASE.hair2, paddingTop: 8, marginTop: 4 }}>
           <PlayerRow />
         </View>

@@ -15,8 +15,8 @@
 // Mapping constants (shared with the engine).
 export const ATN_FMIN = 0.0042; // cycles per px (long, lazy wave)
 export const ATN_FMAX = 0.0150; // cycles per px (tight, fast wave)
-export const ATN_GAP_MIN = 70; // px (tight corridor)
-export const ATN_GAP_MAX = 168; // px (wide corridor)
+export const ATN_GAP_MIN = 96; // px (tight corridor) — widened for an easier band
+export const ATN_GAP_MAX = 212; // px (wide corridor) — easy songs are very forgiving
 
 export const atnPitchToFreq = (p) =>
   ATN_FMIN + (ATN_FMAX - ATN_FMIN) * Math.max(0, Math.min(1, p));

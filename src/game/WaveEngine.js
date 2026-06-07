@@ -93,7 +93,7 @@ function polyPath(points, pre, post) {
 }
 
 export function WaveGame({
-  track, pal, glow = 1, speedMult = 1, gapMult = 1, colorblind = false,
+  track, pal, glow = 1, speedMult = 1, gapMult = 1, colorblind = false, diffScale = 1,
   paused = false, audio = null, audioEnabled = true, runKey = 0,
   onStats = () => {}, onCrash = () => {}, onWin = () => {}, onPerfect = () => {},
 }) {
@@ -105,7 +105,7 @@ export function WaveGame({
 
   // keep latest props readable inside the rAF loop
   const propsRef = useRef({});
-  propsRef.current = { pal, glow, speedMult, gapMult, colorblind, paused, audio, audioEnabled, onStats, onCrash, onWin, onPerfect };
+  propsRef.current = { pal, glow, speedMult, gapMult, colorblind, diffScale, paused, audio, audioEnabled, onStats, onCrash, onWin, onPerfect };
 
   // relative drag (scale-independent), hold-last on release
   const panRef = useRef(
@@ -147,10 +147,10 @@ export function WaveGame({
       W, H, worldX: 0, playerPhase: 0,
       pitch: 0.4, pitchTarget: 0.4, _startPitch: 0.4,
       ampFrac: 0.145, baseSpeed: 232,
-      score: 0, distance: 0, perfects: 0,
+      score: 0, distance: 0, perfects: 0, runElapsed: 0,
       align: 0, alignSmooth: 0, perfTimer: 0,
       samples: [], particles: [],
-      dead: false, won: false, grace: 360,
+      dead: false, won: false, grace: 420,
       last: now0, statClock: 0, flash: 0, shake: 0,
     };
     stateRef.current = S;
@@ -176,7 +176,11 @@ export function WaveGame({
       const frozen = P.paused || S.dead || S.won;
       if (!frozen) {
         S.pitch += (S.pitchTarget - S.pitch) * Math.min(1, dt * 9); // smoothing
-        const speed = S.baseSpeed * P.speedMult;
+        // ease the scroll up over the first ~1.6s so a run never starts too fast,
+        // and scale by the song's difficulty (easy songs scroll slower)
+        S.runElapsed += dt;
+        const startEase = 0.45 + 0.55 * Math.min(1, S.runElapsed / 1.6);
+        const speed = S.baseSpeed * P.diffScale * P.speedMult * startEase;
         const pFreq = atnPitchToFreq(S.pitch);
         S.worldX += speed * dt;
         S.distance += speed * dt;

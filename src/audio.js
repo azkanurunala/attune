@@ -16,17 +16,34 @@
 //
 // To enable real procedural audio, see "Enabling adaptive audio" in README.md.
 
-// Lazily resolve the native AudioContext so a missing module never crashes JS.
-function AudioContextCtor() {
+// Lazily resolve the native module so a missing one never crashes JS.
+function audioModule() {
   try {
-    const m = require('react-native-audio-api');
-    return m.AudioContext || m.default?.AudioContext || null;
+    return require('react-native-audio-api');
   } catch (e) {
     return null;
   }
 }
+function AudioContextCtor() {
+  const m = audioModule();
+  return (m && (m.AudioContext || m.default?.AudioContext)) || null;
+}
 
 export const isAudioAvailable = () => !!AudioContextCtor();
+
+// Route audio to the iOS "playback" category once, so the game's music plays
+// even when the device's silent/mute switch is on (this game IS the music).
+let _sessionConfigured = false;
+function configureSession() {
+  if (_sessionConfigured) return;
+  const m = audioModule();
+  const AudioManager = m && (m.AudioManager || m.default?.AudioManager);
+  if (!AudioManager || !AudioManager.setAudioSessionOptions) return;
+  try {
+    AudioManager.setAudioSessionOptions({ iosCategory: 'playback', iosMode: 'default' });
+    _sessionConfigured = true;
+  } catch (e) {}
+}
 
 function makeDistortionCurve(amount) {
   const n = 256;
@@ -65,6 +82,7 @@ class AttuneAudio {
     if (this.ctx) return;
     const AC = AudioContextCtor();
     if (!AC) return;
+    configureSession(); // playback category (plays through the silent switch)
     try { this.ctx = new AC(); } catch (e) { this.ctx = null; }
   }
 

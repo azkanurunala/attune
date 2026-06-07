@@ -26,6 +26,14 @@ export function GameScreen({ mode, song, pal, t, audio, onResult, onExit, topIns
   );
   const track = trackRef.current;
 
+  // Per-level scroll speed: tutorial + easy songs move slower so the control is
+  // easy to learn; it climbs with difficulty. (Endless ramps on its own.)
+  const diffScale = isTut
+    ? 0.62
+    : isEndless
+      ? 0.95
+      : ({ easy: 0.74, mid: 0.9, hard: 1.04 }[song && song.difficulty] || 0.88);
+
   const [runKey, setRunKey] = useState(0);
   const [paused, setPaused] = useState(false);
   const [countdown, setCountdown] = useState(3);
@@ -99,7 +107,7 @@ export function GameScreen({ mode, song, pal, t, audio, onResult, onExit, topIns
   return (
     <View style={{ flex: 1, backgroundColor: '#05070D' }}>
       <WaveGame
-        track={track} pal={pal} glow={t.glow} speedMult={t.speed} gapMult={t.gap}
+        track={track} pal={pal} glow={t.glow} speedMult={t.speed} gapMult={t.gap} diffScale={diffScale}
         colorblind={t.colorblind} paused={gameFrozen} audio={audio} audioEnabled={t.audio}
         runKey={runKey} onStats={handleStats} onCrash={handleCrash} onWin={handleWin} onPerfect={handlePerfect}
       />
