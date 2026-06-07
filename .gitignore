@@ -18,3 +18,8 @@ expo-env.d.ts
 *.p8
 GIFT_CODES.txt
 .env*.local
+
+# screenshots / playwright
+.playwright-mcp/
+screenshots/
+*.sim.png

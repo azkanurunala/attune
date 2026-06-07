@@ -19,7 +19,7 @@ const DEMO_CAPS = {
   3: 'The channel drops, so I lower the pitch (down).',
 };
 
-export function GameScreen({ mode, song, pal, t, audio, introMode = 'none', onIntroSeen = () => {}, onResult, onExit, topInset = 54 }) {
+export function GameScreen({ mode, song, pal, t, audio, introMode = 'none', onIntroSeen = () => {}, initPaused = false, onResult, onExit, topInset = 54 }) {
   useKeepAwake();
   const isEndless = mode === 'endless';
   const isTut = mode === 'tutorial';
@@ -46,7 +46,7 @@ export function GameScreen({ mode, song, pal, t, audio, introMode = 'none', onIn
   const demoDist = isTut ? ATN_TUT_DEMO_DIST : moveLen * demoMoves;
 
   const [runKey, setRunKey] = useState(0);
-  const [paused, setPaused] = useState(false);
+  const [paused, setPaused] = useState(!!initPaused);
   const [countdown, setCountdown] = useState(3);
   const [phase, setPhase] = useState(guided ? 'play' : 'count'); // count | play | crashed | won
   const [tutStage, setTutStage] = useState(guided ? 'teach' : 'free'); // teach | demo | handoff | free

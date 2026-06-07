@@ -26,9 +26,9 @@ function Seg({ value, opts, onChange }) {
   );
 }
 
-export function LeaderboardScreen({ pal, progress, onBack }) {
+export function LeaderboardScreen({ pal, progress, initialBoard, onBack }) {
   const insets = useSafeAreaInsets();
-  const [board, setBoard] = useState('endless'); // endless | score
+  const [board, setBoard] = useState(initialBoard === 'score' ? 'score' : 'endless'); // endless | score
   const [frame, setFrame] = useState('all'); // today | week | all
   const [live, setLive] = useState(null); // native rows if available
 

@@ -6,7 +6,10 @@
 // AsyncStorage. External services (audio / IAP / Game Center) degrade to no-op.
 
 import React, { useState, useEffect, useCallback } from 'react';
-import { View, Modal, TextInput, Text, Pressable, Alert } from 'react-native';
+import { View, Modal, TextInput, Text, Pressable, Alert, Linking, LogBox } from 'react-native';
+
+// keep dev warning banners out of screenshots / gameplay
+if (typeof __DEV__ !== 'undefined' && __DEV__) { try { LogBox.ignoreAllLogs(true); } catch (e) {} }
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
 import {
@@ -114,6 +117,51 @@ function Game() {
 
   const saveProgress = useCallback((updater) => setProgress((prev) => updater(prev)), []);
 
+  // ── deep-link / screenshot harness ──────────────────────────────────────
+  // attune://shot?screen=map&pro=1&nointro=1&song=firstlight&mode=song&...
+  // Lets tooling jump straight to any page/state for capture; also a real,
+  // harmless deep-link entry point.
+  useEffect(() => {
+    const apply = (url) => {
+      if (!url || url.indexOf('attune://') !== 0) return;
+      const q = {};
+      (url.split('?')[1] || '').split('&').forEach((kv) => {
+        const i = kv.indexOf('=');
+        if (i > 0) q[kv.slice(0, i)] = decodeURIComponent(kv.slice(i + 1));
+      });
+      if (q.reset === '1') setProgress(FRESH_PROGRESS);
+      if (q.pro === '1') saveProgress((p) => ({ ...p, purchased: true, storySeen: true, tutorialDone: true }));
+      if (q.pro === '0') saveProgress((p) => ({ ...p, purchased: false }));
+      if (q.nointro != null) setTweaks((t) => ({ ...t, songIntros: q.nointro !== '1' ? true : false }));
+      if (q.cb != null) setTweaks((t) => ({ ...t, colorblind: q.cb === '1' }));
+      setRedeem(q.redeem === '1');
+      const s = q.screen;
+      const r = {
+        title: { name: 'title' },
+        story: { name: 'story', flow: false },
+        howto: { name: 'howto', flow: false },
+        paywall: { name: 'paywall', flow: false },
+        map: { name: 'map' },
+        settings: { name: 'settings' },
+        pack: { name: 'pack', packId: q.packId || 'pack0' },
+        leaderboard: { name: 'leaderboard', board: q.board || 'endless' },
+        game: { name: 'game', mode: q.mode || 'song', songId: q.song || 'firstlight', initPaused: q.paused === '1' },
+        results: {
+          name: 'results',
+          res: {
+            mode: q.mode || 'song', songId: q.song || 'firstlight', outcome: q.outcome || 'win',
+            score: Number(q.score || 1840), distance: Number(q.dist || 2600),
+            perfects: Number(q.perfects || 4), isNewBest: q.best === '1',
+          },
+        },
+      }[s];
+      if (r) router.reset(r);
+    };
+    const sub = Linking.addEventListener('url', (e) => apply(e.url));
+    Linking.getInitialURL().then((u) => u && apply(u));
+    return () => sub.remove();
+  }, []); // eslint-disable-line
+
   // ── derived ──
   const purchased = progress.purchased || entitlementPro;
   const t = tweaks;
@@ -202,7 +250,7 @@ function Game() {
       );
       break;
     case 'leaderboard':
-      screen = <LeaderboardScreen pal={pal} progress={progress} onBack={router.back} />;
+      screen = <LeaderboardScreen pal={pal} progress={progress} initialBoard={r.board} onBack={router.back} />;
       break;
     case 'settings':
       screen = (
@@ -245,7 +293,7 @@ function Game() {
       screen = (
         <GameScreen
           mode={r.mode} song={song} pal={pal} t={t} audio={audio}
-          introMode={introMode} onIntroSeen={markIntroSeen}
+          introMode={introMode} onIntroSeen={markIntroSeen} initPaused={!!r.initPaused}
           onResult={handleResult} onExit={() => router.reset({ name: 'map' })} topInset={topInset}
         />
       );
