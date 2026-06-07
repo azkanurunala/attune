@@ -10,12 +10,14 @@ import { withAlpha } from '../utils/color';
 import { AtnButton, AtnAlignMeter, atnFmt } from '../components/ui';
 import { WaveGame } from '../game/WaveEngine';
 import { atnSongSegments } from '../library';
+import { ATN_TUT_MOVE_LEN, ATN_TUT_DEMO_DIST } from '../songs';
 
-const TUT_HINTS = [
-  { at: 0, text: 'Slide up for a higher, tighter tone — down for a lower one.' },
-  { at: 1300, text: 'Match the glowing channel — ride its centre.' },
-  { at: 2600, text: "Stay aligned and the music blooms. You're attuned." },
-];
+// captions shown while the autopilot demonstrates each of the first 3 moves
+const DEMO_CAPS = {
+  1: 'Watch — I tune the wave to slip inside the channel.',
+  2: 'The channel rises, so I raise the pitch (up).',
+  3: 'The channel drops, so I lower the pitch (down).',
+};
 
 export function GameScreen({ mode, song, pal, t, audio, onResult, onExit, topInset = 54 }) {
   useKeepAwake();
@@ -37,9 +39,9 @@ export function GameScreen({ mode, song, pal, t, audio, onResult, onExit, topIns
   const [runKey, setRunKey] = useState(0);
   const [paused, setPaused] = useState(false);
   const [countdown, setCountdown] = useState(3);
-  const [phase, setPhase] = useState('count'); // count | play | crashed | won
+  const [phase, setPhase] = useState(isTut ? 'play' : 'count'); // count | play | crashed | won
+  const [tutStage, setTutStage] = useState(isTut ? 'teach' : 'free'); // teach | demo | handoff | free
   const [hud, setHud] = useState({ score: 0, distance: 0, align: 0, perfects: 0, pitch: 0.4 });
-  const [hintIdx, setHintIdx] = useState(0);
   const resultRef = useRef(null);
   const phaseRef = useRef(phase); phaseRef.current = phase;
 
@@ -76,13 +78,10 @@ export function GameScreen({ mode, song, pal, t, audio, onResult, onExit, topIns
     return () => sub.remove();
   }, []);
 
-  // tutorial hint progression
+  // tutorial: end the auto-demo after the 3 demonstrated moves, hand control over
   useEffect(() => {
-    if (!isTut) return;
-    let next = 0;
-    for (let i = 0; i < TUT_HINTS.length; i++) if (hud.distance >= TUT_HINTS[i].at) next = i;
-    if (next !== hintIdx) setHintIdx(next);
-  }, [hud.distance, isTut, hintIdx]);
+    if (isTut && tutStage === 'demo' && hud.distance >= ATN_TUT_DEMO_DIST) setTutStage('handoff');
+  }, [hud.distance, isTut, tutStage]);
 
   const handleStats = useCallback((s) => setHud(s), []);
   const handlePerfect = useCallback(() => {
@@ -101,14 +100,21 @@ export function GameScreen({ mode, song, pal, t, audio, onResult, onExit, topIns
     setTimeout(() => onResult(resultRef.current), 1100);
   }, [mode, song, onResult, t.haptics]);
 
-  const restart = () => { setPaused(false); setPhase('count'); setRunKey((k) => k + 1); };
-  const gameFrozen = paused || phase === 'count';
+  const restart = () => {
+    setPaused(false);
+    setRunKey((k) => k + 1);
+    if (isTut) { setTutStage('teach'); setPhase('play'); } else setPhase('count');
+  };
+  const tutDemo = isTut && tutStage === 'demo';
+  const gameFrozen = paused || phase === 'count' || (isTut && (tutStage === 'teach' || tutStage === 'handoff'));
+  const moveNum = Math.min(3, Math.max(1, Math.floor(hud.distance / ATN_TUT_MOVE_LEN) + 1));
+  const freeHintVisible = isTut && tutStage === 'free' && hud.distance < ATN_TUT_DEMO_DIST + 1200;
 
   return (
     <View style={{ flex: 1, backgroundColor: '#05070D' }}>
       <WaveGame
         track={track} pal={pal} glow={t.glow} speedMult={t.speed} gapMult={t.gap} diffScale={diffScale}
-        colorblind={t.colorblind} paused={gameFrozen} audio={audio} audioEnabled={t.audio}
+        autopilot={tutDemo} colorblind={t.colorblind} paused={gameFrozen} audio={audio} audioEnabled={t.audio}
         runKey={runKey} onStats={handleStats} onCrash={handleCrash} onWin={handleWin} onPerfect={handlePerfect}
       />
 
@@ -145,12 +151,48 @@ export function GameScreen({ mode, song, pal, t, audio, onResult, onExit, topIns
         </View>
       )}
 
-      {/* tutorial hints */}
-      {isTut && phase === 'play' && (
+      {/* tutorial — demo caption + move counter (while autopilot plays) */}
+      {tutDemo && (
         <View style={{ position: 'absolute', left: 24, right: 24, bottom: 92, alignItems: 'center' }} pointerEvents="none">
-          <Text style={{ fontFamily: FONT.sansMed, fontSize: 15, color: ATN_BASE.ink, textAlign: 'center' }}>{TUT_HINTS[hintIdx].text}</Text>
+          <View style={{ paddingVertical: 7, paddingHorizontal: 13, borderRadius: 999, backgroundColor: ATN_BASE.glassDk, borderWidth: 1, borderColor: ATN_BASE.hair2, marginBottom: 10 }}>
+            <Text style={{ fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: 2, textTransform: 'uppercase', color: pal.player }}>Watch · auto-tuning · move {moveNum}/3</Text>
+          </View>
+          <Text style={{ fontFamily: FONT.sansMed, fontSize: 15, color: ATN_BASE.ink, textAlign: 'center' }}>{DEMO_CAPS[moveNum]}</Text>
         </View>
       )}
+
+      {/* tutorial — your-turn hint after handoff */}
+      {freeHintVisible && (
+        <View style={{ position: 'absolute', left: 24, right: 24, bottom: 92, alignItems: 'center' }} pointerEvents="none">
+          <Text style={{ fontFamily: FONT.sansMed, fontSize: 15, color: ATN_BASE.ink, textAlign: 'center' }}>Your turn — keep the wave centred.</Text>
+        </View>
+      )}
+
+      {/* tutorial — teaching pause (frozen) */}
+      {isTut && tutStage === 'teach' && !paused && (
+        <View style={{ position: 'absolute', inset: 0, alignItems: 'center', justifyContent: 'flex-end', padding: 30, paddingBottom: 64, backgroundColor: 'rgba(5,7,13,0.5)' }}>
+          <View style={{ width: '100%', maxWidth: 320, alignItems: 'center' }}>
+            <Text style={{ fontFamily: FONT.mono, fontSize: 10, letterSpacing: 3, textTransform: 'uppercase', color: pal.player, marginBottom: 10 }}>How to play</Text>
+            <Text style={{ fontFamily: FONT.displaySemi, fontSize: 24, color: ATN_BASE.ink, textAlign: 'center', letterSpacing: -0.5, marginBottom: 10 }}>Watch first</Text>
+            <Text style={{ fontFamily: FONT.sans, fontSize: 14.5, color: ATN_BASE.ink2, textAlign: 'center', lineHeight: 21, marginBottom: 22 }}>Your glowing wave has to ride inside the channel. I'll tune it for the first three moves — then you take over.</Text>
+            <AtnButton variant="primary" pal={pal} onPress={() => setTutStage('demo')}>Show me ▶</AtnButton>
+          </View>
+        </View>
+      )}
+
+      {/* tutorial — hand control back (frozen) */}
+      {isTut && tutStage === 'handoff' && !paused && (
+        <View style={{ position: 'absolute', inset: 0, alignItems: 'center', justifyContent: 'flex-end', padding: 30, paddingBottom: 64, backgroundColor: 'rgba(5,7,13,0.5)' }}>
+          <View style={{ width: '100%', maxWidth: 320, alignItems: 'center' }}>
+            <Text style={{ fontFamily: FONT.mono, fontSize: 10, letterSpacing: 3, textTransform: 'uppercase', color: pal.player, marginBottom: 10 }}>Your turn</Text>
+            <Text style={{ fontFamily: FONT.displaySemi, fontSize: 24, color: ATN_BASE.ink, textAlign: 'center', letterSpacing: -0.5, marginBottom: 10 }}>Now you try</Text>
+            <Text style={{ fontFamily: FONT.sans, fontSize: 14.5, color: ATN_BASE.ink2, textAlign: 'center', lineHeight: 21, marginBottom: 22 }}>Drag up and down to tune. Keep the wave inside the channel all the way to the end.</Text>
+            <AtnButton variant="primary" pal={pal} onPress={() => setTutStage('free')}>I'm ready ▶</AtnButton>
+          </View>
+        </View>
+      )}
+
+      {/* skip the whole tutorial */}
       {isTut && (
         <Pressable onPress={() => onResult({ outcome: 'win', mode: 'tutorial', score: 0, distance: 0, perfects: 0 })} style={{ position: 'absolute', top: topInset + 8, alignSelf: 'center' }}>
           <Text style={{ fontFamily: FONT.mono, fontSize: 11, letterSpacing: 1, color: ATN_BASE.ink3 }}>Skip ›</Text>

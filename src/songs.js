@@ -112,18 +112,22 @@ export const ATN_SONGS = [
 export const ATN_SONG_ORDER = ATN_SONGS.map((s) => s.id);
 export const ATN_SONG_BY_ID = Object.fromEntries(ATN_SONGS.map((s) => [s.id, s]));
 
-// Tutorial track — single slow tone, the widest gap, no companion. The opening
-// stretch is deliberately flat (no pitch shift) so the first ~30s is purely
-// "learn to drag"; only the final stretch introduces one very gradual rise.
+// Tutorial track — slow, widest gap, no companion. The first three segments are
+// the three "moves" the autopilot demonstrates (settle → rise → drop); the final
+// segment is where control is handed back to the player. ATN_TUT_MOVE_LEN must
+// match each demo segment's length so the move counter lines up.
+export const ATN_TUT_MOVE_LEN = 1100;
 export const ATN_TUTORIAL = {
   id: 'tutorial', title: 'Tutorial', palette: 'firstlight',
-  bpm: 84, difficulty: 'easy', duration: '0:45',
+  bpm: 84, difficulty: 'easy', duration: '0:50',
   segments: [
-    { len: 1600, pitch: 0.42, gap: 1.0 }, // flat + widest band: just get used to tuning
-    { len: 1400, pitch: 0.42, gap: 1.0 }, // still flat, still forgiving
-    { len: 1400, pitch: 0.52, gap: 0.96, ramp: 1000 }, // one slow, gentle rise
+    { len: ATN_TUT_MOVE_LEN, pitch: 0.42, gap: 1.0 }, // move 1: settle into the channel
+    { len: ATN_TUT_MOVE_LEN, pitch: 0.56, gap: 1.0, ramp: 720 }, // move 2: a gentle rise (higher, tighter)
+    { len: ATN_TUT_MOVE_LEN, pitch: 0.34, gap: 0.98, ramp: 720 }, // move 3: a gentle drop (lower, lazier)
+    { len: 1500, pitch: 0.46, gap: 0.96, ramp: 760 }, // your turn — the player finishes
   ],
 };
+export const ATN_TUT_DEMO_DIST = ATN_TUT_MOVE_LEN * 3; // autopilot ends here
 
 // ── Endless generator ─────────────────────────────────────────────────────
 // Produces segments forever, ramping difficulty by elapsed distance. Always

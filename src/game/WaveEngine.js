@@ -22,7 +22,7 @@ const ATN_STEP = 3; // profile sample resolution (px)
 // Build a normalized corridor profile from a segment list. Stores sine VALUES
 // (decoupled from canvas size) so resize never rebuilds the geometry.
 function atnBuildProfile(segments) {
-  const sinC = []; const gp01 = []; const compS = [];
+  const sinC = []; const gp01 = []; const compS = []; const pitchC = [];
   let phase = 0; let compPhase = 0;
   let prevPitch = segments[0].pitch; let prevGap = segments[0].gap;
   const push = (seg) => {
@@ -38,6 +38,7 @@ function atnBuildProfile(segments) {
       phase += 2 * Math.PI * atnPitchToFreq(pitch) * ATN_STEP;
       sinC.push(Math.sin(phase));
       gp01.push(gap);
+      pitchC.push(pitch); // the corridor's pitch here — drives the tutorial autopilot
       if (comp) {
         compPhase += 2 * Math.PI * atnPitchToFreq(comp.pitch) * ATN_STEP;
         compS.push(Math.sin(compPhase) * comp.amp * t);
@@ -47,7 +48,7 @@ function atnBuildProfile(segments) {
   };
   segments.forEach(push);
   return {
-    sinC, gp01, compS, STEP: ATN_STEP, totalLen: sinC.length * ATN_STEP,
+    sinC, gp01, compS, pitchC, STEP: ATN_STEP, totalLen: sinC.length * ATN_STEP,
     _phase: phase, _compPhase: compPhase, _prevPitch: prevPitch, _prevGap: prevGap,
   };
 }
@@ -69,6 +70,7 @@ function atnExtendProfile(profile, gen, untilLen) {
       phase += 2 * Math.PI * atnPitchToFreq(pitch) * ATN_STEP;
       profile.sinC.push(Math.sin(phase));
       profile.gp01.push(gap);
+      profile.pitchC.push(pitch);
       if (comp) { compPhase += 2 * Math.PI * atnPitchToFreq(comp.pitch) * ATN_STEP; profile.compS.push(Math.sin(compPhase) * comp.amp * t); }
       else profile.compS.push(0);
     }
@@ -94,7 +96,7 @@ function polyPath(points, pre, post) {
 
 export function WaveGame({
   track, pal, glow = 1, speedMult = 1, gapMult = 1, colorblind = false, diffScale = 1,
-  paused = false, audio = null, audioEnabled = true, runKey = 0,
+  autopilot = false, paused = false, audio = null, audioEnabled = true, runKey = 0,
   onStats = () => {}, onCrash = () => {}, onWin = () => {}, onPerfect = () => {},
 }) {
   const [wh, setWh] = useState({ w: 0, h: 0 });
@@ -105,7 +107,7 @@ export function WaveGame({
 
   // keep latest props readable inside the rAF loop
   const propsRef = useRef({});
-  propsRef.current = { pal, glow, speedMult, gapMult, colorblind, diffScale, paused, audio, audioEnabled, onStats, onCrash, onWin, onPerfect };
+  propsRef.current = { pal, glow, speedMult, gapMult, colorblind, diffScale, autopilot, paused, audio, audioEnabled, onStats, onCrash, onWin, onPerfect };
 
   // relative drag (scale-independent), hold-last on release
   const panRef = useRef(
@@ -175,6 +177,12 @@ export function WaveGame({
 
       const frozen = P.paused || S.dead || S.won;
       if (!frozen) {
+        // autopilot (tutorial demo): steer toward the corridor's own pitch a bit
+        // ahead of the now-line, so the wave threads the channel hands-free.
+        if (P.autopilot) {
+          const leadI = sampleAt(S.worldX + 90);
+          S.pitchTarget = profile.pitchC[leadI];
+        }
         S.pitch += (S.pitchTarget - S.pitch) * Math.min(1, dt * 9); // smoothing
         // ease the scroll up over the first ~1.6s so a run never starts too fast,
         // and scale by the song's difficulty (easy songs scroll slower)
@@ -219,7 +227,7 @@ export function WaveGame({
           }
         } else S.perfTimer = 0;
 
-        if (S.worldX > S.grace && distc > half - 2) {
+        if (!P.autopilot && S.worldX > S.grace && distc > half - 2) {
           S.dead = true; S.shake = 1;
           if (P.audio) P.audio.fail();
           P.onCrash({ score: Math.round(S.score), distance: Math.round(S.distance), perfects: S.perfects });
