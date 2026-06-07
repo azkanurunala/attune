@@ -45,6 +45,17 @@ function configureSession() {
   } catch (e) {}
 }
 
+// Gentle tanh soft-clip — stands in for the (unimplemented) DynamicsCompressor.
+function makeSoftClipCurve() {
+  const n = 1024;
+  const curve = new Float32Array(n);
+  for (let i = 0; i < n; i++) {
+    const x = (i / (n - 1)) * 2 - 1;
+    curve[i] = Math.tanh(x * 1.6);
+  }
+  return curve;
+}
+
 function makeDistortionCurve(amount) {
   const n = 256;
   const curve = new Float32Array(n);
@@ -87,92 +98,113 @@ class AttuneAudio {
   }
 
   // Build the voice graph for a song. paletteKey selects the root.
+  // Wrapped end-to-end: if the audio backend lacks a node or throws, we degrade
+  // to silence rather than crash the run.
   start(paletteKey, bpm) {
     this._ensure();
     if (!this.ctx) return;
-    if (this.ctx.state === 'suspended' && this.ctx.resume) this.ctx.resume();
-    this.stop(true);
-    const ctx = this.ctx;
-    const now = ctx.currentTime;
-    const root = ROOTS[paletteKey] || 130.81;
+    try {
+      if (this.ctx.state === 'suspended' && this.ctx.resume) this.ctx.resume();
+      this.stop(true);
+      const ctx = this.ctx;
+      const now = ctx.currentTime;
+      const root = ROOTS[paletteKey] || 130.81;
 
-    // master chain: master gain → soft limiter → destination
-    const master = ctx.createGain();
-    master.gain.value = this.enabled ? this.volume : 0;
-    const limiter = ctx.createDynamicsCompressor();
-    limiter.threshold.value = -10; limiter.ratio.value = 8;
-    limiter.attack.value = 0.003; limiter.release.value = 0.25;
-    master.connect(limiter); limiter.connect(ctx.destination);
+      // master chain: master gain → soft-clip limiter → destination.
+      // (DynamicsCompressor isn't implemented by react-native-audio-api, so we
+      // use a WaveShaper soft-clipper to tame peaks; fall back to a direct
+      // connection if even that is unavailable.)
+      const master = ctx.createGain();
+      master.gain.value = this.enabled ? this.volume : 0;
+      try {
+        const limiter = ctx.createWaveShaper();
+        limiter.curve = makeSoftClipCurve();
+        master.connect(limiter); limiter.connect(ctx.destination);
+      } catch (e) {
+        master.connect(ctx.destination);
+      }
 
-    // global low-pass — closes when off-target ("held breath")
-    const filter = ctx.createBiquadFilter();
-    filter.type = 'lowpass'; filter.frequency.value = 600; filter.Q.value = 0.9;
-    filter.connect(master);
+      // global low-pass — closes when off-target ("held breath")
+      const filter = ctx.createBiquadFilter();
+      filter.type = 'lowpass'; filter.frequency.value = 600; filter.Q.value = 0.9;
+      filter.connect(master);
 
-    // feedback delay for space
-    const delay = ctx.createDelay();
-    delay.delayTime.value = (60 / (bpm || 110)) * 0.75;
-    const fb = ctx.createGain(); fb.gain.value = 0.32;
-    const wet = ctx.createGain(); wet.gain.value = 0.22;
-    delay.connect(fb); fb.connect(delay); delay.connect(wet); wet.connect(filter);
+      // feedback delay for space (createDelay needs a max-delay-time arg)
+      let delaySend = filter; // if delay is unavailable, sends just hit the filter
+      try {
+        const delay = ctx.createDelay(1);
+        delay.delayTime.value = (60 / (bpm || 110)) * 0.75;
+        const fb = ctx.createGain(); fb.gain.value = 0.32;
+        const wet = ctx.createGain(); wet.gain.value = 0.22;
+        delay.connect(fb); fb.connect(delay); delay.connect(wet); wet.connect(filter);
+        delaySend = delay;
+      } catch (e) {}
 
-    const mkOsc = (type, freq, detune, gain, dest) => {
-      const o = ctx.createOscillator();
-      o.type = type; o.frequency.value = freq; if (o.detune) o.detune.value = detune || 0;
-      const g = ctx.createGain(); g.gain.value = gain;
-      o.connect(g); g.connect(dest); o.start(now);
-      return { o, g };
-    };
+      const mkOsc = (type, freq, detune, gain, dest) => {
+        const o = ctx.createOscillator();
+        o.type = type; o.frequency.value = freq; if (o.detune) o.detune.value = detune || 0;
+        const g = ctx.createGain(); g.gain.value = gain;
+        o.connect(g); g.connect(dest); o.start(now);
+        return { o, g };
+      };
 
-    // BASS — always present (base layer)
-    const bassGain = ctx.createGain(); bassGain.gain.value = 0.5; bassGain.connect(filter);
-    const bass = mkOsc('sine', root / 2, 0, 0.9, bassGain);
-    const bassHarm = mkOsc('triangle', root, 0, 0.18, bassGain);
+      // BASS — always present (base layer)
+      const bassGain = ctx.createGain(); bassGain.gain.value = 0.5; bassGain.connect(filter);
+      const bass = mkOsc('sine', root / 2, 0, 0.9, bassGain);
+      const bassHarm = mkOsc('triangle', root, 0, 0.18, bassGain);
 
-    // PAD — chord, swells with alignment
-    const padGain = ctx.createGain(); padGain.gain.value = 0.0; padGain.connect(filter); padGain.connect(delay);
-    const padTrem = ctx.createGain(); padTrem.gain.value = 1; padTrem.connect(padGain);
-    const padBus = ctx.createGain(); padBus.gain.value = 0.5; padBus.connect(padTrem);
-    const pads = [
-      mkOsc('sawtooth', root, -7, 0.16, padBus),
-      mkOsc('sawtooth', root, +7, 0.16, padBus),
-      mkOsc('triangle', root * 1.5, 0, 0.14, padBus),
-      mkOsc('triangle', root * 2, +4, 0.10, padBus),
-    ];
+      // PAD — chord, swells with alignment
+      const padGain = ctx.createGain(); padGain.gain.value = 0.0; padGain.connect(filter); padGain.connect(delaySend);
+      const padTrem = ctx.createGain(); padTrem.gain.value = 1; padTrem.connect(padGain);
+      const padBus = ctx.createGain(); padBus.gain.value = 0.5; padBus.connect(padTrem);
+      const pads = [
+        mkOsc('sawtooth', root, -7, 0.16, padBus),
+        mkOsc('sawtooth', root, +7, 0.16, padBus),
+        mkOsc('triangle', root * 1.5, 0, 0.14, padBus),
+        mkOsc('triangle', root * 2, +4, 0.10, padBus),
+      ];
 
-    // tremolo LFO at the beat
-    const lfo = ctx.createOscillator(); lfo.type = 'sine'; lfo.frequency.value = (bpm || 110) / 60;
-    const lfoDepth = ctx.createGain(); lfoDepth.gain.value = 0.18;
-    lfo.connect(lfoDepth); lfoDepth.connect(padTrem.gain); lfo.start(now);
+      // tremolo LFO at the beat
+      const lfo = ctx.createOscillator(); lfo.type = 'sine'; lfo.frequency.value = (bpm || 110) / 60;
+      const lfoDepth = ctx.createGain(); lfoDepth.gain.value = 0.18;
+      lfo.connect(lfoDepth); lfoDepth.connect(padTrem.gain); lfo.start(now);
 
-    // SHIMMER / LEAD "you" — blooms only when well aligned; pitch follows thumb
-    const leadGain = ctx.createGain(); leadGain.gain.value = 0.0; leadGain.connect(filter); leadGain.connect(delay);
-    const lead = mkOsc('triangle', root * 2, 0, 0.5, leadGain);
-    const leadHi = mkOsc('sine', root * 4, 0, 0.18, leadGain);
-    this._leadRoot = root * 2;
+      // SHIMMER / LEAD "you" — blooms only when well aligned; pitch follows thumb
+      const leadGain = ctx.createGain(); leadGain.gain.value = 0.0; leadGain.connect(filter); leadGain.connect(delaySend);
+      const lead = mkOsc('triangle', root * 2, 0, 0.5, leadGain);
+      const leadHi = mkOsc('sine', root * 4, 0, 0.18, leadGain);
+      this._leadRoot = root * 2;
 
-    this._nodes = {
-      master, filter, padGain, leadGain, bassGain,
-      oscs: [bass, bassHarm, ...pads, lead, leadHi],
-      extras: [lfo], lead, leadHi,
-    };
-    this.running = true;
-    this._smoothAlign = 0;
-    // adaptive parameter easing on a light interval (decoupled from the game loop)
-    this._timer = setInterval(() => this._tick(), 33);
+      this._nodes = {
+        master, filter, padGain, leadGain, bassGain,
+        oscs: [bass, bassHarm, ...pads, lead, leadHi],
+        extras: [lfo], lead, leadHi,
+      };
+      this.running = true;
+      this._smoothAlign = 0;
+      // adaptive parameter easing on a light interval (decoupled from the game loop)
+      this._timer = setInterval(() => this._tick(), 33);
+    } catch (e) {
+      // any backend failure → no music, but the game keeps running
+      this.running = false;
+      if (this._timer) { clearInterval(this._timer); this._timer = null; }
+      this._nodes = null;
+    }
   }
 
   _tick() {
     if (!this.running || !this.ctx || !this._nodes) return;
-    const ctx = this.ctx;
-    const now = ctx.currentTime;
-    this._smoothAlign += (this.align - this._smoothAlign) * 0.18;
-    const a = this._smoothAlign;
-    const { filter, padGain, leadGain } = this._nodes;
-    filter.frequency.setTargetAtTime(620 + a * a * 6800, now, 0.08); // filter opens with alignment
-    padGain.gain.setTargetAtTime(0.12 + a * 0.9, now, 0.1); // pad swells
-    const leadAmt = Math.max(0, (a - 0.45) / 0.55); // lead blooms high in the range
-    leadGain.gain.setTargetAtTime(leadAmt * leadAmt * 0.85, now, 0.12);
+    try {
+      const ctx = this.ctx;
+      const now = ctx.currentTime;
+      this._smoothAlign += (this.align - this._smoothAlign) * 0.18;
+      const a = this._smoothAlign;
+      const { filter, padGain, leadGain } = this._nodes;
+      filter.frequency.setTargetAtTime(620 + a * a * 6800, now, 0.08); // filter opens with alignment
+      padGain.gain.setTargetAtTime(0.12 + a * 0.9, now, 0.1); // pad swells
+      const leadAmt = Math.max(0, (a - 0.45) / 0.55); // lead blooms high in the range
+      leadGain.gain.setTargetAtTime(leadAmt * leadAmt * 0.85, now, 0.12);
+    } catch (e) {}
   }
 
   setAlignment(a) { this.align = Math.max(0, Math.min(1, a || 0)); }
@@ -180,25 +212,29 @@ class AttuneAudio {
   // map thumb pitch (0..1) to a pentatonic step on the lead voice
   setPlayerPitch(p01) {
     if (!this.running || !this.ctx || !this._nodes) return;
-    const idx = Math.max(0, Math.min(PENTA.length - 1, Math.round((p01 || 0) * (PENTA.length - 1))));
-    const f = this._leadRoot * PENTA[idx];
-    const now = this.ctx.currentTime;
-    this._nodes.lead.o.frequency.setTargetAtTime(f, now, 0.05);
-    this._nodes.leadHi.o.frequency.setTargetAtTime(f * 2, now, 0.05);
+    try {
+      const idx = Math.max(0, Math.min(PENTA.length - 1, Math.round((p01 || 0) * (PENTA.length - 1))));
+      const f = this._leadRoot * PENTA[idx];
+      const now = this.ctx.currentTime;
+      this._nodes.lead.o.frequency.setTargetAtTime(f, now, 0.05);
+      this._nodes.leadHi.o.frequency.setTargetAtTime(f * 2, now, 0.05);
+    } catch (e) {}
   }
 
   phasePerfect() {
     if (!this.enabled || !this.ctx || !this._nodes) return;
-    const ctx = this.ctx;
-    const now = ctx.currentTime;
-    const o = ctx.createOscillator(); o.type = 'sine'; o.frequency.value = this._leadRoot * 3;
-    const g = ctx.createGain(); g.gain.value = 0;
-    o.connect(g); g.connect(this._nodes.master);
-    g.gain.setValueAtTime(0, now);
-    g.gain.linearRampToValueAtTime(0.18 * this.volume, now + 0.01);
-    g.gain.exponentialRampToValueAtTime(0.0001, now + 0.5);
-    o.frequency.exponentialRampToValueAtTime(this._leadRoot * 4, now + 0.5);
-    o.start(now); o.stop(now + 0.55);
+    try {
+      const ctx = this.ctx;
+      const now = ctx.currentTime;
+      const o = ctx.createOscillator(); o.type = 'sine'; o.frequency.value = this._leadRoot * 3;
+      const g = ctx.createGain(); g.gain.value = 0;
+      o.connect(g); g.connect(this._nodes.master);
+      g.gain.setValueAtTime(0, now);
+      g.gain.linearRampToValueAtTime(0.18 * this.volume, now + 0.01);
+      g.gain.exponentialRampToValueAtTime(0.0001, now + 0.5);
+      o.frequency.exponentialRampToValueAtTime(this._leadRoot * 4, now + 0.5);
+      o.start(now); o.stop(now + 0.55);
+    } catch (e) {}
   }
 
   // tape-stop dive + distorted noise burst
@@ -207,15 +243,17 @@ class AttuneAudio {
     const ctx = this.ctx;
     const now = ctx.currentTime;
     const { filter, master, oscs } = this._nodes;
-    oscs.forEach(({ o }) => {
-      const f = o.frequency.value;
-      o.frequency.cancelScheduledValues(now);
-      o.frequency.setValueAtTime(f, now);
-      o.frequency.exponentialRampToValueAtTime(Math.max(20, f * 0.25), now + 0.45);
-    });
-    filter.frequency.cancelScheduledValues(now);
-    filter.frequency.setValueAtTime(filter.frequency.value, now);
-    filter.frequency.exponentialRampToValueAtTime(160, now + 0.4);
+    try {
+      oscs.forEach(({ o }) => {
+        const f = o.frequency.value;
+        o.frequency.cancelScheduledValues(now);
+        o.frequency.setValueAtTime(f, now);
+        o.frequency.exponentialRampToValueAtTime(Math.max(20, f * 0.25), now + 0.45);
+      });
+      filter.frequency.cancelScheduledValues(now);
+      filter.frequency.setValueAtTime(filter.frequency.value, now);
+      filter.frequency.exponentialRampToValueAtTime(160, now + 0.4);
+    } catch (e) {}
     // noise burst through distortion
     try {
       const len = Math.floor(ctx.sampleRate * 0.35);
