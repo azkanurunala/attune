@@ -8,9 +8,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { View, Modal, TextInput, Text, Pressable, Alert, Linking, LogBox } from 'react-native';
 
-// keep dev warning banners out of screenshots / gameplay
-// (temporarily disabled to surface a render error for diagnosis)
-// if (typeof __DEV__ !== 'undefined' && __DEV__) { try { LogBox.ignoreAllLogs(true); } catch (e) {} }
+// keep dev warning banners out of gameplay / screenshots
+if (typeof __DEV__ !== 'undefined' && __DEV__) { try { LogBox.ignoreAllLogs(true); } catch (e) {} }
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
 import {
@@ -328,10 +327,34 @@ function Game() {
   return (
     <View style={{ flex: 1, backgroundColor: ATN_BASE.void }}>
       <StatusBar style="light" />
-      {screen}
+      <ScreenBoundary>{screen}</ScreenBoundary>
       <RedeemModal visible={redeem} pal={pal} onClose={() => setRedeem(false)} onResult={finishGift} />
     </View>
   );
+}
+
+// Error boundary so a screen-level render error shows a friendly recover screen
+// instead of a white/blank crash. (Dev builds also print the message + stack.)
+class ScreenBoundary extends React.Component {
+  constructor(p) { super(p); this.state = { err: null }; }
+  static getDerivedStateFromError(err) { return { err }; }
+  render() {
+    if (this.state.err) {
+      const e = this.state.err;
+      const dev = typeof __DEV__ !== 'undefined' && __DEV__;
+      return (
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', padding: 36, backgroundColor: ATN_BASE.void }}>
+          <Text style={{ fontFamily: FONT.displaySemi, fontSize: 22, color: ATN_BASE.ink, marginBottom: 8 }}>Something went off-key</Text>
+          <Text style={{ fontFamily: FONT.sans, fontSize: 14, color: ATN_BASE.ink2, textAlign: 'center', marginBottom: 22 }}>The screen hit a snag. Tap to return.</Text>
+          <Pressable onPress={() => this.setState({ err: null })} style={{ paddingVertical: 12, paddingHorizontal: 28, borderRadius: 999, borderWidth: 1, borderColor: ATN_BASE.hair }}>
+            <Text style={{ fontFamily: FONT.sansSemi, color: ATN_BASE.ink }}>Back</Text>
+          </Pressable>
+          {dev && <Text style={{ fontFamily: FONT.mono, fontSize: 10, color: '#FF8A8A', marginTop: 20 }}>{String((e && e.message) || e)}</Text>}
+        </View>
+      );
+    }
+    return this.props.children;
+  }
 }
 
 // ── Gift-code redeem modal ───────────────────────────────────────────────────
