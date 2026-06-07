@@ -14,7 +14,8 @@
       "supportsTablet": true,
       "bundleIdentifier": "com.attune.game",
       "infoPlist": {
-        "ITSAppUsesNonExemptEncryption": false
+        "ITSAppUsesNonExemptEncryption": false,
+        "NSMicrophoneUsageDescription": "Attune does not record you. This permission exists only because the game's audio engine links iOS audio-input APIs; the microphone is never accessed."
       },
       "entitlements": {
         "com.apple.developer.game-center": true
