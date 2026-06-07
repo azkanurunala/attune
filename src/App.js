@@ -42,7 +42,7 @@ import { GameScreen } from './screens/GameScreen';
 
 const DEFAULT_TWEAKS = {
   palette: 'auto', glow: 1, speed: 1, gap: 1,
-  audio: true, volume: 0.8, colorblind: false, haptics: true,
+  audio: true, volume: 0.8, colorblind: false, haptics: true, songIntros: true,
 };
 const FRESH_PROGRESS = {
   songs: {}, endlessBest: 0, totalRuns: 0,
@@ -165,7 +165,7 @@ function Game() {
         const cur = p.songs[res.songId] || { best: 0, completed: false };
         const best = Math.max(cur.best, res.score);
         if (res.score > cur.best) newBest = true;
-        np.songs[res.songId] = { best, completed: cur.completed || res.outcome === 'win' };
+        np.songs[res.songId] = { ...cur, best, completed: cur.completed || res.outcome === 'win' };
       }
       return np;
     });
@@ -235,9 +235,17 @@ function Game() {
     }
     case 'game': {
       const song = r.mode === 'song' ? ATN_LIBRARY[r.songId] : (r.mode === 'tutorial' ? ATN_TUTORIAL : null);
+      // first play of a song shows a quick one-move demo (unless turned off)
+      const seenIntro = r.mode === 'song' && !!(progress.songs[r.songId] || {}).introSeen;
+      const introMode = r.mode === 'song' && t.songIntros && !seenIntro ? 'lite' : 'none';
+      const markIntroSeen = () => saveProgress((p) => {
+        const cur = p.songs[r.songId] || { best: 0, completed: false };
+        return { ...p, songs: { ...p.songs, [r.songId]: { ...cur, introSeen: true } } };
+      });
       screen = (
         <GameScreen
           mode={r.mode} song={song} pal={pal} t={t} audio={audio}
+          introMode={introMode} onIntroSeen={markIntroSeen}
           onResult={handleResult} onExit={() => router.reset({ name: 'map' })} topInset={topInset}
         />
       );

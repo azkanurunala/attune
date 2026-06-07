@@ -41,6 +41,9 @@ export function SettingsScreen({ pal, t, setTweak, purchased, onBack, onStory, o
         <NavRow label="Watch the intro story" desc="The lone tone's journey to resonance." onClick={onStory} />
         <NavRow label="How to play" desc="The control, the goal, and the depth." onClick={onHowTo} />
         <NavRow label="Replay tutorial" desc="A slow, hands-on first channel." onClick={onTutorial} />
+        <Row label="Song intros" desc="Watch a quick demo the first time you play a song.">
+          <AtnSwitch on={t.songIntros} pal={pal} onChange={(v) => setTweak('songIntros', v)} />
+        </Row>
 
         <Text style={{ fontFamily: FONT.mono, fontSize: 10, letterSpacing: 3, textTransform: 'uppercase', color: ATN_BASE.ink3, marginTop: 26, marginBottom: 4 }}>Sound & access</Text>
         <Row label="Sound" desc="The music is the obstacle — best with headphones.">

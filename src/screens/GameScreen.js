@@ -19,10 +19,14 @@ const DEMO_CAPS = {
   3: 'The channel drops, so I lower the pitch (down).',
 };
 
-export function GameScreen({ mode, song, pal, t, audio, onResult, onExit, topInset = 54 }) {
+export function GameScreen({ mode, song, pal, t, audio, introMode = 'none', onIntroSeen = () => {}, onResult, onExit, topInset = 54 }) {
   useKeepAwake();
   const isEndless = mode === 'endless';
   const isTut = mode === 'tutorial';
+  // Guided "watch then try": full 3-move demo for the tutorial, a quick 1-move
+  // demo the first time you play a song (introMode 'lite').
+  const guided = isTut || introMode === 'lite';
+  const demoMoves = isTut ? 3 : 1;
   const trackRef = useRef(
     isEndless ? { endless: true, seed: (Date.now() & 0xffff) || 7 } : { segments: atnSongSegments(song) },
   );
@@ -36,13 +40,19 @@ export function GameScreen({ mode, song, pal, t, audio, onResult, onExit, topIns
       ? 0.95
       : ({ easy: 0.74, mid: 0.9, hard: 1.04 }[song && song.difficulty] || 0.88);
 
+  // demo geometry: tutorial uses fixed move lengths; a song demos its opening
+  const firstLen = (track.segments && track.segments[0] && track.segments[0].len) || 1000;
+  const moveLen = isTut ? ATN_TUT_MOVE_LEN : Math.min(1100, firstLen);
+  const demoDist = isTut ? ATN_TUT_DEMO_DIST : moveLen * demoMoves;
+
   const [runKey, setRunKey] = useState(0);
   const [paused, setPaused] = useState(false);
   const [countdown, setCountdown] = useState(3);
-  const [phase, setPhase] = useState(isTut ? 'play' : 'count'); // count | play | crashed | won
-  const [tutStage, setTutStage] = useState(isTut ? 'teach' : 'free'); // teach | demo | handoff | free
+  const [phase, setPhase] = useState(guided ? 'play' : 'count'); // count | play | crashed | won
+  const [tutStage, setTutStage] = useState(guided ? 'teach' : 'free'); // teach | demo | handoff | free
   const [hud, setHud] = useState({ score: 0, distance: 0, align: 0, perfects: 0, pitch: 0.4 });
   const resultRef = useRef(null);
+  const introDoneRef = useRef(false);
   const phaseRef = useRef(phase); phaseRef.current = phase;
 
   // audio lifecycle (start per run, stop on unmount)
@@ -78,10 +88,18 @@ export function GameScreen({ mode, song, pal, t, audio, onResult, onExit, topIns
     return () => sub.remove();
   }, []);
 
-  // tutorial: end the auto-demo after the 3 demonstrated moves, hand control over
+  // end the auto-demo after the demonstrated moves, then hand control over
   useEffect(() => {
-    if (isTut && tutStage === 'demo' && hud.distance >= ATN_TUT_DEMO_DIST) setTutStage('handoff');
-  }, [hud.distance, isTut, tutStage]);
+    if (guided && tutStage === 'demo' && hud.distance >= demoDist) setTutStage('handoff');
+  }, [hud.distance, guided, tutStage, demoDist]);
+
+  // remember that the intro was shown (per song), so replays skip it
+  useEffect(() => {
+    if (guided && tutStage === 'free' && !introDoneRef.current) {
+      introDoneRef.current = true;
+      onIntroSeen();
+    }
+  }, [guided, tutStage]); // eslint-disable-line
 
   const handleStats = useCallback((s) => setHud(s), []);
   const handlePerfect = useCallback(() => {
@@ -103,12 +121,15 @@ export function GameScreen({ mode, song, pal, t, audio, onResult, onExit, topIns
   const restart = () => {
     setPaused(false);
     setRunKey((k) => k + 1);
-    if (isTut) { setTutStage('teach'); setPhase('play'); } else setPhase('count');
+    const reguide = guided && !introDoneRef.current; // don't re-demo once seen this mount
+    if (reguide) { setTutStage('teach'); setPhase('play'); }
+    else { setTutStage('free'); setPhase(isTut ? 'play' : 'count'); }
   };
-  const tutDemo = isTut && tutStage === 'demo';
-  const gameFrozen = paused || phase === 'count' || (isTut && (tutStage === 'teach' || tutStage === 'handoff'));
-  const moveNum = Math.min(3, Math.max(1, Math.floor(hud.distance / ATN_TUT_MOVE_LEN) + 1));
-  const freeHintVisible = isTut && tutStage === 'free' && hud.distance < ATN_TUT_DEMO_DIST + 1200;
+  const tutDemo = guided && tutStage === 'demo';
+  const gameFrozen = paused || phase === 'count' || (guided && (tutStage === 'teach' || tutStage === 'handoff'));
+  const moveNum = Math.min(demoMoves, Math.max(1, Math.floor(hud.distance / moveLen) + 1));
+  const demoBanner = demoMoves > 1 ? `Watch · auto-tuning · move ${moveNum}/${demoMoves}` : 'Watch · auto-tuning';
+  const freeHintVisible = guided && tutStage === 'free' && hud.distance < demoDist + 1100;
 
   return (
     <View style={{ flex: 1, backgroundColor: '#05070D' }}>
@@ -155,7 +176,7 @@ export function GameScreen({ mode, song, pal, t, audio, onResult, onExit, topIns
       {tutDemo && (
         <View style={{ position: 'absolute', left: 24, right: 24, bottom: 92, alignItems: 'center' }} pointerEvents="none">
           <View style={{ paddingVertical: 7, paddingHorizontal: 13, borderRadius: 999, backgroundColor: ATN_BASE.glassDk, borderWidth: 1, borderColor: ATN_BASE.hair2, marginBottom: 10 }}>
-            <Text style={{ fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: 2, textTransform: 'uppercase', color: pal.player }}>Watch · auto-tuning · move {moveNum}/3</Text>
+            <Text style={{ fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: 2, textTransform: 'uppercase', color: pal.player }}>{demoBanner}</Text>
           </View>
           <Text style={{ fontFamily: FONT.sansMed, fontSize: 15, color: ATN_BASE.ink, textAlign: 'center' }}>{DEMO_CAPS[moveNum]}</Text>
         </View>
@@ -168,20 +189,27 @@ export function GameScreen({ mode, song, pal, t, audio, onResult, onExit, topIns
         </View>
       )}
 
-      {/* tutorial — teaching pause (frozen) */}
-      {isTut && tutStage === 'teach' && !paused && (
+      {/* teaching pause (frozen) */}
+      {guided && tutStage === 'teach' && !paused && (
         <View style={{ position: 'absolute', inset: 0, alignItems: 'center', justifyContent: 'flex-end', padding: 30, paddingBottom: 64, backgroundColor: 'rgba(5,7,13,0.5)' }}>
           <View style={{ width: '100%', maxWidth: 320, alignItems: 'center' }}>
-            <Text style={{ fontFamily: FONT.mono, fontSize: 10, letterSpacing: 3, textTransform: 'uppercase', color: pal.player, marginBottom: 10 }}>How to play</Text>
+            <Text style={{ fontFamily: FONT.mono, fontSize: 10, letterSpacing: 3, textTransform: 'uppercase', color: pal.player, marginBottom: 10 }}>{isTut ? 'How to play' : 'New song'}</Text>
             <Text style={{ fontFamily: FONT.displaySemi, fontSize: 24, color: ATN_BASE.ink, textAlign: 'center', letterSpacing: -0.5, marginBottom: 10 }}>Watch first</Text>
-            <Text style={{ fontFamily: FONT.sans, fontSize: 14.5, color: ATN_BASE.ink2, textAlign: 'center', lineHeight: 21, marginBottom: 22 }}>Your glowing wave has to ride inside the channel. I'll tune it for the first three moves — then you take over.</Text>
+            <Text style={{ fontFamily: FONT.sans, fontSize: 14.5, color: ATN_BASE.ink2, textAlign: 'center', lineHeight: 21, marginBottom: 22 }}>
+              {isTut
+                ? "Your glowing wave has to ride inside the channel. I'll tune it for the first three moves — then you take over."
+                : "I'll tune the wave into this channel to show you the opening — then it's yours."}
+            </Text>
             <AtnButton variant="primary" pal={pal} onPress={() => setTutStage('demo')}>Show me ▶</AtnButton>
+            <Pressable onPress={() => setTutStage('free')} style={{ marginTop: 8, padding: 8 }}>
+              <Text style={{ fontFamily: FONT.mono, fontSize: 11, letterSpacing: 1.4, color: ATN_BASE.ink3 }}>SKIP INTRO</Text>
+            </Pressable>
           </View>
         </View>
       )}
 
-      {/* tutorial — hand control back (frozen) */}
-      {isTut && tutStage === 'handoff' && !paused && (
+      {/* hand control back (frozen) */}
+      {guided && tutStage === 'handoff' && !paused && (
         <View style={{ position: 'absolute', inset: 0, alignItems: 'center', justifyContent: 'flex-end', padding: 30, paddingBottom: 64, backgroundColor: 'rgba(5,7,13,0.5)' }}>
           <View style={{ width: '100%', maxWidth: 320, alignItems: 'center' }}>
             <Text style={{ fontFamily: FONT.mono, fontSize: 10, letterSpacing: 3, textTransform: 'uppercase', color: pal.player, marginBottom: 10 }}>Your turn</Text>
