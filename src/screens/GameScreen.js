@@ -29,7 +29,7 @@ export function GameScreen({ mode, song, pal, t, audio, onResult, onExit, topIns
   // Per-level scroll speed: tutorial + easy songs move slower so the control is
   // easy to learn; it climbs with difficulty. (Endless ramps on its own.)
   const diffScale = isTut
-    ? 0.62
+    ? 0.52
     : isEndless
       ? 0.95
       : ({ easy: 0.74, mid: 0.9, hard: 1.04 }[song && song.difficulty] || 0.88);
