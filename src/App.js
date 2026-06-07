@@ -9,7 +9,8 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { View, Modal, TextInput, Text, Pressable, Alert, Linking, LogBox } from 'react-native';
 
 // keep dev warning banners out of screenshots / gameplay
-if (typeof __DEV__ !== 'undefined' && __DEV__) { try { LogBox.ignoreAllLogs(true); } catch (e) {} }
+// (temporarily disabled to surface a render error for diagnosis)
+// if (typeof __DEV__ !== 'undefined' && __DEV__) { try { LogBox.ignoreAllLogs(true); } catch (e) {} }
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
 import {
