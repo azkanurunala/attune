@@ -12,7 +12,7 @@ import { WaveGame } from '../game/WaveEngine';
 import { atnSongSegments } from '../library';
 
 const TUT_HINTS = [
-  { at: 0, text: 'Drag up and down to tune your wave.' },
+  { at: 0, text: 'Slide up for a higher, tighter tone — down for a lower one.' },
   { at: 1300, text: 'Match the glowing channel — ride its centre.' },
   { at: 2600, text: "Stay aligned and the music blooms. You're attuned." },
 ];
@@ -132,10 +132,16 @@ export function GameScreen({ mode, song, pal, t, audio, onResult, onExit, topIns
         </View>
       </View>
 
+      {/* pitch-ladder labels (aligned with the engine's left-edge ladder) */}
+      <View style={{ position: 'absolute', left: 32, top: '27%', height: '46%', justifyContent: 'space-between' }} pointerEvents="none">
+        <Text style={{ fontFamily: FONT.mono, fontSize: 8.5, letterSpacing: 1.5, color: ATN_BASE.ink3 }}>HIGH</Text>
+        <Text style={{ fontFamily: FONT.mono, fontSize: 8.5, letterSpacing: 1.5, color: ATN_BASE.ink3 }}>LOW</Text>
+      </View>
+
       {/* drag hint at very start */}
       {phase === 'play' && hud.distance < 600 && !isTut && (
         <View style={{ position: 'absolute', left: 0, right: 0, bottom: 86, alignItems: 'center' }} pointerEvents="none">
-          <Text style={{ fontFamily: FONT.mono, fontSize: 10, letterSpacing: 3, textTransform: 'uppercase', color: ATN_BASE.ink2 }}>↕ drag to tune</Text>
+          <Text style={{ fontFamily: FONT.mono, fontSize: 10, letterSpacing: 2.5, textTransform: 'uppercase', color: ATN_BASE.ink2 }}>↕ drag · up = higher, tighter tone</Text>
         </View>
       )}
 

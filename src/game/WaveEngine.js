@@ -314,10 +314,14 @@ export function WaveGame({
     const headY = midY + ampPx * Math.sin(S.playerPhase) + ampPx * profile.compS[iNow];
     const hr = 5 + 4 * a + S.flash * 5;
 
-    // left-edge pitch indicator
-    const pad = 14; const trackH = H * 0.34; const ty = midY - trackH / 2;
-    const pitchTrack = Skia.Path.Make(); pitchTrack.moveTo(pad, ty); pitchTrack.lineTo(pad, ty + trackH);
+    // left-edge pitch ladder — a clear vertical anchor for the thumb so up/down
+    // reads as "pitch up / pitch down" (high = tight wave, low = lazy wave).
+    const pad = 20; const trackH = H * 0.46; const ty = midY - trackH / 2;
     const ky = ty + trackH * (1 - S.pitch);
+    const pitchTrack = Skia.Path.Make(); pitchTrack.moveTo(pad, ty); pitchTrack.lineTo(pad, ty + trackH);
+    const pitchFill = Skia.Path.Make(); pitchFill.moveTo(pad, ty + trackH); pitchFill.lineTo(pad, ky);
+    const tickTop = Skia.Path.Make(); tickTop.moveTo(pad - 5, ty); tickTop.lineTo(pad + 5, ty);
+    const tickBot = Skia.Path.Make(); tickBot.moveTo(pad - 5, ty + trackH); tickBot.lineTo(pad + 5, ty + trackH);
 
     const shx = (Math.random() - 0.5) * S.shake * 10;
     const shy = (Math.random() - 0.5) * S.shake * 10;
@@ -360,11 +364,17 @@ export function WaveGame({
         {S.particles.map((pt, k) => (
           <Circle key={k} cx={pt.x} cy={pt.y} r={2.2} color={pt.c} opacity={Math.max(0, pt.life)} />
         ))}
-        {/* pitch indicator */}
-        <Path path={pitchTrack} style="stroke" strokeWidth={2} color="rgba(255,255,255,0.12)" />
-        <Circle cx={pad} cy={ky} r={4} color={P.pal.player}>
-          <BlurMask blur={10 * P.glow} style="solid" />
+        {/* pitch ladder: dim track + filled level + ticks + glowing knob */}
+        <Path path={pitchTrack} style="stroke" strokeWidth={2} color="rgba(255,255,255,0.14)" strokeCap="round" />
+        <Path path={pitchFill} style="stroke" strokeWidth={3} color={P.pal.player} strokeCap="round" opacity={0.5}>
+          <BlurMask blur={4 * P.glow} style="solid" />
+        </Path>
+        <Path path={tickTop} style="stroke" strokeWidth={2} color="rgba(255,255,255,0.30)" strokeCap="round" />
+        <Path path={tickBot} style="stroke" strokeWidth={2} color="rgba(255,255,255,0.30)" strokeCap="round" />
+        <Circle cx={pad} cy={ky} r={6.5} color={P.pal.player}>
+          <BlurMask blur={12 * P.glow} style="solid" />
         </Circle>
+        <Circle cx={pad} cy={ky} r={2.6} color="#ffffff" />
       </Group>
     );
   }

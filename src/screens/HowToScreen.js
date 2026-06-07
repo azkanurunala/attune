@@ -10,7 +10,7 @@ import { AtnBackdrop, AtnButton, AtnIconButton } from '../components/ui';
 import { AtnMiniDemo } from '../components/skiaWaves';
 
 const STEPS = [
-  { kind: 'tune', eyebrow: 'The control', title: 'One thumb.', body: "Your wave rolls forward on its own. Drag up and down to tune its frequency — that's the whole control." },
+  { kind: 'tune', eyebrow: 'The control', title: 'One thumb.', body: 'Your wave rolls forward on its own. Slide your thumb up for a higher, tighter tone and down for a lower, lazier one — that pitch is your whole control.' },
   { kind: 'match', eyebrow: 'The goal', title: 'Ride the channel.', body: 'Tune until your wave slips inside the glowing channel and rides its centre. The closer to centre, the better.' },
   { kind: 'bloom', eyebrow: 'The feeling', title: 'Hear yourself attune.', body: 'Stay aligned and the music blooms, layer by layer. Drift and it strains. Touch the wall and the run ends — restart is instant.' },
   { kind: 'shift', eyebrow: 'Hidden depth', title: 'It goes deeper.', body: 'Channels shift frequency mid-run — lead them early. Later, a second wave joins yours and you tune the sum. Simple to start, years to master.' },
