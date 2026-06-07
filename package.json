@@ -7,7 +7,8 @@
     "ios": "expo run:ios",
     "android": "expo run:android",
     "export": "expo export --platform ios",
-    "doctor": "npx expo-doctor@latest"
+    "doctor": "npx expo-doctor@latest",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@expo-google-fonts/jetbrains-mono": "^0.4.1",
@@ -26,6 +27,7 @@
     "expo-status-bar": "~56.0.4",
     "react": "19.2.3",
     "react-native": "0.85.3",
+    "react-native-audio-api": "0.12.2",
     "react-native-purchases": "^10.2.0",
     "react-native-purchases-ui": "^10.2.0",
     "react-native-reanimated": "4.3.1",
@@ -35,7 +37,9 @@
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
-    "babel-preset-expo": "^56.0.14"
+    "babel-preset-expo": "^56.0.14",
+    "patch-package": "^8.0.1",
+    "postinstall-postinstall": "^2.1.0"
   },
   "private": true
 }

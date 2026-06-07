@@ -40,6 +40,13 @@
           "backgroundColor": "#05070D",
           "resizeMode": "contain"
         }
+      ],
+      [
+        "react-native-audio-api",
+        {
+          "iosBackgroundMode": false,
+          "disableFFmpeg": true
+        }
       ]
     ],
     "extra": {

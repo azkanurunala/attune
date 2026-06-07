@@ -8,7 +8,7 @@ import * as Haptics from 'expo-haptics';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ATN_BASE, FONT } from '../theme';
 import { withAlpha } from '../utils/color';
-import { AtnBackdrop, AtnButton } from '../components/ui';
+import { AtnBackdrop, AtnButton, AtnIconButton } from '../components/ui';
 import { AtnHeroWave } from '../components/skiaWaves';
 import { PRO_FALLBACK_PRICE } from '../config';
 import { getProOffering, purchasePro, restorePurchases, isStoreAvailable } from '../iap';
@@ -22,7 +22,7 @@ const FEATURES = [
   { icon: '⤓', t: 'Plays fully offline', d: 'No account, no network, no data collected.' },
 ];
 
-export function PaywallScreen({ pal, price = PRO_FALLBACK_PRICE, onPurchase, onRestore, onLater, haptics = true }) {
+export function PaywallScreen({ pal, price = PRO_FALLBACK_PRICE, onPurchase, onRestore, onLater, onBack, haptics = true }) {
   const insets = useSafeAreaInsets();
   const [state, setState] = useState('offer'); // offer | buying | done
 
@@ -65,6 +65,7 @@ export function PaywallScreen({ pal, price = PRO_FALLBACK_PRICE, onPurchase, onR
     <View style={{ flex: 1 }}>
       <AtnBackdrop pal={pal} intensity={0.85} />
       <ScrollView contentContainerStyle={{ flexGrow: 1, paddingTop: insets.top + 12, paddingBottom: insets.bottom + 20, paddingHorizontal: 24 }} showsVerticalScrollIndicator={false}>
+        {onBack && <AtnIconButton onPress={onBack} size={40} style={{ marginBottom: 14 }}>‹</AtnIconButton>}
         <View style={{ borderRadius: 22, overflow: 'hidden', borderWidth: 1, borderColor: ATN_BASE.hair, backgroundColor: ATN_BASE.glassDk, marginBottom: 22 }}>
           <AtnHeroWave pal={pal} height={150} />
         </View>

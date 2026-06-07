@@ -4,7 +4,7 @@ import React from 'react';
 import { View, Text, ScrollView, Pressable } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ATN_BASE, FONT } from '../theme';
-import { AtnBackdrop, AtnButton, AtnChip, atnFmt } from '../components/ui';
+import { AtnBackdrop, AtnButton, AtnChip, AtnIconButton, atnFmt } from '../components/ui';
 
 export function ResultsScreen({ pal, result, song, isNewBest, onRetry, onNext, onMap, onLeaderboard, onShare }) {
   const insets = useSafeAreaInsets();
@@ -13,6 +13,9 @@ export function ResultsScreen({ pal, result, song, isNewBest, onRetry, onNext, o
   return (
     <View style={{ flex: 1 }}>
       <AtnBackdrop pal={pal} intensity={won ? 1 : 0.5} />
+      <View style={{ position: 'absolute', top: insets.top + 8, left: 18, zIndex: 10 }}>
+        <AtnIconButton onPress={onMap} size={38}>‹</AtnIconButton>
+      </View>
       <ScrollView contentContainerStyle={{ flexGrow: 1, justifyContent: 'center', paddingTop: insets.top + 30, paddingBottom: insets.bottom + 30, paddingHorizontal: 26 }} showsVerticalScrollIndicator={false}>
         <Text style={{ fontFamily: FONT.mono, fontSize: 10, letterSpacing: 3, textTransform: 'uppercase', color: won ? pal.player : ATN_BASE.ink3, marginBottom: 12 }}>
           {endless ? 'Drift ended' : won ? 'Channel complete' : 'Wave clipped'}

@@ -6,7 +6,7 @@ import { View, Text, ScrollView, Pressable } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ATN_BASE, FONT } from '../theme';
 import { withAlpha } from '../utils/color';
-import { AtnBackdrop, AtnButton } from '../components/ui';
+import { AtnBackdrop, AtnButton, AtnIconButton } from '../components/ui';
 import { AtnMiniDemo } from '../components/skiaWaves';
 
 const STEPS = [
@@ -31,7 +31,7 @@ const ISNT = [
   'Online, social, or login-gated',
 ];
 
-export function HowToScreen({ pal, onDone, onSkip, flow }) {
+export function HowToScreen({ pal, onDone, onSkip, onBack, flow }) {
   const insets = useSafeAreaInsets();
   const [i, setI] = useState(0);
   const last = i >= STEPS.length; // final = clarity card
@@ -42,10 +42,13 @@ export function HowToScreen({ pal, onDone, onSkip, flow }) {
     <View style={{ flex: 1 }}>
       <AtnBackdrop pal={pal} intensity={0.6} />
       <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 20, paddingTop: insets.top + 6 }}>
-        <View style={{ flexDirection: 'row', gap: 6 }}>
-          {Array.from({ length: total }).map((_, k) => (
-            <View key={k} style={{ width: k === Math.min(i, total - 1) ? 22 : 7, height: 7, borderRadius: 999, backgroundColor: k <= i ? pal.player : 'rgba(255,255,255,0.16)' }} />
-          ))}
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+          {onBack && <AtnIconButton onPress={onBack} size={34}>‹</AtnIconButton>}
+          <View style={{ flexDirection: 'row', gap: 6 }}>
+            {Array.from({ length: total }).map((_, k) => (
+              <View key={k} style={{ width: k === Math.min(i, total - 1) ? 22 : 7, height: 7, borderRadius: 999, backgroundColor: k <= i ? pal.player : 'rgba(255,255,255,0.16)' }} />
+            ))}
+          </View>
         </View>
         <Pressable onPress={onSkip}><Text style={{ fontFamily: FONT.mono, fontSize: 11, letterSpacing: 1.4, color: ATN_BASE.ink3 }}>SKIP ›</Text></Pressable>
       </View>

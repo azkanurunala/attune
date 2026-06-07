@@ -8,7 +8,7 @@ import { View, Text, Pressable } from 'react-native';
 import { Canvas, Path, Circle, Group, Rect, Skia, BlurMask, LinearGradient, vec } from '@shopify/react-native-skia';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ATN_BASE, FONT, mixHex } from '../theme';
-import { AtnButton } from '../components/ui';
+import { AtnButton, AtnIconButton } from '../components/ui';
 
 const DUR = 24; // seconds
 const CAPS = [
@@ -29,7 +29,7 @@ function sineP(W, yFn, step = 5) {
   return p;
 }
 
-export function StoryScreen({ pal, onDone, onSkip }) {
+export function StoryScreen({ pal, onDone, onSkip, onBack }) {
   const insets = useSafeAreaInsets();
   const [wh, setWh] = useState({ w: 360, h: 720 });
   const [ended, setEnded] = useState(false);
@@ -157,6 +157,11 @@ export function StoryScreen({ pal, onDone, onSkip }) {
       </View>
 
       {/* controls */}
+      {onBack && (
+        <View style={{ position: 'absolute', top: insets.top + 8, left: 18 }}>
+          <AtnIconButton onPress={onBack} size={38}>‹</AtnIconButton>
+        </View>
+      )}
       {!ended && (
         <Pressable onPress={onSkip} style={{ position: 'absolute', top: insets.top + 8, right: 18, paddingVertical: 8, paddingHorizontal: 14, borderRadius: 999, borderWidth: 1, borderColor: ATN_BASE.hair, backgroundColor: ATN_BASE.glass }}>
           <Text style={{ fontFamily: FONT.mono, fontSize: 11, letterSpacing: 1.4, color: ATN_BASE.ink2 }}>SKIP ›</Text>

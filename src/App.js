@@ -219,18 +219,18 @@ function Game() {
       break;
     case 'story': {
       const adv = () => { saveProgress((p) => ({ ...p, storySeen: true })); if (r.flow) router.reset({ name: 'howto', flow: true }); else router.back(); };
-      screen = <StoryScreen pal={pal} onDone={adv} onSkip={adv} />;
+      screen = <StoryScreen pal={pal} onDone={adv} onSkip={adv} onBack={r.flow ? undefined : router.back} />;
       break;
     }
     case 'howto': {
       const adv = () => { if (r.flow) router.reset({ name: 'game', mode: 'tutorial', flow: true }); else router.back(); };
-      screen = <HowToScreen pal={pal} flow={r.flow} onDone={adv} onSkip={adv} />;
+      screen = <HowToScreen pal={pal} flow={r.flow} onDone={adv} onSkip={adv} onBack={r.flow ? undefined : router.back} />;
       break;
     }
     case 'paywall': {
       const done = () => { saveProgress((p) => ({ ...p, purchased: true })); if (r.flow) router.reset({ name: 'map' }); else router.back(); };
       const later = () => { saveProgress((p) => ({ ...p, storySeen: true, tutorialDone: true })); router.reset({ name: 'map' }); };
-      screen = <PaywallScreen pal={pal} price={price} onPurchase={done} onRestore={done} onLater={r.flow ? later : router.back} haptics={t.haptics} />;
+      screen = <PaywallScreen pal={pal} price={price} onPurchase={done} onRestore={done} onLater={r.flow ? later : undefined} onBack={r.flow ? undefined : router.back} haptics={t.haptics} />;
       break;
     }
     case 'game': {
