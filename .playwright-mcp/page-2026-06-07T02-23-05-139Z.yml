@@ -1,0 +1,897 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - navigation "Navigation" [ref=e5]:
+      - generic [ref=e6]:
+        - link "Home" [ref=e7] [cursor=pointer]:
+          - /url: /
+          - img [ref=e8]
+        - menubar [ref=e13]:
+          - listitem [ref=e14]:
+            - menuitem "Platform" [ref=e15] [cursor=pointer]:
+              - generic [ref=e16]: Platform
+              - img [ref=e17]
+          - listitem [ref=e19]:
+            - menuitem "Product" [ref=e20] [cursor=pointer]:
+              - generic [ref=e21]: Product
+              - img [ref=e22]
+          - listitem [ref=e24]:
+            - link "Pricing" [ref=e25] [cursor=pointer]:
+              - /url: /pricing/
+          - listitem [ref=e26]:
+            - menuitem "Resources" [ref=e27] [cursor=pointer]:
+              - generic [ref=e28]: Resources
+              - img [ref=e29]
+          - listitem [ref=e31]:
+            - menuitem "Company" [ref=e32] [cursor=pointer]:
+              - generic [ref=e33]: Company
+              - img [ref=e34]
+          - listitem [ref=e36]:
+            - menuitem "Contact us" [ref=e37] [cursor=pointer]:
+              - generic [ref=e38]: Contact us
+              - img [ref=e39]
+      - generic [ref=e41]:
+        - button "Search" [ref=e42]:
+          - img [ref=e43]
+        - link "Request a demo" [ref=e45] [cursor=pointer]:
+          - /url: https://about.gitlab.com/sales/?contact-topic=request-demo
+        - link "Get free trial" [ref=e46] [cursor=pointer]:
+          - /url: https://gitlab.com/-/trial_registrations/new?glm_source=about.gitlab.com&glm_content=default-saas-trial/
+        - link "Sign in" [ref=e47] [cursor=pointer]:
+          - /url: https://gitlab.com/users/sign_in/
+        - button "Website language selector" [ref=e49] [cursor=pointer]:
+          - img
+          - img
+  - banner [ref=e50]:
+    - link "See how agentic AI transforms software delivery Sign up for GitLab Transcend on June 10" [ref=e51] [cursor=pointer]:
+      - /url: /events/transcend/virtual/
+      - generic [ref=e53]:
+        - generic [ref=e54]: See how agentic AI transforms software delivery
+        - button "Sign up for GitLab Transcend on June 10" [ref=e55]:
+          - generic [ref=e56]: Sign up for GitLab Transcend on June 10
+          - img [ref=e58]
+  - main [ref=e61]:
+    - generic [ref=e63]:
+      - generic [ref=e64]:
+        - heading "Get started with GitLab" [level=1] [ref=e65]
+        - paragraph [ref=e66]: The intelligent orchestration platform for DevSecOps.
+      - generic [ref=e68]:
+        - button "GitLab.com" [pressed] [ref=e69] [cursor=pointer]:
+          - generic [ref=e70]: GitLab.com
+        - button "Self Managed" [ref=e71] [cursor=pointer]:
+          - generic [ref=e72]: Self Managed
+        - button "Dedicated" [ref=e73] [cursor=pointer]:
+          - generic [ref=e74]: Dedicated
+    - generic [ref=e76]:
+      - generic [ref=e78]: Cloud-hosted by us. Instant setup, getting you to value quicker.
+      - generic [ref=e79]:
+        - generic [ref=e81]: Now with GitLab Duo Agent Platform
+        - generic [ref=e83]:
+          - generic [ref=e84]:
+            - img [ref=e85]
+            - heading "Free" [level=2] [ref=e87]
+            - paragraph [ref=e88]: For individuals working on personal projects and open source contributions
+          - generic [ref=e89]:
+            - generic [ref=e91]:
+              - generic [ref=e92]:
+                - generic [ref=e93]: $
+                - generic [ref=e94]: "0"
+              - generic [ref=e95]:
+                - text: per user/month,
+                - text: No credit card required
+            - link "Get started" [ref=e97] [cursor=pointer]:
+              - /url: https://gitlab.com/-/trials/new
+        - generic [ref=e99]:
+          - generic [ref=e100]:
+            - img [ref=e101]
+            - heading "Premium" [level=2] [ref=e103]
+            - paragraph [ref=e104]: For scaling organizations seeking enhanced productivity and collaboration
+          - generic [ref=e105]:
+            - generic [ref=e107]:
+              - generic [ref=e108]:
+                - generic [ref=e109]: $
+                - generic [ref=e110]: "29"
+              - generic [ref=e111]:
+                - text: per user/month,
+                - text: billed annually
+            - button "Click to open tooltip with more information." [ref=e113] [cursor=pointer]:
+              - generic:
+                - generic:
+                  - paragraph: Includes $12 in GitLab Credits/User/Month for GitLab Duo Agent Platform
+            - generic [ref=e114]:
+              - link "Buy Premium" [ref=e115] [cursor=pointer]:
+                - /url: /pricing/premium-deployment/
+              - link "Try for free" [ref=e116] [cursor=pointer]:
+                - /url: https://gitlab.com/-/trials/new
+        - generic [ref=e118]:
+          - generic [ref=e119]:
+            - img [ref=e120]
+            - heading "Ultimate" [level=2] [ref=e123]
+            - paragraph [ref=e124]: For enterprises requiring advanced security and compliance capabilities
+          - generic [ref=e125]:
+            - generic [ref=e127]: Get custom pricing
+            - button "Click to open tooltip with more information." [ref=e129] [cursor=pointer]:
+              - generic:
+                - generic:
+                  - paragraph: Includes $24 in GitLab Credits/User/Month for GitLab Duo Agent Platform
+            - generic [ref=e130]:
+              - link "Contact us" [ref=e131] [cursor=pointer]:
+                - /url: /sales/
+              - link "Try for free" [ref=e132] [cursor=pointer]:
+                - /url: https://gitlab.com/-/trials/new
+        - generic [ref=e133]:
+          - generic [ref=e135]:
+            - heading "Features include:" [level=2] [ref=e136]
+            - list [ref=e137]:
+              - listitem [ref=e138]:
+                - img [ref=e140]
+                - generic [ref=e143]: Source Code Management & CI/CD
+              - listitem [ref=e144]:
+                - img [ref=e146]
+                - button "Click to open tooltip with more information." [ref=e149] [cursor=pointer]:
+                  - generic: 5 licensed users
+              - listitem [ref=e150]:
+                - img [ref=e152]
+                - button "Click to open tooltip with more information." [ref=e155] [cursor=pointer]:
+                  - generic: 400 compute minutes per month
+              - listitem [ref=e156]:
+                - img [ref=e158]
+                - button "Click to open tooltip with more information." [ref=e161] [cursor=pointer]:
+                  - generic: 10 GiB storage
+            - list
+            - heading "Paid Add-ons" [level=2] [ref=e162]
+            - list [ref=e163]:
+              - listitem [ref=e164]:
+                - img [ref=e166]
+                - link "GitLab Credits for Duo Agent Platform" [ref=e169] [cursor=pointer]:
+                  - /url: "#duo-agent-platform-addon"
+                  - text: GitLab Credits for Duo Agent Platform
+                  - img [ref=e170]
+              - listitem [ref=e172]:
+                - img [ref=e174]
+                - link "Compute Minutes" [ref=e177] [cursor=pointer]:
+                  - /url: "#compute-minutes-addon"
+                  - text: Compute Minutes
+                  - img [ref=e178]
+              - listitem [ref=e180]:
+                - img [ref=e182]
+                - link "Storage" [ref=e185] [cursor=pointer]:
+                  - /url: "#storage-addon"
+                  - text: Storage
+                  - img [ref=e186]
+          - generic [ref=e189]:
+            - heading "Everything from Free, plus:" [level=2] [ref=e190]
+            - list [ref=e191]:
+              - listitem [ref=e192]:
+                - img [ref=e194]
+                - generic [ref=e197]: Unlimited licensed users
+              - listitem [ref=e198]:
+                - img [ref=e200]
+                - generic [ref=e203]: 10,000 compute minutes per month
+              - listitem [ref=e204]:
+                - img [ref=e206]
+                - button "Click to open tooltip with more information." [ref=e209] [cursor=pointer]:
+                  - generic: Advanced CI/CD
+              - listitem [ref=e210]:
+                - img [ref=e212]
+                - button "Click to open tooltip with more information." [ref=e215] [cursor=pointer]:
+                  - generic: Team Project Management
+              - listitem [ref=e216]:
+                - img [ref=e218]
+                - button "Click to open tooltip with more information." [ref=e221] [cursor=pointer]:
+                  - generic: SLA Management
+              - listitem [ref=e222]:
+                - img [ref=e224]
+                - button "Click to open tooltip with more information." [ref=e227] [cursor=pointer]:
+                  - generic: Priority Support
+            - heading "GitLab Duo Agent Platform" [level=2] [ref=e228]
+            - list [ref=e229]:
+              - listitem [ref=e230]:
+                - img [ref=e232]
+                - button "Click to open tooltip with more information." [ref=e235] [cursor=pointer]:
+                  - generic: Includes $12 in GitLab Credits per user per month*
+            - heading "Paid Add-ons" [level=2] [ref=e236]
+            - list [ref=e237]:
+              - listitem [ref=e238]:
+                - img [ref=e240]
+                - link "Additional GitLab Credits" [ref=e243] [cursor=pointer]:
+                  - /url: "#duo-agent-platform-addon"
+                  - text: Additional GitLab Credits
+                  - img [ref=e244]
+              - listitem [ref=e246]:
+                - img [ref=e248]
+                - link "Compute Minutes" [ref=e251] [cursor=pointer]:
+                  - /url: "#compute-minutes-addon"
+                  - text: Compute Minutes
+                  - img [ref=e252]
+              - listitem [ref=e254]:
+                - img [ref=e256]
+                - link "Storage" [ref=e259] [cursor=pointer]:
+                  - /url: "#storage-addon"
+                  - text: Storage
+                  - img [ref=e260]
+            - link "Learn more about Premium" [ref=e263] [cursor=pointer]:
+              - /url: /pricing/premium/
+              - text: Learn more about Premium
+              - img [ref=e264]
+          - generic [ref=e267]:
+            - heading "Everything from Premium, plus:" [level=2] [ref=e268]
+            - list [ref=e269]:
+              - listitem [ref=e270]:
+                - img [ref=e272]
+                - button "Click to open tooltip with more information." [ref=e275] [cursor=pointer]:
+                  - generic: Application Security Testing
+              - listitem [ref=e276]:
+                - img [ref=e278]
+                - button "Click to open tooltip with more information." [ref=e281] [cursor=pointer]:
+                  - generic: Software Supply Chain Security
+              - listitem [ref=e282]:
+                - img [ref=e284]
+                - button "Click to open tooltip with more information." [ref=e287] [cursor=pointer]:
+                  - generic: Vulnerability Management
+              - listitem [ref=e288]:
+                - img [ref=e290]
+                - button "Click to open tooltip with more information." [ref=e293] [cursor=pointer]:
+                  - generic: Strategic Portfolio Management
+              - listitem [ref=e294]:
+                - img [ref=e296]
+                - button "Click to open tooltip with more information." [ref=e299] [cursor=pointer]:
+                  - generic: Value Stream Management
+              - listitem [ref=e300]:
+                - img [ref=e302]
+                - button "Click to open tooltip with more information." [ref=e305] [cursor=pointer]:
+                  - generic: Compliance and Governance
+              - listitem [ref=e306]:
+                - img [ref=e308]
+                - generic [ref=e311]: 50,000 compute minutes per month
+              - listitem [ref=e312]:
+                - img [ref=e314]
+                - button "Click to open tooltip with more information." [ref=e317] [cursor=pointer]:
+                  - generic: Unlimited guest users
+            - heading "GitLab Duo Agent Platform" [level=2] [ref=e318]
+            - list [ref=e319]:
+              - listitem [ref=e320]:
+                - img [ref=e322]
+                - button "Click to open tooltip with more information." [ref=e325] [cursor=pointer]:
+                  - generic: Includes $24 in GitLab Credits per user per month*
+            - heading "Paid Add-ons" [level=2] [ref=e326]
+            - list [ref=e327]:
+              - listitem [ref=e328]:
+                - img [ref=e330]
+                - link "Additional GitLab Credits" [ref=e333] [cursor=pointer]:
+                  - /url: "#duo-agent-platform-addon"
+                  - text: Additional GitLab Credits
+                  - img [ref=e334]
+              - listitem [ref=e336]:
+                - img [ref=e338]
+                - link "Compute Minutes" [ref=e341] [cursor=pointer]:
+                  - /url: "#compute-minutes-addon"
+                  - text: Compute Minutes
+                  - img [ref=e342]
+              - listitem [ref=e344]:
+                - img [ref=e346]
+                - link "Storage" [ref=e349] [cursor=pointer]:
+                  - /url: "#storage-addon"
+                  - text: Storage
+                  - img [ref=e350]
+              - listitem [ref=e352]:
+                - img [ref=e354]
+                - link "Enterprise Agile Planning Seats" [ref=e357] [cursor=pointer]:
+                  - /url: "#enterprise-agile-planning-addon"
+                  - text: Enterprise Agile Planning Seats
+                  - img [ref=e358]
+            - link "Learn more about Ultimate" [ref=e361] [cursor=pointer]:
+              - /url: /pricing/ultimate/
+              - text: Learn more about Ultimate
+              - img [ref=e362]
+      - paragraph [ref=e367]:
+        - text: "*Included for a limited time."
+        - link "See details and promo terms." [ref=e368] [cursor=pointer]:
+          - /url: "#how-can-i-purchase-gitlab-credits"
+    - button "Expand features table" [ref=e372] [cursor=pointer]:
+      - generic [ref=e373]: Compare all features
+      - img [ref=e374]
+    - generic [ref=e376]:
+      - heading "Trusted by" [level=4] [ref=e377]
+      - generic [ref=e378]:
+        - list [ref=e379]:
+          - listitem [ref=e380]:
+            - link "nvidia logo" [ref=e381] [cursor=pointer]:
+              - /url: /customers/nvidia/
+              - img "nvidia logo" [ref=e382]
+          - listitem [ref=e383]:
+            - link "barclays logo" [ref=e384] [cursor=pointer]:
+              - /url: ""
+              - img "barclays logo" [ref=e385]
+          - listitem [ref=e386]:
+            - link "lockheed martin logo" [ref=e387] [cursor=pointer]:
+              - /url: /customers/lockheed-martin/
+              - img "lockheed martin logo" [ref=e388]
+          - listitem [ref=e389]:
+            - link "thales logo" [ref=e390] [cursor=pointer]:
+              - /url: /customers/thales/
+              - img "thales logo" [ref=e391]
+          - listitem [ref=e392]:
+            - link "ericsson logo" [ref=e393] [cursor=pointer]:
+              - /url: /customers/ericsson/
+              - img "ericsson logo" [ref=e394]
+          - listitem [ref=e395]:
+            - link "deutsche telekom logo" [ref=e396] [cursor=pointer]:
+              - /url: /customers/deutsche-telekom/
+              - img "deutsche telekom logo" [ref=e397]
+          - listitem [ref=e398]:
+            - link "agoda logo" [ref=e399] [cursor=pointer]:
+              - /url: /customers/agoda/
+              - img "agoda logo" [ref=e400]
+        - list [ref=e401]:
+          - listitem [ref=e402]:
+            - link [ref=e403] [cursor=pointer]:
+              - /url: /customers/nvidia/
+              - img [ref=e404]
+          - listitem [ref=e405]:
+            - link [ref=e406] [cursor=pointer]:
+              - /url: ""
+              - img [ref=e407]
+          - listitem [ref=e408]:
+            - link [ref=e409] [cursor=pointer]:
+              - /url: /customers/lockheed-martin/
+              - img [ref=e410]
+          - listitem [ref=e411]:
+            - link [ref=e412] [cursor=pointer]:
+              - /url: /customers/thales/
+              - img [ref=e413]
+          - listitem [ref=e414]:
+            - link [ref=e415] [cursor=pointer]:
+              - /url: /customers/ericsson/
+              - img [ref=e416]
+          - listitem [ref=e417]:
+            - link [ref=e418] [cursor=pointer]:
+              - /url: /customers/deutsche-telekom/
+              - img [ref=e419]
+          - listitem [ref=e420]:
+            - link [ref=e421] [cursor=pointer]:
+              - /url: /customers/agoda/
+              - img [ref=e422]
+        - list [ref=e423]:
+          - listitem [ref=e424]:
+            - link [ref=e425] [cursor=pointer]:
+              - /url: /customers/nvidia/
+              - img [ref=e426]
+          - listitem [ref=e427]:
+            - link [ref=e428] [cursor=pointer]:
+              - /url: ""
+              - img [ref=e429]
+          - listitem [ref=e430]:
+            - link [ref=e431] [cursor=pointer]:
+              - /url: /customers/lockheed-martin/
+              - img [ref=e432]
+          - listitem [ref=e433]:
+            - link [ref=e434] [cursor=pointer]:
+              - /url: /customers/thales/
+              - img [ref=e435]
+          - listitem [ref=e436]:
+            - link [ref=e437] [cursor=pointer]:
+              - /url: /customers/ericsson/
+              - img [ref=e438]
+          - listitem [ref=e439]:
+            - link [ref=e440] [cursor=pointer]:
+              - /url: /customers/deutsche-telekom/
+              - img [ref=e441]
+          - listitem [ref=e442]:
+            - link [ref=e443] [cursor=pointer]:
+              - /url: /customers/agoda/
+              - img [ref=e444]
+    - generic [ref=e445]:
+      - paragraph [ref=e446]: Add-Ons
+      - article [ref=e448]:
+        - generic [ref=e449]:
+          - heading "GitLab Duo Agent Platform" [level=3] [ref=e450]
+          - paragraph [ref=e451]: Orchestrate AI agents across your entire software lifecycle to automate complex workflows, accelerate delivery, and keep your team in flow.
+          - paragraph [ref=e452]: Available for Premium and Ultimate customers
+        - generic [ref=e453]:
+          - generic [ref=e454]:
+            - generic [ref=e455]:
+              - generic [ref=e456]: $
+              - generic [ref=e457]: "1"
+              - generic [ref=e458]:
+                - generic [ref=e459]: per GitLab Credit
+                - paragraph [ref=e460]: Volume discounts available with annual commitment
+            - generic [ref=e461]:
+              - link "Buy GitLab Credits" [ref=e462] [cursor=pointer]:
+                - /url: /sales/?contact-topic=ai-products-credits
+              - link "Learn more about usage billing" [ref=e463] [cursor=pointer]:
+                - /url: https://docs.gitlab.com/subscriptions/gitlab_credits/
+                - generic [ref=e464]: Learn more about usage billing
+                - img [ref=e465]
+          - generic [ref=e467]:
+            - list [ref=e468]:
+              - listitem [ref=e469]:
+                - img [ref=e470]
+                - paragraph [ref=e474]:
+                  - link "Agentic Chat" [ref=e475] [cursor=pointer]:
+                    - /url: https://docs.gitlab.com/user/gitlab_duo_chat/agentic_chat/
+                  - text: with multi-step reasoning across the Web UI and IDEs
+              - listitem [ref=e476]:
+                - img [ref=e477]
+                - paragraph [ref=e481]:
+                  - link "AI Catalog" [ref=e482] [cursor=pointer]:
+                    - /url: https://docs.gitlab.com/user/duo_agent_platform/ai_catalog/
+                  - text: for managing and sharing agents and flows
+              - listitem [ref=e483]:
+                - img [ref=e484]
+                - paragraph [ref=e488]:
+                  - text: Specialized agents for
+                  - link "planning" [ref=e489] [cursor=pointer]:
+                    - /url: https://docs.gitlab.com/user/duo_agent_platform/agents/foundational_agents/planner/
+                  - text: ","
+                  - link "security analysis" [ref=e490] [cursor=pointer]:
+                    - /url: https://docs.gitlab.com/user/duo_agent_platform/agents/foundational_agents/security_analyst_agent/
+                  - text: ", and"
+                  - link "data insights" [ref=e491] [cursor=pointer]:
+                    - /url: https://docs.gitlab.com/user/duo_agent_platform/agents/foundational_agents/data_analyst/
+              - listitem [ref=e492]:
+                - img [ref=e493]
+                - paragraph [ref=e497]:
+                  - text: Automated flows for
+                  - link "creating merge requests" [ref=e498] [cursor=pointer]:
+                    - /url: https://docs.gitlab.com/user/duo_agent_platform/flows/foundational_flows/issue_to_mr/
+                  - text: ","
+                  - link "pipeline fixes" [ref=e499] [cursor=pointer]:
+                    - /url: https://docs.gitlab.com/user/duo_agent_platform/flows/foundational_flows/fix_pipeline/
+                  - text: ", and"
+                  - link "CI/CD modernization" [ref=e500] [cursor=pointer]:
+                    - /url: https://docs.gitlab.com/user/duo_agent_platform/flows/foundational_flows/convert_to_gitlab_ci/
+            - paragraph [ref=e504]:
+              - text: Want GitLab Duo Agent Platform for an offline license?
+              - link "Contact us." [ref=e505] [cursor=pointer]:
+                - /url: /sales/?contact-topic=ai-products-credits
+      - generic [ref=e507]:
+        - article [ref=e509]:
+          - generic [ref=e510]:
+            - heading "Enterprise Agile Planning" [level=3] [ref=e511]
+            - paragraph [ref=e512]: One planning workflow for everyone involved in the software development lifecycle.
+            - paragraph [ref=e513]: Available for Ultimate customers
+          - generic [ref=e514]:
+            - generic [ref=e516]:
+              - generic [ref=e517]: $
+              - generic [ref=e518]: "15"
+              - generic [ref=e520]: per user/month, billed annually
+            - generic [ref=e521]:
+              - link "Contact to purchase" [ref=e522] [cursor=pointer]:
+                - /url: /sales/
+              - link "Learn more" [ref=e523] [cursor=pointer]:
+                - /url: /solutions/agile-delivery/
+                - generic [ref=e524]: Learn more
+                - img [ref=e525]
+        - article [ref=e528]:
+          - generic [ref=e529]:
+            - heading "Compute minutes" [level=3] [ref=e530]
+            - paragraph [ref=e531]: The usage of instance runners by projects running CI/CD jobs is measured in compute minutes. If you need additional compute minutes, you can purchase more for your group.
+          - generic [ref=e532]:
+            - generic [ref=e534]:
+              - generic [ref=e535]: $
+              - generic [ref=e536]: "10"
+              - generic [ref=e538]: per 1,000 minutes, one-time payment
+            - link "How to buy compute" [ref=e540] [cursor=pointer]:
+              - /url: https://docs.gitlab.com/subscriptions/gitlab_com/compute_minutes/
+        - article [ref=e542]:
+          - generic [ref=e543]:
+            - heading "Storage" [level=3] [ref=e544]
+            - paragraph [ref=e545]: Each project in a Free tier namespace on GitLab.com has 10 GiB of free storage for its Git repository and Large File Storage (LFS). You can purchase additional storage for your personal or group namespace.
+          - generic [ref=e546]:
+            - generic [ref=e548]:
+              - generic [ref=e549]: $
+              - generic [ref=e550]: "5"
+              - generic [ref=e552]: per month for 10GiB of storage, billed annually
+            - link "How to buy storage" [ref=e554] [cursor=pointer]:
+              - /url: https://docs.gitlab.com/subscriptions/manage_users_and_seats/#gitlabcom-billing-and-usage
+    - link "Find GitLab on Partner Marketplace Purchase GitLab through Cloud Marketplaces seamlessly. Learn more" [ref=e559] [cursor=pointer]:
+      - /url: /cloud-partner-marketplaces/
+      - generic [ref=e560]:
+        - heading "Find GitLab on Partner Marketplace" [level=3] [ref=e561]
+        - heading "Purchase GitLab through Cloud Marketplaces seamlessly." [level=4] [ref=e562]
+        - button "Learn more" [ref=e563]:
+          - text: Learn more
+          - img [ref=e564]
+    - generic [ref=e567]:
+      - button "scroll previous" [ref=e568] [cursor=pointer]:
+        - img [ref=e569]
+      - navigation "FAQ section navigation" [ref=e572]:
+        - generic [ref=e573]: Selecting a section scrolls to that section within the FAQ block.
+        - link "License and Subscription" [ref=e574] [cursor=pointer]:
+          - /url: "#license-and-subscription"
+        - link "Payments and Pricing" [ref=e575] [cursor=pointer]:
+          - /url: "#payments-and-pricing"
+        - link "Features and Benefits" [ref=e576] [cursor=pointer]:
+          - /url: "#features-and-benefits"
+        - link "GitLab.com" [ref=e577] [cursor=pointer]:
+          - /url: "#gitlab-saas"
+        - link "Self-Managed" [ref=e578] [cursor=pointer]:
+          - /url: "#self-managed"
+        - link "Dedicated" [ref=e579] [cursor=pointer]:
+          - /url: "#dedicated"
+        - link "User Limits" [ref=e580] [cursor=pointer]:
+          - /url: "#user-limits"
+        - link "Compute minutes" [ref=e581] [cursor=pointer]:
+          - /url: "#compute-minutes-faq"
+        - link "Storage Limits" [ref=e582] [cursor=pointer]:
+          - /url: "#storage-limits"
+        - link "Usage Pricing" [ref=e583] [cursor=pointer]:
+          - /url: "#usage-pricing"
+      - button "scroll next" [ref=e584] [cursor=pointer]:
+        - img [ref=e585]
+    - generic [ref=e589]:
+      - heading "Frequently asked questions" [level=2] [ref=e593]:
+        - generic [ref=e594]:
+          - paragraph [ref=e595]: Frequently
+          - paragraph [ref=e596]: asked questions
+      - generic [ref=e597]:
+        - generic [ref=e599]:
+          - generic [ref=e600]:
+            - heading "License and Subscription" [level=3] [ref=e601]
+            - button "Expand all License and Subscription items" [ref=e602]:
+              - button "Expand all License and Subscription items" [ref=e603] [cursor=pointer]: Show all
+          - button "I already have an account, how do I upgrade?" [ref=e606] [cursor=pointer]:
+            - generic [ref=e607]: I already have an account, how do I upgrade?
+          - button "Can I add more users to my subscription?" [ref=e612] [cursor=pointer]:
+            - generic [ref=e613]: Can I add more users to my subscription?
+          - button "How will I be charged for add-on users?" [ref=e618] [cursor=pointer]:
+            - generic [ref=e619]: How will I be charged for add-on users?
+          - button "What happens when my subscription is about to expire or has expired?" [ref=e624] [cursor=pointer]:
+            - generic [ref=e625]: What happens when my subscription is about to expire or has expired?
+          - button "What happens if I decide not to renew my subscription?" [ref=e630] [cursor=pointer]:
+            - generic [ref=e631]: What happens if I decide not to renew my subscription?
+          - button "Can I acquire a mix of licenses?" [ref=e636] [cursor=pointer]:
+            - generic [ref=e637]: Can I acquire a mix of licenses?
+          - button "How does the license key work?" [ref=e642] [cursor=pointer]:
+            - generic [ref=e643]: How does the license key work?
+          - button "What is an Activation Code?" [ref=e648] [cursor=pointer]:
+            - generic [ref=e649]: What is an Activation Code?
+          - button "What features and permissions are available to Enterprise Agile Planning users?" [ref=e654] [cursor=pointer]:
+            - generic [ref=e655]: What features and permissions are available to Enterprise Agile Planning users?
+          - button "How can I find GitLab's preferred license resellers?" [ref=e660] [cursor=pointer]:
+            - generic [ref=e661]: How can I find GitLab's preferred license resellers?
+          - button "What documentation applies to use of my subscription?" [ref=e666] [cursor=pointer]:
+            - generic [ref=e667]: What documentation applies to use of my subscription?
+        - generic [ref=e671]:
+          - generic [ref=e672]:
+            - heading "Payments and Pricing" [level=3] [ref=e673]
+            - button "Expand all Payments and Pricing items" [ref=e674]:
+              - button "Expand all Payments and Pricing items" [ref=e675] [cursor=pointer]: Show all
+          - button "What is a user?" [ref=e678] [cursor=pointer]:
+            - generic [ref=e679]: What is a user?
+          - button "Is the listed pricing all inclusive?" [ref=e684] [cursor=pointer]:
+            - generic [ref=e685]: Is the listed pricing all inclusive?
+          - button "Can I import my projects from another provider?" [ref=e690] [cursor=pointer]:
+            - generic [ref=e691]: Can I import my projects from another provider?
+          - button "Do you have special pricing for open source projects, educational institutions, or startups?" [ref=e696] [cursor=pointer]:
+            - generic [ref=e697]: Do you have special pricing for open source projects, educational institutions, or startups?
+          - button "How does GitLab determine what future features fall into given tiers?" [ref=e702] [cursor=pointer]:
+            - generic [ref=e703]: How does GitLab determine what future features fall into given tiers?
+        - generic [ref=e707]:
+          - generic [ref=e708]:
+            - heading "Features and Benefits" [level=3] [ref=e709]
+            - button "Expand all Features and Benefits items" [ref=e710]:
+              - button "Expand all Features and Benefits items" [ref=e711] [cursor=pointer]: Show all
+          - button "What are the differences between Free, Premium, and Ultimate plans?" [ref=e714] [cursor=pointer]:
+            - generic [ref=e715]: What are the differences between Free, Premium, and Ultimate plans?
+          - button "What are the differences between SAST, Secret Detection, and Container Scanning across tiers?" [ref=e720] [cursor=pointer]:
+            - generic [ref=e721]: What are the differences between SAST, Secret Detection, and Container Scanning across tiers?
+          - button "What is the difference between GitLab and other DevSecOps solutions?" [ref=e726] [cursor=pointer]:
+            - generic [ref=e727]: What is the difference between GitLab and other DevSecOps solutions?
+          - button "What does support entail?" [ref=e732] [cursor=pointer]:
+            - generic [ref=e733]: What does support entail?
+          - button "Do you have a success offering?" [ref=e738] [cursor=pointer]:
+            - generic [ref=e739]: Do you have a success offering?
+        - generic [ref=e743]:
+          - generic [ref=e744]:
+            - heading "GitLab.com" [level=3] [ref=e745]
+            - button "Expand all GitLab.com items" [ref=e746]:
+              - button "Expand all GitLab.com items" [ref=e747] [cursor=pointer]: Show all
+          - button "Where is GitLab.com hosted?" [ref=e750] [cursor=pointer]:
+            - generic [ref=e751]: Where is GitLab.com hosted?
+        - generic [ref=e755]:
+          - generic [ref=e756]:
+            - heading "Self-Managed" [level=3] [ref=e757]
+            - button "Expand all Self-Managed items" [ref=e758]:
+              - button "Expand all Self-Managed items" [ref=e759] [cursor=pointer]: Show all
+          - button "What is GitLab Self-Managed?" [ref=e762] [cursor=pointer]:
+            - generic [ref=e763]: What is GitLab Self-Managed?
+          - button "How do I install GitLab Self-Managed?" [ref=e768] [cursor=pointer]:
+            - generic [ref=e769]: How do I install GitLab Self-Managed?
+          - button "Is there a minimum supported version to use specific capabilities?" [ref=e774] [cursor=pointer]:
+            - generic [ref=e775]: Is there a minimum supported version to use specific capabilities?
+        - generic [ref=e779]:
+          - generic [ref=e780]:
+            - heading "Dedicated" [level=3] [ref=e781]
+            - button "Expand all Dedicated items" [ref=e782]:
+              - button "Expand all Dedicated items" [ref=e783] [cursor=pointer]: Show all
+          - button "Where is GitLab Dedicated hosted?" [ref=e786] [cursor=pointer]:
+            - generic [ref=e787]: Where is GitLab Dedicated hosted?
+        - generic [ref=e791]:
+          - generic [ref=e792]:
+            - heading "User Limits" [level=3] [ref=e793]
+            - button "Expand all User Limits items" [ref=e794]:
+              - button "Expand all User Limits items" [ref=e795] [cursor=pointer]: Show all
+          - button "What is the 5-user limit on the GitLab.com Free tier?" [ref=e798] [cursor=pointer]:
+            - generic [ref=e799]: What is the 5-user limit on the GitLab.com Free tier?
+        - generic [ref=e803]:
+          - generic [ref=e804]:
+            - heading "Compute minutes" [level=3] [ref=e805]
+            - button "Expand all Compute minutes items" [ref=e806]:
+              - button "Expand all Compute minutes items" [ref=e807] [cursor=pointer]: Show all
+          - button "What are compute minutes?" [ref=e810] [cursor=pointer]:
+            - generic [ref=e811]: What are compute minutes?
+          - button "What happens if I use all of my compute minutes?" [ref=e816] [cursor=pointer]:
+            - generic [ref=e817]: What happens if I use all of my compute minutes?
+          - button "Do the compute minutes apply to all runners?" [ref=e822] [cursor=pointer]:
+            - generic [ref=e823]: Do the compute minutes apply to all runners?
+          - button "Do the compute minutes increase depending on the number of users in the group, or the number of users in the subscription?" [ref=e828] [cursor=pointer]:
+            - generic [ref=e829]: Do the compute minutes increase depending on the number of users in the group, or the number of users in the subscription?
+          - button "Why do I need to enter credit/debit card details for free compute minutes?" [ref=e834] [cursor=pointer]:
+            - generic [ref=e835]: Why do I need to enter credit/debit card details for free compute minutes?
+          - button "Can I bring my own GitLab CI/CD runners?" [ref=e840] [cursor=pointer]:
+            - generic [ref=e841]: Can I bring my own GitLab CI/CD runners?
+        - generic [ref=e845]:
+          - generic [ref=e846]:
+            - heading "Storage Limits" [level=3] [ref=e847]
+            - button "Expand all Storage Limits items" [ref=e848]:
+              - button "Expand all Storage Limits items" [ref=e849] [cursor=pointer]: Show all
+          - button "What are the current GitLab.com storage limits?" [ref=e852] [cursor=pointer]:
+            - generic [ref=e853]: What are the current GitLab.com storage limits?
+          - button "What does the purchased storage cover?" [ref=e858] [cursor=pointer]:
+            - generic [ref=e859]: What does the purchased storage cover?
+          - button "What are the per-project storage limits on GitLab.com?" [ref=e864] [cursor=pointer]:
+            - generic [ref=e865]: What are the per-project storage limits on GitLab.com?
+        - generic [ref=e869]:
+          - generic [ref=e870]:
+            - heading "Usage pricing" [level=3] [ref=e871]
+            - button "Expand all Usage pricing items" [ref=e872]:
+              - button "Expand all Usage pricing items" [ref=e873] [cursor=pointer]: Show all
+          - button "How can I purchase GitLab Credits?" [ref=e876] [cursor=pointer]:
+            - generic [ref=e877]: How can I purchase GitLab Credits?
+          - button "Which Free namespaces can purchase a monthly commitment of GitLab Credits?" [ref=e882] [cursor=pointer]:
+            - generic [ref=e883]: Which Free namespaces can purchase a monthly commitment of GitLab Credits?
+          - button "Can I share credits across my organization?" [ref=e888] [cursor=pointer]:
+            - generic [ref=e889]: Can I share credits across my organization?
+          - button "Am I charged a different rate based on what model I use?" [ref=e894] [cursor=pointer]:
+            - generic [ref=e895]: Am I charged a different rate based on what model I use?
+    - generic [ref=e900]:
+      - heading "Start building faster today" [level=2] [ref=e901]:
+        - paragraph [ref=e903]: Start building faster today
+      - paragraph [ref=e906]: See what your team can do with the intelligent orchestration platform for DevSecOps.
+      - generic [ref=e907]:
+        - link "Get your free trial" [ref=e908] [cursor=pointer]:
+          - /url: https://gitlab.com/-/trial_registrations/new?glm_content=default-saas-trial&glm_source=about.gitlab.com/pricing
+        - link "Contact sales" [ref=e909] [cursor=pointer]:
+          - /url: /sales/
+          - text: Contact sales
+          - img [ref=e910]
+  - contentinfo [ref=e912]:
+    - generic [ref=e913]:
+      - generic [ref=e914]:
+        - generic [ref=e915]:
+          - img [ref=e916]
+          - generic [ref=e927]: ®
+        - generic [ref=e928]:
+          - heading "Footer links" [level=2] [ref=e929]
+          - generic [ref=e930]:
+            - generic [ref=e932]:
+              - heading "Pricing" [level=3] [ref=e934]
+              - list [ref=e935]:
+                - listitem [ref=e936]:
+                  - link "View plans" [ref=e937] [cursor=pointer]:
+                    - /url: /pricing/
+                - listitem [ref=e938]:
+                  - link "Why Premium?" [ref=e939] [cursor=pointer]:
+                    - /url: /pricing/premium/
+                - listitem [ref=e940]:
+                  - link "Why Ultimate?" [ref=e941] [cursor=pointer]:
+                    - /url: /pricing/ultimate/
+            - generic [ref=e945]:
+              - heading "Contact Us" [level=3] [ref=e946]
+              - list [ref=e947]:
+                - listitem [ref=e948]:
+                  - link "Contact sales" [ref=e949] [cursor=pointer]:
+                    - /url: /sales/
+                - listitem [ref=e950]:
+                  - link "Support portal" [ref=e951] [cursor=pointer]:
+                    - /url: https://support.gitlab.com
+                - listitem [ref=e952]:
+                  - link "Customer portal" [ref=e953] [cursor=pointer]:
+                    - /url: https://customers.gitlab.com/customers/sign_in/
+                - listitem [ref=e954]:
+                  - link "Status" [ref=e955] [cursor=pointer]:
+                    - /url: https://status.gitlab.com/
+                - listitem [ref=e956]:
+                  - link "Terms of use" [ref=e957] [cursor=pointer]:
+                    - /url: /terms/
+                - listitem [ref=e958]:
+                  - link "Privacy statement" [ref=e959] [cursor=pointer]:
+                    - /url: /privacy/
+                - listitem [ref=e960]:
+                  - button "Cookie Preferences" [ref=e961] [cursor=pointer]
+          - generic [ref=e962]:
+            - generic [ref=e964]:
+              - heading "Product" [level=3] [ref=e966]
+              - list [ref=e967]:
+                - listitem [ref=e968]:
+                  - link "DevSecOps platform" [ref=e969] [cursor=pointer]:
+                    - /url: /platform/
+                - listitem [ref=e970]:
+                  - link "AI-Assisted Development" [ref=e971] [cursor=pointer]:
+                    - /url: /gitlab-duo-agent-platform/
+            - generic [ref=e975]:
+              - heading "Topics" [level=3] [ref=e976]
+              - list [ref=e977]:
+                - listitem [ref=e978]:
+                  - link "CICD" [ref=e979] [cursor=pointer]:
+                    - /url: /topics/ci-cd/
+                - listitem [ref=e980]:
+                  - link "GitOps" [ref=e981] [cursor=pointer]:
+                    - /url: /topics/gitops/
+                - listitem [ref=e982]:
+                  - link "DevOps" [ref=e983] [cursor=pointer]:
+                    - /url: /topics/devops/
+                - listitem [ref=e984]:
+                  - link "Version Control" [ref=e985] [cursor=pointer]:
+                    - /url: /topics/version-control/
+                - listitem [ref=e986]:
+                  - link "DevSecOps" [ref=e987] [cursor=pointer]:
+                    - /url: /topics/devsecops/
+                - listitem [ref=e988]:
+                  - link "Cloud Native" [ref=e989] [cursor=pointer]:
+                    - /url: /topics/cloud-native/
+                - listitem [ref=e990]:
+                  - link "AI for Coding" [ref=e991] [cursor=pointer]:
+                    - /url: /topics/devops/ai-for-coding/
+                - listitem [ref=e992]:
+                  - link "Agentic AI" [ref=e993] [cursor=pointer]:
+                    - /url: /topics/agentic-ai/
+          - generic [ref=e996]:
+            - heading "Solutions" [level=3] [ref=e998]
+            - list [ref=e999]:
+              - listitem [ref=e1000]:
+                - link "Application Security Testing" [ref=e1001] [cursor=pointer]:
+                  - /url: /solutions/application-security-testing/
+              - listitem [ref=e1002]:
+                - link "Automated software delivery" [ref=e1003] [cursor=pointer]:
+                  - /url: /solutions/delivery-automation/
+              - listitem [ref=e1004]:
+                - link "Agile development" [ref=e1005] [cursor=pointer]:
+                  - /url: /solutions/agile-delivery/
+              - listitem [ref=e1006]:
+                - link "SCM" [ref=e1007] [cursor=pointer]:
+                  - /url: /solutions/source-code-management/
+              - listitem [ref=e1008]:
+                - link "CICD" [ref=e1009] [cursor=pointer]:
+                  - /url: /solutions/continuous-integration/
+              - listitem [ref=e1010]:
+                - link "Value stream management" [ref=e1011] [cursor=pointer]:
+                  - /url: /solutions/value-stream-management/
+              - listitem [ref=e1012]:
+                - link "GitOps" [ref=e1013] [cursor=pointer]:
+                  - /url: /solutions/gitops/
+              - listitem [ref=e1014]:
+                - link "Enterprise" [ref=e1015] [cursor=pointer]:
+                  - /url: /enterprise/
+              - listitem [ref=e1016]:
+                - link "Small business" [ref=e1017] [cursor=pointer]:
+                  - /url: /small-business/
+              - listitem [ref=e1018]:
+                - link "Public sector" [ref=e1019] [cursor=pointer]:
+                  - /url: /solutions/public-sector/
+              - listitem [ref=e1020]:
+                - link "Education" [ref=e1021] [cursor=pointer]:
+                  - /url: /solutions/education/
+              - listitem [ref=e1022]:
+                - link "Financial services" [ref=e1023] [cursor=pointer]:
+                  - /url: /solutions/finance/
+          - generic [ref=e1026]:
+            - heading "Resources" [level=3] [ref=e1028]
+            - list [ref=e1029]:
+              - listitem [ref=e1030]:
+                - link "Install" [ref=e1031] [cursor=pointer]:
+                  - /url: /install/
+              - listitem [ref=e1032]:
+                - link "Quick start guides" [ref=e1033] [cursor=pointer]:
+                  - /url: /get-started/
+              - listitem [ref=e1034]:
+                - link "Learn" [ref=e1035] [cursor=pointer]:
+                  - /url: https://university.gitlab.com/
+              - listitem [ref=e1036]:
+                - link "Product documentation" [ref=e1037] [cursor=pointer]:
+                  - /url: https://docs.gitlab.com/
+              - listitem [ref=e1038]:
+                - link "Blog" [ref=e1039] [cursor=pointer]:
+                  - /url: /blog/
+              - listitem [ref=e1040]:
+                - link "What's new" [ref=e1041] [cursor=pointer]:
+                  - /url: /whats-new/
+              - listitem [ref=e1042]:
+                - link "Customer success stories" [ref=e1043] [cursor=pointer]:
+                  - /url: /customers/
+              - listitem [ref=e1044]:
+                - link "Remote" [ref=e1045] [cursor=pointer]:
+                  - /url: https://handbook.gitlab.com/handbook/company/culture/all-remote/
+              - listitem [ref=e1046]:
+                - link "GitLab Services" [ref=e1047] [cursor=pointer]:
+                  - /url: /services/
+              - listitem [ref=e1048]:
+                - link "Community" [ref=e1049] [cursor=pointer]:
+                  - /url: /community/
+              - listitem [ref=e1050]:
+                - link "Forum" [ref=e1051] [cursor=pointer]:
+                  - /url: https://forum.gitlab.com/
+              - listitem [ref=e1052]:
+                - link "Events" [ref=e1053] [cursor=pointer]:
+                  - /url: /events/
+              - listitem [ref=e1054]:
+                - link "Partners" [ref=e1055] [cursor=pointer]:
+                  - /url: /partners/
+          - generic [ref=e1058]:
+            - heading "Company" [level=3] [ref=e1060]
+            - list [ref=e1061]:
+              - listitem [ref=e1062]:
+                - link "About" [ref=e1063] [cursor=pointer]:
+                  - /url: /company/
+              - listitem [ref=e1064]:
+                - link "Jobs" [ref=e1065] [cursor=pointer]:
+                  - /url: /jobs/
+              - listitem [ref=e1066]:
+                - link "Leadership" [ref=e1067] [cursor=pointer]:
+                  - /url: /company/team/e-group/
+              - listitem [ref=e1068]:
+                - link "Team" [ref=e1069] [cursor=pointer]:
+                  - /url: /company/team/
+              - listitem [ref=e1070]:
+                - link "Handbook" [ref=e1071] [cursor=pointer]:
+                  - /url: https://handbook.gitlab.com/
+              - listitem [ref=e1072]:
+                - link "Investor relations" [ref=e1073] [cursor=pointer]:
+                  - /url: https://ir.gitlab.com/
+              - listitem [ref=e1074]:
+                - link "Sustainability" [ref=e1075] [cursor=pointer]:
+                  - /url: /sustainability/
+              - listitem [ref=e1076]:
+                - link "Diversity, inclusion and belonging (DIB)" [ref=e1077] [cursor=pointer]:
+                  - /url: /diversity-inclusion-belonging/
+              - listitem [ref=e1078]:
+                - link "Trust Center" [ref=e1079] [cursor=pointer]:
+                  - /url: /security/
+              - listitem [ref=e1080]:
+                - link "Newsletter" [ref=e1081] [cursor=pointer]:
+                  - /url: /company/contact/#contact-forms
+              - listitem [ref=e1082]:
+                - link "Press" [ref=e1083] [cursor=pointer]:
+                  - /url: /press/
+              - listitem [ref=e1084]:
+                - link "Modern Slavery Transparency Statement" [ref=e1085] [cursor=pointer]:
+                  - /url: https://handbook.gitlab.com/handbook/legal/modern-slavery-act-transparency-statement/
+      - generic [ref=e1086]:
+        - list [ref=e1089]:
+          - listitem [ref=e1090]:
+            - link "Twitter" [ref=e1091] [cursor=pointer]:
+              - /url: https://twitter.com/gitlab
+              - img [ref=e1092]
+          - listitem [ref=e1095]:
+            - link "Facebook" [ref=e1096] [cursor=pointer]:
+              - /url: https://www.facebook.com/gitlab
+              - img [ref=e1097]
+          - listitem [ref=e1100]:
+            - link "YouTube" [ref=e1101] [cursor=pointer]:
+              - /url: https://www.youtube.com/channel/UCnMGQ8QHMAnVIsI3xJrihhg
+              - img [ref=e1102]
+          - listitem [ref=e1104]:
+            - link "LinkedIn" [ref=e1105] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/gitlab-com
+              - img [ref=e1106]
+        - generic [ref=e1108]:
+          - paragraph [ref=e1109]: Git is a trademark of Software Freedom Conservancy and our use of 'GitLab' is under license
+          - paragraph [ref=e1110]:
+            - link "View page source" [ref=e1111] [cursor=pointer]:
+              - /url: https://gitlab.com/gitlab-com/marketing/digital-experience/about-gitlab-com/
+            - link "Edit this page" [ref=e1112] [cursor=pointer]:
+              - /url: https://gitlab.com/gitlab-com/marketing/digital-experience/about-gitlab-com/-/blob/main/content/en-us/pricing/index.yml
+            - link "Please contribute" [ref=e1113] [cursor=pointer]:
+              - /url: https://gitlab.com/gitlab-com/marketing/digital-experience/about-gitlab-com/-/blob/main/CONTRIBUTING.md/
+          - paragraph [ref=e1114]: © 2026 GitLab Inc.

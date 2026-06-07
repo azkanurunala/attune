@@ -7,10 +7,14 @@
 // Moving your thumb (pitch) also retunes a lead voice — you hear yourself tune.
 //
 // Ported from the design's Web Audio prototype onto react-native-audio-api
-// (Software Mansion's Web Audio implementation for RN). If that native module
-// is unavailable (Expo Go / a build before it compiled), every method is a safe
-// no-op so the rest of the game runs unaffected — visuals stay the source of
-// truth for collision, exactly as the PRD requires.
+// (Software Mansion's Web Audio implementation for RN). That package is an
+// OPTIONAL add — it is not installed by default (its current release has a C++
+// header that fails to compile on some Xcode toolchains). When the module is
+// absent (the default build, Expo Go, or a build before it compiled), every
+// method here is a safe no-op so the rest of the game runs unaffected — visuals
+// stay the source of truth for collision, exactly as the PRD requires.
+//
+// To enable real procedural audio, see "Enabling adaptive audio" in README.md.
 
 // Lazily resolve the native AudioContext so a missing module never crashes JS.
 function AudioContextCtor() {

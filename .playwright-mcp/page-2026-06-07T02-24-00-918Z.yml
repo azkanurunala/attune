@@ -1,0 +1,1197 @@
+- generic [active] [ref=e1]:
+  - navigation:
+    - generic [ref=e3]:
+      - generic [ref=e4]:
+        - link "Skip to main content" [ref=e5] [cursor=pointer]:
+          - /url: "#skipTarget"
+        - link "Go to GitLab Docs homepage" [ref=e6] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e7]: Go to GitLab Docs homepage
+        - generic [ref=e9]:
+          - generic [ref=e14]:
+            - generic [ref=e15]:
+              - img [ref=e16]
+              - searchbox "Search" [ref=e18]
+            - generic "Use the shortcut keys<br><kbd>/</kbd> or <kbd>s</kbd> to start a search" [ref=e19]: /
+          - generic [ref=e20]:
+            - link "What's new?" [ref=e21] [cursor=pointer]:
+              - /url: https://about.gitlab.com/releases/whats-new/
+            - generic [ref=e22]:
+              - combobox "English" [ref=e25] [cursor=pointer]:
+                - img [ref=e26]
+                - generic:
+                  - generic: English
+                  - img [ref=e28]
+              - button "v19.1" [ref=e32] [cursor=pointer]:
+                - generic [ref=e33]:
+                  - generic [ref=e34]: v19.1
+                  - img [ref=e35]
+              - generic "Select theme and layout" [ref=e38]:
+                - combobox "Select theme and layout" [ref=e39] [cursor=pointer]:
+                  - img [ref=e40]
+                  - generic [ref=e42]:
+                    - generic [ref=e43]: Select theme and layout
+                    - img [ref=e44]
+            - button "Get free trial" [ref=e47] [cursor=pointer]
+      - list [ref=e49]:
+        - listitem [ref=e50]:
+          - link "Use GitLab" [ref=e51] [cursor=pointer]:
+            - /url: /user/
+        - listitem [ref=e52]:
+          - link "GitLab Duo" [ref=e53] [cursor=pointer]:
+            - /url: /user/gitlab_duo/
+        - listitem [ref=e54]:
+          - link "Orbit" [ref=e55] [cursor=pointer]:
+            - /url: /orbit/
+        - listitem [ref=e56]:
+          - link "Extend" [ref=e57] [cursor=pointer]:
+            - /url: /api/
+        - listitem [ref=e58]:
+          - link "Install" [ref=e59] [cursor=pointer]:
+            - /url: /install/
+        - listitem [ref=e60]:
+          - link "Administer" [ref=e61] [cursor=pointer]:
+            - /url: /administration/
+        - listitem [ref=e62]:
+          - link "Subscribe" [ref=e63] [cursor=pointer]:
+            - /url: /subscriptions/
+        - listitem [ref=e64]:
+          - link "Contribute" [ref=e65] [cursor=pointer]:
+            - /url: /development/
+        - listitem [ref=e66]:
+          - link "Solutions" [ref=e67] [cursor=pointer]:
+            - /url: /solutions/
+  - main [ref=e68]:
+    - generic [ref=e69]:
+      - complementary "Main Navigation" [ref=e72]:
+        - navigation "Main" [ref=e74]:
+          - link "Getting started" [ref=e78] [cursor=pointer]:
+            - /url: /user/get_started/
+          - generic [ref=e81]:
+            - link "Tutorials" [ref=e82] [cursor=pointer]:
+              - /url: /tutorials/
+            - button "Expand" [ref=e83] [cursor=pointer]:
+              - img [ref=e85]
+          - generic [ref=e89]:
+            - link "Manage your organization" [ref=e90] [cursor=pointer]:
+              - /url: /topics/set_up_organization/
+            - button "Expand" [ref=e91] [cursor=pointer]:
+              - img [ref=e93]
+          - generic [ref=e97]:
+            - link "Organize work with projects" [ref=e98] [cursor=pointer]:
+              - /url: /user/project/organize_work_with_projects/
+            - button "Expand" [ref=e99] [cursor=pointer]:
+              - img [ref=e101]
+          - generic [ref=e105]:
+            - link "Plan and track work" [ref=e106] [cursor=pointer]:
+              - /url: /topics/plan_and_track/
+            - button "Expand" [ref=e107] [cursor=pointer]:
+              - img [ref=e109]
+          - generic [ref=e113]:
+            - link "Manage authentication and authorization" [ref=e114] [cursor=pointer]:
+              - /url: /auth/
+            - button "Expand" [ref=e115] [cursor=pointer]:
+              - img [ref=e117]
+          - generic [ref=e121]:
+            - link "Use Git" [ref=e122] [cursor=pointer]:
+              - /url: /topics/git/
+            - button "Expand" [ref=e123] [cursor=pointer]:
+              - img [ref=e125]
+          - generic [ref=e127]:
+            - generic [ref=e129]:
+              - link "Manage your code" [ref=e130] [cursor=pointer]:
+                - /url: /topics/manage_code/
+              - button "Collapse" [ref=e131] [cursor=pointer]:
+                - img [ref=e133]
+            - generic [ref=e136]:
+              - link "Getting started" [ref=e140] [cursor=pointer]:
+                - /url: /user/get_started/get_started_managing_code/
+              - generic [ref=e143]:
+                - link "Repositories" [ref=e144] [cursor=pointer]:
+                  - /url: /user/project/repository/
+                - button "Expand" [ref=e145] [cursor=pointer]:
+                  - img [ref=e147]
+              - generic [ref=e149]:
+                - generic [ref=e151]:
+                  - link "Merge requests" [ref=e152] [cursor=pointer]:
+                    - /url: /user/project/merge_requests/
+                  - button "Collapse" [ref=e153] [cursor=pointer]:
+                    - img [ref=e155]
+                - generic [ref=e158]:
+                  - generic [ref=e161]:
+                    - link "Commits" [ref=e162] [cursor=pointer]:
+                      - /url: /user/project/merge_requests/commits/
+                    - button "Expand" [ref=e163] [cursor=pointer]:
+                      - img [ref=e165]
+                  - link "Changes" [ref=e170] [cursor=pointer]:
+                    - /url: /user/project/merge_requests/changes/
+                  - generic [ref=e173]:
+                    - link "Create merge requests" [ref=e174] [cursor=pointer]:
+                      - /url: /user/project/merge_requests/creating_merge_requests/
+                    - button "Expand" [ref=e175] [cursor=pointer]:
+                      - img [ref=e177]
+                  - generic [ref=e179]:
+                    - generic [ref=e181]:
+                      - link "Reviewing and managing merge requests" [ref=e182] [cursor=pointer]:
+                        - /url: /user/project/merge_requests/reviews/
+                      - button "Collapse" [ref=e183] [cursor=pointer]:
+                        - img [ref=e185]
+                    - generic [ref=e188]:
+                      - link "Merge requests homepage" [ref=e192] [cursor=pointer]:
+                        - /url: /user/project/merge_requests/homepage/
+                      - 'link "Tutorial: Understand your merge requests on the Merge requests homepage" [ref=e196] [cursor=pointer]':
+                        - /url: /tutorials/merge_requests/homepage/
+                      - generic [ref=e199]:
+                        - link "Merge request widgets" [ref=e200] [cursor=pointer]:
+                          - /url: /user/project/merge_requests/widgets/
+                        - button "Expand" [ref=e201] [cursor=pointer]:
+                          - img [ref=e203]
+                      - link "Suggestions" [ref=e208] [cursor=pointer]:
+                        - /url: /user/project/merge_requests/reviews/suggestions/
+                      - link "GitLab Duo in merge requests" [ref=e212] [cursor=pointer]:
+                        - /url: /user/project/merge_requests/duo_in_merge_requests/
+                      - generic [ref=e213]:
+                        - generic [ref=e215]:
+                          - link "Approvals" [ref=e216] [cursor=pointer]:
+                            - /url: /user/project/merge_requests/approvals/
+                          - button "Collapse" [ref=e217] [cursor=pointer]:
+                            - img [ref=e219]
+                        - generic [ref=e222]:
+                          - link "Approval rules" [ref=e226] [cursor=pointer]:
+                            - /url: /user/project/merge_requests/approvals/rules/
+                          - link "Approval settings" [ref=e230] [cursor=pointer]:
+                            - /url: /user/project/merge_requests/approvals/settings/
+                      - link "Automatic reviewer assignment" [ref=e234] [cursor=pointer]:
+                        - /url: /user/project/merge_requests/reviews/automatic_reviewer_assignment/
+                      - link "Versions" [ref=e238] [cursor=pointer]:
+                        - /url: /user/project/merge_requests/versions/
+                      - link "Manage merge requests" [ref=e242] [cursor=pointer]:
+                        - /url: /user/project/merge_requests/manage/
+                      - 'link "Tutorial: Review a merge request" [ref=e246] [cursor=pointer]':
+                        - /url: /tutorials/reviews/
+                  - generic [ref=e249]:
+                    - link "Workflows" [ref=e250] [cursor=pointer]:
+                      - /url: /user/project/merge_requests/authorization_for_merge_requests/
+                    - button "Expand" [ref=e251] [cursor=pointer]:
+                      - img [ref=e253]
+                  - link "Export merge requests to CSV" [ref=e258] [cursor=pointer]:
+                    - /url: /user/project/merge_requests/csv_export/
+                  - link "Reports" [ref=e262] [cursor=pointer]:
+                    - /url: /user/project/merge_requests/reports/
+                  - link "Troubleshooting" [ref=e266] [cursor=pointer]:
+                    - /url: /user/project/merge_requests/merge_request_troubleshooting/
+              - generic [ref=e269]:
+                - link "Remote development" [ref=e270] [cursor=pointer]:
+                  - /url: /user/project/remote_development/
+                - button "Expand" [ref=e271] [cursor=pointer]:
+                  - img [ref=e273]
+          - generic [ref=e277]:
+            - link "Use CI/CD to build your application" [ref=e278] [cursor=pointer]:
+              - /url: /topics/build_your_application/
+            - button "Expand" [ref=e279] [cursor=pointer]:
+              - img [ref=e281]
+          - generic [ref=e285]:
+            - link "Secure your application" [ref=e286] [cursor=pointer]:
+              - /url: /user/application_security/secure_your_application/
+            - button "Expand" [ref=e287] [cursor=pointer]:
+              - img [ref=e289]
+          - generic [ref=e293]:
+            - link "Deploy and release your application" [ref=e294] [cursor=pointer]:
+              - /url: /topics/release_your_application/
+            - button "Expand" [ref=e295] [cursor=pointer]:
+              - img [ref=e297]
+          - generic [ref=e301]:
+            - link "Manage your infrastructure" [ref=e302] [cursor=pointer]:
+              - /url: /user/infrastructure/
+            - button "Expand" [ref=e303] [cursor=pointer]:
+              - img [ref=e305]
+          - generic [ref=e309]:
+            - link "Monitor your application" [ref=e310] [cursor=pointer]:
+              - /url: /operations/
+            - button "Expand" [ref=e311] [cursor=pointer]:
+              - img [ref=e313]
+          - generic [ref=e317]:
+            - link "Analyze GitLab usage" [ref=e318] [cursor=pointer]:
+              - /url: /user/analytics/
+            - button "Expand" [ref=e319] [cursor=pointer]:
+              - img [ref=e321]
+          - generic [ref=e325]:
+            - link "Release notes" [ref=e326] [cursor=pointer]:
+              - /url: /releases/
+            - button "Expand" [ref=e327] [cursor=pointer]:
+              - img [ref=e329]
+          - link "Feature support" [ref=e334] [cursor=pointer]:
+            - /url: /policy/development_stages_support/
+          - link "Find your GitLab version" [ref=e338] [cursor=pointer]:
+            - /url: /user/version/
+      - generic [ref=e339]:
+        - generic [ref=e340]:
+          - navigation "Breadcrumb" [ref=e343]:
+            - list [ref=e344]:
+              - listitem [ref=e345]:
+                - button "Show more breadcrumbs" [ref=e347] [cursor=pointer]:
+                  - img [ref=e348]
+                  - generic [ref=e350]: Show more breadcrumbs
+                - text: /
+              - listitem [ref=e351]:
+                - link "Use GitLab" [ref=e352] [cursor=pointer]:
+                  - /url: /user/
+                - text: /
+              - listitem [ref=e353]:
+                - link "Manage your code" [ref=e354] [cursor=pointer]:
+                  - /url: /topics/manage_code/
+                - text: /
+              - listitem [ref=e355]:
+                - link "Merge requests" [ref=e356] [cursor=pointer]:
+                  - /url: /user/project/merge_requests/
+                - text: /
+              - listitem [ref=e357]:
+                - link "Reviewing and managing m…" [ref=e358] [cursor=pointer]:
+                  - /url: /user/project/merge_requests/reviews/
+                - text: /
+              - listitem [ref=e359]:
+                - link "Approvals" [ref=e360] [cursor=pointer]:
+                  - /url: /user/project/merge_requests/approvals/
+                - text: /
+              - listitem [ref=e361]:
+                - link "Approval rules" [ref=e362] [cursor=pointer]:
+                  - /url: /user/project/merge_requests/approvals/rules/
+          - heading "Merge request approval rules" [level=1] [ref=e364]
+          - generic [ref=e365]:
+            - list [ref=e367]:
+              - listitem [ref=e368]: "Tier: Premium, Ultimate"
+              - listitem [ref=e369]: "Offering: GitLab.com, GitLab Self-Managed, GitLab Dedicated"
+            - paragraph [ref=e370]:
+              - text: Approval rules define how many
+              - link "approvals" [ref=e371] [cursor=pointer]:
+                - /url: /user/project/merge_requests/approvals/
+              - text: a merge request must receive before it can be merged, and which users should do the approving. They can be used in conjunction with
+              - link "code owners" [ref=e372] [cursor=pointer]:
+                - /url: /user/project/merge_requests/approvals/rules/#code-owners-as-approvers
+              - text: to ensure that changes are reviewed both by the group maintaining the feature, and any groups responsible for specific areas of oversight.
+            - paragraph [ref=e373]: "You can define approval rules:"
+            - list [ref=e374]:
+              - listitem [ref=e375]:
+                - link "As project defaults" [ref=e376] [cursor=pointer]:
+                  - /url: /user/project/merge_requests/approvals/rules/#add-an-approval-rule
+                - text: .
+              - listitem [ref=e377]:
+                - link "Per merge request" [ref=e378] [cursor=pointer]:
+                  - /url: /user/project/merge_requests/approvals/rules/#edit-or-override-merge-request-approval-rules
+                - text: .
+            - paragraph [ref=e379]: "You can configure approval rules:"
+            - list [ref=e380]:
+              - listitem [ref=e381]:
+                - link "For the entire instance" [ref=e382] [cursor=pointer]:
+                  - /url: /administration/merge_requests_approvals/
+                - text: .
+            - paragraph [ref=e383]:
+              - text: If you don’t define a
+              - link "default approval rule" [ref=e384] [cursor=pointer]:
+                - /url: /user/project/merge_requests/approvals/rules/#add-an-approval-rule
+              - text: ", any user can approve a merge request. Even if you don’t define a rule, you can still enforce a"
+              - link "minimum number of required approvers" [ref=e385] [cursor=pointer]:
+                - /url: /user/project/merge_requests/approvals/settings/
+              - text: in the project’s settings.
+            - paragraph [ref=e386]: Merge requests that target a different project, such as from a fork to the upstream project, use the default approval rules from the target (upstream) project, not the source (fork).
+            - paragraph [ref=e387]:
+              - text: Merge request approvals can be configured globally to apply across all (or a subset) projects with
+              - link "policies" [ref=e388] [cursor=pointer]:
+                - /url: /user/application_security/policies/
+              - text: .
+              - link "Merge request approval policies" [ref=e389] [cursor=pointer]:
+                - /url: /user/application_security/policies/merge_request_approval_policies/
+              - text: also provide additional flexibility with more granular configuration options.
+            - heading "Add an approval rule#" [level=2] [ref=e390]:
+              - text: Add an approval rule
+              - link "#" [ref=e391] [cursor=pointer]:
+                - /url: "#add-an-approval-rule"
+            - paragraph [ref=e392]: "Prerequisites:"
+            - list [ref=e393]:
+              - listitem [ref=e394]: You must have the Maintainer or Owner role for the project.
+              - listitem [ref=e395]: To add a group as an approver in GitLab.com, you must be a member of the group or the group must be public.
+            - paragraph [ref=e396]: "To add a merge request approval rule:"
+            - list [ref=e397]:
+              - listitem [ref=e398]:
+                - text: In the top bar, select
+                - strong [ref=e399]: Search or go to
+                - text: and find your project.
+              - listitem [ref=e400]:
+                - text: In the left sidebar, select
+                - strong [ref=e401]: Settings
+                - text: ">"
+                - strong [ref=e402]: Merge requests
+                - text: .
+              - listitem [ref=e403]:
+                - text: In the
+                - strong [ref=e404]: Merge request approvals
+                - text: section, in the
+                - strong [ref=e405]: Approval rules
+                - text: section, select
+                - strong [ref=e406]: Add approval rule
+                - text: .
+              - listitem [ref=e407]:
+                - text: "In the right sidebar, complete the fields:"
+                - list [ref=e408]:
+                  - listitem [ref=e409]:
+                    - text: In
+                    - strong [ref=e410]: Approvals required
+                    - text: ", a value of"
+                    - code [ref=e411]: "0"
+                    - text: makes
+                    - link "the rule optional" [ref=e412] [cursor=pointer]:
+                      - /url: /user/project/merge_requests/approvals/rules/#configure-optional-approval-rules
+                    - text: ", and any number greater than"
+                    - code [ref=e413]: "0"
+                    - text: creates a required rule. Maximum number of required approvals is
+                    - code [ref=e414]: "100"
+                    - text: .
+                  - listitem [ref=e415]:
+                    - text: From
+                    - strong [ref=e416]: Add approvers
+                    - text: ", select users or groups that are"
+                    - link "eligible to approve" [ref=e417] [cursor=pointer]:
+                      - /url: /user/project/merge_requests/approvals/rules/#eligible-approvers
+                    - text: . GitLab suggests approvers based on previous authors of the files changed by the merge request.
+              - listitem [ref=e418]:
+                - text: Select
+                - strong [ref=e419]: Save changes
+                - text: . You can add
+                - link "multiple approval rules" [ref=e420] [cursor=pointer]:
+                  - /url: /user/project/merge_requests/approvals/rules/#multiple-approval-rules
+                - text: .
+            - paragraph [ref=e421]: "Your configuration for approval rule overrides determines if the new rule is applied to existing merge requests:"
+            - list [ref=e422]:
+              - listitem [ref=e423]:
+                - text: If
+                - link "approval rule overrides" [ref=e424] [cursor=pointer]:
+                  - /url: /user/project/merge_requests/approvals/settings/#prevent-editing-approval-rules-in-merge-requests
+                - text: are allowed, changes to these default rules are not applied to existing merge requests, except for changes to the
+                - link "target branch" [ref=e425] [cursor=pointer]:
+                  - /url: /user/project/merge_requests/approvals/rules/#approvals-for-protected-branches
+                - text: of the rule.
+              - listitem [ref=e426]:
+                - text: If approval rule overrides are not allowed, all changes to default rules are applied to existing merge requests. Any approval rules that were previously manually
+                - link "overridden" [ref=e427] [cursor=pointer]:
+                  - /url: /user/project/merge_requests/approvals/rules/#edit-or-override-merge-request-approval-rules
+                - text: during the period when approval rule overrides where allowed, are not modified.
+            - heading "Edit an approval rule#" [level=2] [ref=e428]:
+              - text: Edit an approval rule
+              - link "#" [ref=e429] [cursor=pointer]:
+                - /url: "#edit-an-approval-rule"
+            - paragraph [ref=e430]: "Prerequisites:"
+            - list [ref=e431]:
+              - listitem [ref=e432]: You must have the Maintainer or Owner role for the project.
+              - listitem [ref=e433]: To add a group as an approver in GitLab.com, you must be a member of the group or the group must be public.
+            - paragraph [ref=e434]: "To edit a merge request approval rule:"
+            - list [ref=e435]:
+              - listitem [ref=e436]:
+                - text: In the top bar, select
+                - strong [ref=e437]: Search or go to
+                - text: and find your project.
+              - listitem [ref=e438]:
+                - text: In the left sidebar, select
+                - strong [ref=e439]: Settings
+                - text: ">"
+                - strong [ref=e440]: Merge requests
+                - text: .
+              - listitem [ref=e441]:
+                - text: In the
+                - strong [ref=e442]: Merge request approvals
+                - text: section, in the
+                - strong [ref=e443]: Approval rules
+                - text: section, next to the rule you want to edit, select
+                - strong [ref=e444]: Edit
+                - text: .
+              - listitem [ref=e445]:
+                - text: "In the right sidebar, edit the fields:"
+                - list [ref=e446]:
+                  - listitem [ref=e447]:
+                    - text: In
+                    - strong [ref=e448]: Approvals required
+                    - text: ", a value of"
+                    - code [ref=e449]: "0"
+                    - text: makes
+                    - link "the rule optional" [ref=e450] [cursor=pointer]:
+                      - /url: /user/project/merge_requests/approvals/rules/#configure-optional-approval-rules
+                    - text: ", and any number greater than"
+                    - code [ref=e451]: "0"
+                    - text: creates a required rule. Maximum number of required approvals is
+                    - code [ref=e452]: "100"
+                    - text: .
+                  - listitem [ref=e453]:
+                    - text: To remove users or groups, identify the group or user to remove, and select
+                    - strong [ref=e454]: Remove
+                    - text: (
+                    - img "remove" [ref=e456]
+                    - text: ).
+              - listitem [ref=e458]:
+                - text: Select
+                - strong [ref=e459]: Save changes
+                - text: .
+            - heading "Delete an approval rule#" [level=2] [ref=e460]:
+              - text: Delete an approval rule
+              - link "#" [ref=e461] [cursor=pointer]:
+                - /url: "#delete-an-approval-rule"
+            - paragraph [ref=e462]: "Prerequisites:"
+            - list [ref=e463]:
+              - listitem [ref=e464]: You must have the Maintainer or Owner role for the project.
+            - paragraph [ref=e465]: "To delete a merge request approval rule:"
+            - list [ref=e466]:
+              - listitem [ref=e467]:
+                - text: In the top bar, select
+                - strong [ref=e468]: Search or go to
+                - text: and find your project.
+              - listitem [ref=e469]:
+                - text: In the left sidebar, select
+                - strong [ref=e470]: Settings
+                - text: ">"
+                - strong [ref=e471]: Merge requests
+                - text: .
+              - listitem [ref=e472]:
+                - text: In the
+                - strong [ref=e473]: Merge request approvals
+                - text: section, next to the rule you want to delete, select the trash can (
+                - img "remove" [ref=e475]
+                - text: ).
+              - listitem [ref=e477]:
+                - text: Select
+                - strong [ref=e478]: Remove approvers
+                - text: .
+            - heading "Multiple approval rules#" [level=2] [ref=e479]:
+              - text: Multiple approval rules
+              - link "#" [ref=e480] [cursor=pointer]:
+                - /url: "#multiple-approval-rules"
+            - paragraph [ref=e481]: To enforce multiple approval rules on a merge request, add multiple default approval rules for a project.
+            - paragraph [ref=e482]:
+              - text: When an
+              - link "eligible approver" [ref=e483] [cursor=pointer]:
+                - /url: /user/project/merge_requests/approvals/rules/#eligible-approvers
+              - text: approves a merge request, it reduces the number of approvals left (the
+              - strong [ref=e484]: Approvals
+              - text: "column) for all rules that the approver belongs to:"
+            - paragraph [ref=e485]:
+              - link "The approvals widget displaying Code Owners rules with eligible approvers, requirements, and approval status." [ref=e486] [cursor=pointer]:
+                - /url: /user/project/merge_requests/approvals/img/mr_approvals_widget_v16_0.png
+                - img "The approvals widget displaying Code Owners rules with eligible approvers, requirements, and approval status." [ref=e487]
+            - paragraph [ref=e488]:
+              - text: For an overview, see the
+              - link "multiple approvers" [ref=e490] [cursor=pointer]:
+                - /url: https://www.youtube.com/watch?v=8JQJ5821FrA
+              - text: video.
+            - heading "Get notified about all merge requests you can approve#" [level=2] [ref=e491]:
+              - text: Get notified about all merge requests you can approve
+              - link "#" [ref=e492] [cursor=pointer]:
+                - /url: "#get-notified-about-all-merge-requests-you-can-approve"
+            - paragraph [ref=e493]: "To get email notifications every time a merge request you’re eligible to approve is created:"
+            - list [ref=e494]:
+              - listitem [ref=e495]:
+                - link "Set your notification level" [ref=e496] [cursor=pointer]:
+                  - /url: /user/profile/notifications/#edit-notification-settings
+                - text: to
+                - strong [ref=e497]: Custom
+                - text: and select the
+                - strong [ref=e498]: Merge request you’re eligible to approve is created
+                - text: event.
+            - heading "Edit or override merge request approval rules#" [level=2] [ref=e499]:
+              - text: Edit or override merge request approval rules
+              - link "#" [ref=e500] [cursor=pointer]:
+                - /url: "#edit-or-override-merge-request-approval-rules"
+            - paragraph [ref=e501]: "You can override the merge request approval rules for a project by either:"
+            - list [ref=e502]:
+              - listitem [ref=e503]: Editing an existing merge request.
+              - listitem [ref=e504]: Creating a new merge request.
+            - paragraph [ref=e505]: "Prerequisites:"
+            - list [ref=e506]:
+              - listitem [ref=e507]:
+                - text: The project setting
+                - link "Prevent editing approval rules in merge requests" [ref=e508] [cursor=pointer]:
+                  - /url: /user/project/merge_requests/approvals/settings/#prevent-editing-approval-rules-in-merge-requests
+                  - strong [ref=e509]: Prevent editing approval rules in merge requests
+                - text: is disabled.
+              - listitem [ref=e510]:
+                - text: "One of the following must be true:"
+                - list [ref=e511]:
+                  - listitem [ref=e512]: You have administrator access.
+                  - listitem [ref=e513]: You are the author of the merge request, and have the Developer, Maintainer, or Owner role in the project.
+                  - listitem [ref=e514]: You have the Maintainer or Owner role for the project.
+            - paragraph [ref=e515]: "To override approvers of a merge request:"
+            - list [ref=e516]:
+              - listitem [ref=e517]:
+                - text: When
+                - link "creating a new merge request" [ref=e518] [cursor=pointer]:
+                  - /url: /user/project/merge_requests/creating_merge_requests/
+                - text: ", scroll to the"
+                - strong [ref=e519]: Approval Rules
+                - text: section, and add or remove your desired approval rules before selecting
+                - strong [ref=e520]: Create merge request
+                - text: .
+              - listitem [ref=e521]:
+                - text: "When viewing an existing merge request:"
+                - list [ref=e522]:
+                  - listitem [ref=e523]:
+                    - text: In the top bar, select
+                    - strong [ref=e524]: Search or go to
+                    - text: and find your project.
+                  - listitem [ref=e525]:
+                    - text: In the left sidebar, select
+                    - strong [ref=e526]: Code
+                    - text: ">"
+                    - strong [ref=e527]: Merge requests
+                    - text: and find your merge request.
+                  - listitem [ref=e528]:
+                    - text: Select
+                    - strong [ref=e529]: Edit
+                    - text: .
+                  - listitem [ref=e530]:
+                    - text: Scroll to the
+                    - strong [ref=e531]: Approval Rules
+                    - text: section.
+                  - listitem [ref=e532]: Add or remove your desired approval rules.
+                  - listitem [ref=e533]:
+                    - text: Select
+                    - strong [ref=e534]: Save changes
+                    - text: .
+            - paragraph [ref=e535]:
+              - text: Administrators can change the
+              - link "merge request approvals settings" [ref=e536] [cursor=pointer]:
+                - /url: /user/project/merge_requests/approvals/settings/#prevent-editing-approval-rules-in-merge-requests
+              - text: to prevent users from overriding approval rules for merge requests.
+            - heading "Require multiple approvals for a rule#" [level=2] [ref=e537]:
+              - text: Require multiple approvals for a rule
+              - link "#" [ref=e538] [cursor=pointer]:
+                - /url: "#require-multiple-approvals-for-a-rule"
+            - paragraph [ref=e539]: "To create an approval rule which requires more than one approval:"
+            - list [ref=e540]:
+              - listitem [ref=e541]:
+                - text: When you
+                - link "create" [ref=e542] [cursor=pointer]:
+                  - /url: /user/project/merge_requests/approvals/rules/#add-an-approval-rule
+                - text: or
+                - link "edit" [ref=e543] [cursor=pointer]:
+                  - /url: /user/project/merge_requests/approvals/rules/#edit-an-approval-rule
+                - text: a rule, set
+                - strong [ref=e544]: Approvals required
+                - text: to
+                - code [ref=e545]: "2"
+                - text: or more.
+            - paragraph [ref=e546]:
+              - text: To require multiple approvals for a rule, you can also use the
+              - link "Merge request approvals API" [ref=e547] [cursor=pointer]:
+                - /url: /api/merge_request_approvals/#update-an-approval-rule-for-a-project
+              - text: to set the
+              - code [ref=e548]: approvals_required
+              - text: attribute to
+              - code [ref=e549]: "2"
+              - text: or more.
+            - heading "Configure optional approval rules#" [level=2] [ref=e550]:
+              - text: Configure optional approval rules
+              - link "#" [ref=e551] [cursor=pointer]:
+                - /url: "#configure-optional-approval-rules"
+            - paragraph [ref=e552]: "Merge request approvals can be optional for projects where approvals are appreciated, but not required. To make an approval rule optional:"
+            - list [ref=e553]:
+              - listitem [ref=e554]:
+                - text: When you
+                - link "create or edit a rule" [ref=e555] [cursor=pointer]:
+                  - /url: /user/project/merge_requests/approvals/rules/#edit-an-approval-rule
+                - text: ", set"
+                - strong [ref=e556]: Approvals required
+                - text: to
+                - code [ref=e557]: "0"
+                - text: .
+            - paragraph [ref=e558]:
+              - text: To make an approval rule optional, you can also use the API to
+              - link "update an approval rule for a project" [ref=e559] [cursor=pointer]:
+                - /url: /api/merge_request_approvals/#update-an-approval-rule-for-a-project
+              - text: ", and set the"
+              - code [ref=e560]: approvals_required
+              - text: attribute to
+              - code [ref=e561]: "0"
+              - text: .
+            - heading "Approvals for protected branches#" [level=2] [ref=e562]:
+              - text: Approvals for protected branches
+              - link "#" [ref=e563] [cursor=pointer]:
+                - /url: "#approvals-for-protected-branches"
+            - paragraph [ref=e564]:
+              - text: Approval rules are often relevant only to specific branches, like your
+              - link "default branch" [ref=e565] [cursor=pointer]:
+                - /url: /user/project/repository/branches/default/
+              - text: ". To configure an approval rule for certain branches:"
+            - list [ref=e566]:
+              - listitem [ref=e567]:
+                - link "Create an approval rule" [ref=e568] [cursor=pointer]:
+                  - /url: /user/project/merge_requests/approvals/rules/#add-an-approval-rule
+                - text: .
+              - listitem [ref=e569]:
+                - text: Go to your project and select
+                - strong [ref=e570]: Settings
+                - text: ">"
+                - strong [ref=e571]: Merge requests
+                - text: .
+              - listitem [ref=e572]:
+                - text: In the
+                - strong [ref=e573]: Merge request approvals
+                - text: section, scroll to
+                - strong [ref=e574]: Approval rules
+                - text: .
+              - listitem [ref=e575]:
+                - text: For
+                - strong [ref=e576]: Target branch
+                - text: ":"
+                - list [ref=e577]:
+                  - listitem [ref=e578]:
+                    - text: To apply the rule to all protected branches, select
+                    - strong [ref=e579]: All protected branches
+                    - text: .
+                  - listitem [ref=e580]: To apply the rule to a specific branch, select it from the list.
+              - listitem [ref=e581]:
+                - text: To enable this configuration, follow
+                - link "Require code owner approval on a protected branch" [ref=e582] [cursor=pointer]:
+                  - /url: /user/project/repository/branches/protected/#require-code-owner-approval
+                - text: .
+            - heading "Enable approval permissions for additional users#" [level=2] [ref=e583]:
+              - text: Enable approval permissions for additional users
+              - link "#" [ref=e584] [cursor=pointer]:
+                - /url: "#enable-approval-permissions-for-additional-users"
+            - paragraph [ref=e585]: Before users with the Planner or Reporter role can merge to a protected branch, you have to grant them permission to approve merge requests. Some users (like managers) might not need permission to push or merge code, but still need oversight on proposed work.
+            - paragraph [ref=e586]:
+              - text: Users with the Planner or Reporter role can approve merge requests only through regular approval rules. Code owner approval rules require users to have the Developer, Maintainer, or Owner role. For more information, see
+              - link "eligible approvers" [ref=e587] [cursor=pointer]:
+                - /url: /user/project/merge_requests/approvals/rules/#eligible-approvers
+              - text: .
+            - paragraph [ref=e588]: "Prerequisites:"
+            - list [ref=e589]:
+              - listitem [ref=e590]:
+                - text: You must select a specific branch, as this method does not work with
+                - code [ref=e591]: All Branches
+                - text: or
+                - code [ref=e592]: All protected branches
+                - text: settings.
+              - listitem [ref=e593]: The shared group must be added to an approval rule and not individual users, even when the added user is part of the group.
+            - paragraph [ref=e594]: "To enable approval permissions for these users without granting them push access:"
+            - list [ref=e595]:
+              - listitem [ref=e596]:
+                - link "Create a protected branch" [ref=e597] [cursor=pointer]:
+                  - /url: /user/project/repository/branches/protected/
+              - listitem [ref=e598]:
+                - link "Create a new group" [ref=e599] [cursor=pointer]:
+                  - /url: /user/group/#create-a-group
+                - text: for the users with the Planner or Reporter role that need approval permissions.
+              - listitem [ref=e600]:
+                - link "Add the users to the group" [ref=e601] [cursor=pointer]:
+                  - /url: /user/group/#add-users-to-a-group
+                - text: . The users must have the Planner, Reporter, Developer, Maintainer, or Owner role.
+              - listitem [ref=e602]:
+                - link "Share the project with your group" [ref=e603] [cursor=pointer]:
+                  - /url: /user/project/members/sharing_projects_groups/#invite-a-group-to-a-project
+                - text: ", with the Reporter, Developer, Maintainer, or Owner role."
+              - listitem [ref=e604]:
+                - text: In the top bar, select
+                - strong [ref=e605]: Search or go to
+                - text: and find your project.
+              - listitem [ref=e606]:
+                - text: In the left sidebar, select
+                - strong [ref=e607]: Settings
+                - text: ">"
+                - strong [ref=e608]: Merge requests
+                - text: .
+              - listitem [ref=e609]:
+                - text: In the
+                - strong [ref=e610]: Merge request approvals
+                - text: section, in the
+                - strong [ref=e611]: Approval rules
+                - text: "section:"
+                - list [ref=e612]:
+                  - listitem [ref=e613]:
+                    - text: For a new rule, select
+                    - strong [ref=e614]: Add approval rule
+                    - text: and target the protected branch.
+                  - listitem [ref=e615]:
+                    - text: For an existing rule, select
+                    - strong [ref=e616]: Edit
+                    - text: and target the protected branch.
+              - listitem [ref=e617]:
+                - text: On the right sidebar, in
+                - strong [ref=e618]: Add approvers
+                - text: ", select the group you created."
+              - listitem [ref=e619]:
+                - text: Select
+                - strong [ref=e620]: Save changes
+                - text: .
+            - heading "Security Approvals#" [level=2] [ref=e621]:
+              - text: Security Approvals
+              - link "#" [ref=e622] [cursor=pointer]:
+                - /url: "#security-approvals"
+            - list [ref=e624]:
+              - listitem [ref=e625]: "Tier: Ultimate"
+              - listitem [ref=e626]: "Offering: GitLab.com, GitLab Self-Managed, GitLab Dedicated"
+            - button "Toggle section" [ref=e628] [cursor=pointer]: History
+            - paragraph [ref=e630]:
+              - text: You can use
+              - link "merge request approval policies" [ref=e631] [cursor=pointer]:
+                - /url: /user/application_security/policies/merge_request_approval_policies/#merge-request-approval-policy-editor
+              - text: to define security approvals based on the status of vulnerabilities in the merge request and the default branch. Details for each security policy is shown in the Security Approvals section of your Merge Request configuration.
+            - paragraph [ref=e632]: The security approval rules are applied to all merge requests until the pipeline is complete. The application of the security approval rules prevents users from merging in code before the security scans run. After the pipeline is complete, the security approval rules are checked to determine if the security approvals are still required. In case the scanners in the pipeline identify an issue and security approvals are required, a bot comment is generated on the merge request to indicate which steps are needed to proceed.
+            - paragraph [ref=e633]:
+              - link "The Security Approvals section displaying a policy rule that requires one approval when a scanner finds vulnerabilities." [ref=e634] [cursor=pointer]:
+                - /url: /user/project/merge_requests/approvals/img/security_approvals_v15_0.png
+                - img "The Security Approvals section displaying a policy rule that requires one approval when a scanner finds vulnerabilities." [ref=e635]
+            - paragraph [ref=e636]:
+              - text: These policies are both created and edited in the
+              - link "security policy editor" [ref=e637] [cursor=pointer]:
+                - /url: /user/application_security/policies/#policy-editor
+              - text: .
+            - heading "Eligible approvers#" [level=2] [ref=e638]:
+              - text: Eligible approvers
+              - link "#" [ref=e639] [cursor=pointer]:
+                - /url: "#eligible-approvers"
+            - paragraph [ref=e640]: "To be eligible as an approver for your project, a user must be a direct member of at least one of the following:"
+            - list [ref=e641]:
+              - listitem [ref=e642]: Your project.
+              - listitem [ref=e643]: Your project’s group.
+              - listitem [ref=e644]: Any of your project’s group’s parent groups.
+              - listitem [ref=e645]:
+                - text: Another group that has been
+                - link "shared with your project" [ref=e646] [cursor=pointer]:
+                  - /url: /user/project/members/sharing_projects_groups/#sharing-projects
+                - text: .
+              - listitem [ref=e647]:
+                - text: Another group that has been
+                - link "shared with your project’s group or any of the group’s parents" [ref=e648] [cursor=pointer]:
+                  - /url: /user/project/members/sharing_projects_groups/#sharing-groups
+                - text: .
+              - listitem [ref=e649]:
+                - text: A
+                - link "group added as approvers" [ref=e650] [cursor=pointer]:
+                  - /url: /user/project/merge_requests/approvals/rules/#group-approvers
+                - text: .
+            - paragraph [ref=e651]: "Users with the Developer role can approve merge requests if one of the following is true:"
+            - list [ref=e652]:
+              - listitem [ref=e653]: Users added as approvers at the project or merge request level.
+              - listitem [ref=e654]:
+                - text: Users who are
+                - link "code owners" [ref=e655] [cursor=pointer]:
+                  - /url: /user/project/merge_requests/approvals/rules/#code-owners-as-approvers
+                - text: of the files changed in the merge request.
+            - paragraph [ref=e656]: "Users with the Planner or Reporter role can approve only if all of the following are true:"
+            - list [ref=e657]:
+              - listitem [ref=e658]:
+                - text: The users are part of a group that has been
+                - link "shared" [ref=e659] [cursor=pointer]:
+                  - /url: /user/project/members/sharing_projects_groups/
+                - text: with the project. The group must have the Reporter, Developer, Maintainer, or Owner role.
+              - listitem [ref=e660]:
+                - text: Approval permissions for users with the Planner and Reporter role
+                - link "are enabled" [ref=e661] [cursor=pointer]:
+                  - /url: /user/project/merge_requests/approvals/rules/#enable-approval-permissions-for-additional-users
+                - text: .
+            - paragraph [ref=e662]:
+              - text: To show who has participated in the merge request review, the Approvals widget in a merge request displays a
+              - strong [ref=e663]: Commented by
+              - text: column. This column lists eligible approvers who commented on the merge request. It helps authors and reviewers identify who to contact with questions about the merge request’s content.
+            - paragraph [ref=e664]: If the number of required approvals is greater than the number of assigned approvers, approvals from other users with the Developer, Maintainer, or Owner role in the project count toward meeting the required number of approvals, even if the users were not explicitly listed in the approval rules.
+            - heading "Code owners as approvers#" [level=3] [ref=e665]:
+              - text: Code owners as approvers
+              - link "#" [ref=e666] [cursor=pointer]:
+                - /url: "#code-owners-as-approvers"
+            - paragraph [ref=e667]:
+              - text: If you add
+              - link "code owners" [ref=e668] [cursor=pointer]:
+                - /url: /user/project/codeowners/
+              - text: "to your repository, the owners of files become eligible approvers in the project. To enable this merge request approval rule:"
+            - list [ref=e669]:
+              - listitem [ref=e670]:
+                - text: In the top bar, select
+                - strong [ref=e671]: Search or go to
+                - text: and find your project.
+              - listitem [ref=e672]:
+                - text: In the left sidebar, select
+                - strong [ref=e673]: Settings
+                - text: ">"
+                - strong [ref=e674]: Merge requests
+                - text: .
+              - listitem [ref=e675]:
+                - text: In the
+                - strong [ref=e676]: Merge request approvals
+                - text: section, in the
+                - strong [ref=e677]: Approval rules
+                - text: section, locate the
+                - strong [ref=e678]: All eligible users
+                - text: rule.
+              - listitem [ref=e679]:
+                - text: In the
+                - strong [ref=e680]: Approvals required
+                - text: column, enter the number of approvals required.
+            - paragraph [ref=e681]:
+              - text: You can also
+              - link "require code owner approval" [ref=e682] [cursor=pointer]:
+                - /url: /user/project/repository/branches/protected/#require-code-owner-approval
+              - text: for protected branches.
+            - heading "Approver by membership type#" [level=3] [ref=e683]:
+              - text: Approver by membership type
+              - link "#" [ref=e684] [cursor=pointer]:
+                - /url: "#approver-by-membership-type"
+            - paragraph [ref=e685]: The following tables show how membership type affects eligibility for both approval rules and Code Owners.
+            - heading "User eligibility#" [level=4] [ref=e686]:
+              - text: User eligibility
+              - link "#" [ref=e687] [cursor=pointer]:
+                - /url: "#user-eligibility"
+            - paragraph [ref=e688]:
+              - text: When you assign individual users as approvers for approval rules or reference users in
+              - code [ref=e689]: CODEOWNERS
+              - text: files, like
+              - code [ref=e690]: "@username"
+              - text: ":"
+            - table [ref=e692]:
+              - rowgroup [ref=e693]:
+                - row "Membership type Approval rules Code Owners" [ref=e694]:
+                  - columnheader "Membership type"
+                  - columnheader "Approval rules"
+                  - columnheader "Code Owners"
+              - rowgroup [ref=e695]:
+                - row "Direct member of the project Yes Yes" [ref=e696]:
+                  - cell "Direct member of the project" [ref=e697]
+                  - cell "Yes" [ref=e698]:
+                    - img "Yes" [ref=e700]
+                  - cell "Yes" [ref=e702]:
+                    - img "Yes" [ref=e704]
+                - row "Direct member of the project’s group Yes Yes" [ref=e706]:
+                  - cell "Direct member of the project’s group" [ref=e707]
+                  - cell "Yes" [ref=e708]:
+                    - img "Yes" [ref=e710]
+                  - cell "Yes" [ref=e712]:
+                    - img "Yes" [ref=e714]
+                - row "Inherited member of the project’s group Yes Yes" [ref=e716]:
+                  - cell "Inherited member of the project’s group" [ref=e717]
+                  - cell "Yes" [ref=e718]:
+                    - img "Yes" [ref=e720]
+                  - cell "Yes" [ref=e722]:
+                    - img "Yes" [ref=e724]
+                - row "Direct member of a group invited to the project Yes Yes" [ref=e726]:
+                  - cell "Direct member of a group invited to the project" [ref=e727]:
+                    - text: Direct member of a
+                    - link "group invited to the project" [ref=e728] [cursor=pointer]:
+                      - /url: /user/project/members/sharing_projects_groups/#sharing-projects
+                  - cell "Yes" [ref=e729]:
+                    - img "Yes" [ref=e731]
+                  - cell "Yes" [ref=e733]:
+                    - img "Yes" [ref=e735]
+                - row "Inherited member of a group invited to the project No No" [ref=e737]:
+                  - cell "Inherited member of a group invited to the project" [ref=e738]
+                  - cell "No" [ref=e739]:
+                    - generic [ref=e740]: "No"
+                  - cell "No" [ref=e741]:
+                    - generic [ref=e742]: "No"
+                - row "Direct member of a group invited to the project’s group Yes Yes" [ref=e743]:
+                  - cell "Direct member of a group invited to the project’s group" [ref=e744]:
+                    - text: Direct member of a
+                    - link "group invited to the project’s group" [ref=e745] [cursor=pointer]:
+                      - /url: /user/project/members/sharing_projects_groups/#sharing-groups
+                  - cell "Yes" [ref=e746]:
+                    - img "Yes" [ref=e748]
+                  - cell "Yes" [ref=e750]:
+                    - img "Yes" [ref=e752]
+                - row "Inherited member of a group invited to the project’s group No No" [ref=e754]:
+                  - cell "Inherited member of a group invited to the project’s group" [ref=e755]
+                  - cell "No" [ref=e756]:
+                    - generic [ref=e757]: "No"
+                  - cell "No" [ref=e758]:
+                    - generic [ref=e759]: "No"
+                - row "Direct member of a group invited to the project’s group’s parent groups Yes Yes" [ref=e760]:
+                  - cell "Direct member of a group invited to the project’s group’s parent groups" [ref=e761]
+                  - cell "Yes" [ref=e762]:
+                    - img "Yes" [ref=e764]
+                  - cell "Yes" [ref=e766]:
+                    - img "Yes" [ref=e768]
+                - row "Inherited member of a group invited to the project’s group’s parent groups No No" [ref=e770]:
+                  - cell "Inherited member of a group invited to the project’s group’s parent groups" [ref=e771]
+                  - cell "No" [ref=e772]:
+                    - generic [ref=e773]: "No"
+                  - cell "No" [ref=e774]:
+                    - generic [ref=e775]: "No"
+            - heading "Group eligibility#" [level=4] [ref=e776]:
+              - text: Group eligibility
+              - link "#" [ref=e777] [cursor=pointer]:
+                - /url: "#group-eligibility"
+            - paragraph [ref=e778]:
+              - text: When you assign groups as approvers for approval rules or reference groups in
+              - code [ref=e779]: CODEOWNERS
+              - text: files, like
+              - code [ref=e780]: "@group-name"
+              - text: ", only direct members of eligible groups can provide approvals:"
+            - table [ref=e782]:
+              - rowgroup [ref=e783]:
+                - row "Group type Approval rules Code Owners" [ref=e784]:
+                  - columnheader "Group type"
+                  - columnheader "Approval rules"
+                  - columnheader "Code Owners"
+              - rowgroup [ref=e785]:
+                - row "Groups invited to the project Yes Yes" [ref=e786]:
+                  - cell "Groups invited to the project" [ref=e787]:
+                    - link "Groups invited to the project" [ref=e788] [cursor=pointer]:
+                      - /url: /user/project/members/sharing_projects_groups/#sharing-projects
+                  - cell "Yes" [ref=e789]:
+                    - img "Yes" [ref=e791]
+                  - cell "Yes" [ref=e793]:
+                    - img "Yes" [ref=e795]
+                - row "Groups invited to the project’s group Yes No" [ref=e797]:
+                  - cell "Groups invited to the project’s group" [ref=e798]:
+                    - link "Groups invited to the project’s group" [ref=e799] [cursor=pointer]:
+                      - /url: /user/project/members/sharing_projects_groups/#sharing-groups
+                  - cell "Yes" [ref=e800]:
+                    - img "Yes" [ref=e802]
+                  - cell "No" [ref=e804]:
+                    - generic [ref=e805]: "No"
+                - row "Groups invited to a parent of the project’s group Yes No" [ref=e806]:
+                  - cell "Groups invited to a parent of the project’s group" [ref=e807]
+                  - cell "Yes" [ref=e808]:
+                    - img "Yes" [ref=e810]
+                  - cell "No" [ref=e812]:
+                    - generic [ref=e813]: "No"
+                - row "The project’s group Yes Yes" [ref=e814]:
+                  - cell "The project’s group" [ref=e815]
+                  - cell "Yes" [ref=e816]:
+                    - img "Yes" [ref=e818]
+                  - cell "Yes" [ref=e820]:
+                    - img "Yes" [ref=e822]
+                - row "A parent of the project’s group Yes Yes" [ref=e824]:
+                  - cell "A parent of the project’s group" [ref=e825]
+                  - cell "Yes" [ref=e826]:
+                    - img "Yes" [ref=e828]
+                  - cell "Yes" [ref=e830]:
+                    - img "Yes" [ref=e832]
+            - paragraph [ref=e837]: For group-based approvals, only direct members of the group can approve merge requests. Inherited members of the eligible groups cannot provide approvals.
+            - heading "Group approvers#" [level=3] [ref=e838]:
+              - text: Group approvers
+              - link "#" [ref=e839] [cursor=pointer]:
+                - /url: "#group-approvers"
+            - paragraph [ref=e840]: You can add a group of users as approvers. All direct members of this group can approve the rule. Inherited members cannot approve the rule.
+            - paragraph [ref=e841]: "Typically the group is a subgroup in your top-level namespace, unless you are collaborating with an external group. If you are collaborating with another group and want to use members of that group as approvers, you can either:"
+            - list [ref=e842]:
+              - listitem [ref=e843]:
+                - link "Share access to the project" [ref=e844] [cursor=pointer]:
+                  - /url: /user/project/members/sharing_projects_groups/#sharing-projects
+                - text: .
+              - listitem [ref=e845]:
+                - link "Share access to your project’s group" [ref=e846] [cursor=pointer]:
+                  - /url: /user/project/members/sharing_projects_groups/#sharing-groups
+                - text: ", which gives the external group approval access to all projects in your project’s group."
+            - paragraph [ref=e847]: "A user’s membership in an approver group determines their individual approval permissions in the following ways:"
+            - list [ref=e848]:
+              - listitem [ref=e849]: Inherited members are not considered approvers. Only direct members can approve merge requests.
+              - listitem [ref=e850]: A user from a group approver group who is later also added as an individual approver counts as one approver, not two.
+              - listitem [ref=e851]:
+                - text: Merge request authors do not count as eligible approvers on their own merge requests by default. To change this behavior, disable the
+                - link "Prevent merge request creator approval" [ref=e852] [cursor=pointer]:
+                  - /url: /user/project/merge_requests/approvals/settings/#prevent-approval-by-merge-request-creator
+                  - strong [ref=e853]: Prevent merge request creator approval
+                - text: project setting.
+              - listitem [ref=e854]:
+                - text: By default, committers to merge requests can approve a merge request. To change this behavior, enable the
+                - link "Prevent committers approval" [ref=e855] [cursor=pointer]:
+                  - /url: /user/project/merge_requests/approvals/settings/#prevent-approvals-by-users-who-add-commits
+                  - strong [ref=e856]: Prevent committers approval
+                - text: project setting.
+            - heading "Troubleshooting#" [level=2] [ref=e857]:
+              - text: Troubleshooting
+              - link "#" [ref=e858] [cursor=pointer]:
+                - /url: "#troubleshooting"
+            - heading "Approval rule name can’t be blank#" [level=3] [ref=e859]:
+              - text: Approval rule name can’t be blank
+              - link "#" [ref=e860] [cursor=pointer]:
+                - /url: "#approval-rule-name-cant-be-blank"
+            - paragraph [ref=e861]: As a workaround for this validation error, you can delete the approval rule through the API.
+            - list [ref=e862]:
+              - listitem [ref=e863]:
+                - link "List all approval rules for the project" [ref=e864] [cursor=pointer]:
+                  - /url: /api/merge_request_approvals/#list-all-approval-rules-for-a-project
+                - text: .
+              - listitem [ref=e865]:
+                - link "DELETE the rule" [ref=e866] [cursor=pointer]:
+                  - /url: /api/merge_request_approvals/#delete-an-approval-rule-for-a-project
+                - text: .
+            - paragraph [ref=e867]:
+              - text: For more information about this validation error, read
+              - link "issue 285129" [ref=e868] [cursor=pointer]:
+                - /url: https://gitlab.com/gitlab-org/gitlab/-/issues/285129
+              - text: .
+            - heading "Groups need explicit or inherited Developer role on a project#" [level=3] [ref=e869]:
+              - text: Groups need explicit or inherited Developer role on a project
+              - link "#" [ref=e870] [cursor=pointer]:
+                - /url: "#groups-need-explicit-or-inherited-developer-role-on-a-project"
+            - paragraph [ref=e871]: A group created to handle approvals may be created in a different area of the project hierarchy than the project requiring review. If this happens, members of the group may not have permission to approve the merge request as they do not have access to it.
+            - paragraph [ref=e872]: "For example:"
+            - paragraph [ref=e873]: In the group structure below, project 1 belongs to subgroup 1 and subgroup 4 has users.
+            - paragraph [ref=e874]:
+              - link "Example scenario - project and group hierarchy" [ref=e875] [cursor=pointer]:
+                - /url: /user/project/merge_requests/approvals/img/group_access_example_01_v16_8.png
+                - img "Example scenario - project and group hierarchy" [ref=e876]
+            - paragraph [ref=e877]:
+              - text: Project 1 has configured an approval rule for the project, which assigns subgroup 4 as approvers. When a merge request is created, approvers from subgroup 4 appear in the eligible approvers list. However, as users from subgroup 4 do not have permission to view the merge request, the
+              - code [ref=e878]: "404"
+              - text: error is returned. To grant membership, the group must be invited as a project member. It is now possible for users from subgroup 4 to approve.
+            - paragraph [ref=e879]:
+              - link "Project members page showing subgroup 4 as a member" [ref=e880] [cursor=pointer]:
+                - /url: /user/project/merge_requests/approvals/img/group_access_example_02_v16_8.png
+                - img "Project members page showing subgroup 4 as a member" [ref=e881]
+        - generic [ref=e886]:
+          - generic [ref=e887]: Was this page helpful?
+          - button "Yes, this page was helpful" [ref=e888] [cursor=pointer]:
+            - img [ref=e889]
+            - generic [ref=e891]: "Yes"
+          - button "No, this page was not helpful" [ref=e892] [cursor=pointer]:
+            - img [ref=e893]
+            - generic [ref=e895]: "No"
+      - complementary [ref=e896]:
+        - button "Edit this page" [ref=e899] [cursor=pointer]:
+          - img [ref=e900]
+          - generic [ref=e902]:
+            - generic [ref=e903]: Edit this page
+            - img [ref=e904]
+        - button "Copy for LLM" [ref=e908] [cursor=pointer]:
+          - img [ref=e909]
+          - generic [ref=e911]: Copy for LLM
+        - navigation "Table of Contents" [ref=e913]:
+          - list [ref=e914]:
+            - listitem [ref=e915]:
+              - link "Add an approval rule" [ref=e916] [cursor=pointer]:
+                - /url: "#add-an-approval-rule"
+            - listitem [ref=e917]:
+              - link "Edit an approval rule" [ref=e918] [cursor=pointer]:
+                - /url: "#edit-an-approval-rule"
+            - listitem [ref=e919]:
+              - link "Delete an approval rule" [ref=e920] [cursor=pointer]:
+                - /url: "#delete-an-approval-rule"
+            - listitem [ref=e921]:
+              - link "Multiple approval rules" [ref=e922] [cursor=pointer]:
+                - /url: "#multiple-approval-rules"
+            - listitem [ref=e923]:
+              - link "Get notified about all merge requests you can approve" [ref=e924] [cursor=pointer]:
+                - /url: "#get-notified-about-all-merge-requests-you-can-approve"
+            - listitem [ref=e925]:
+              - link "Edit or override merge request approval rules" [ref=e926] [cursor=pointer]:
+                - /url: "#edit-or-override-merge-request-approval-rules"
+            - listitem [ref=e927]:
+              - link "Require multiple approvals for a rule" [ref=e928] [cursor=pointer]:
+                - /url: "#require-multiple-approvals-for-a-rule"
+            - listitem [ref=e929]:
+              - link "Configure optional approval rules" [ref=e930] [cursor=pointer]:
+                - /url: "#configure-optional-approval-rules"
+            - listitem [ref=e931]:
+              - link "Approvals for protected branches" [ref=e932] [cursor=pointer]:
+                - /url: "#approvals-for-protected-branches"
+            - listitem [ref=e933]:
+              - link "Enable approval permissions for additional users" [ref=e934] [cursor=pointer]:
+                - /url: "#enable-approval-permissions-for-additional-users"
+            - listitem [ref=e935]:
+              - link "Security Approvals" [ref=e936] [cursor=pointer]:
+                - /url: "#security-approvals"
+            - listitem [ref=e937]:
+              - link "Eligible approvers" [ref=e938] [cursor=pointer]:
+                - /url: "#eligible-approvers"
+            - listitem [ref=e939]:
+              - link "Code owners as approvers" [ref=e940] [cursor=pointer]:
+                - /url: "#code-owners-as-approvers"
+            - listitem [ref=e941]:
+              - link "Approver by membership type" [ref=e942] [cursor=pointer]:
+                - /url: "#approver-by-membership-type"
+            - listitem [ref=e943]:
+              - link "User eligibility" [ref=e944] [cursor=pointer]:
+                - /url: "#user-eligibility"
+            - listitem [ref=e945]:
+              - link "Group eligibility" [ref=e946] [cursor=pointer]:
+                - /url: "#group-eligibility"
+            - listitem [ref=e947]:
+              - link "Group approvers" [ref=e948] [cursor=pointer]:
+                - /url: "#group-approvers"
+            - listitem [ref=e949]:
+              - link "Troubleshooting" [ref=e950] [cursor=pointer]:
+                - /url: "#troubleshooting"
+            - listitem [ref=e951]:
+              - link "Approval rule name can’t be blank" [ref=e952] [cursor=pointer]:
+                - /url: "#approval-rule-name-cant-be-blank"
+            - listitem [ref=e953]:
+              - link "Groups need explicit or inherited Developer role on a project" [ref=e954] [cursor=pointer]:
+                - /url: "#groups-need-explicit-or-inherited-developer-role-on-a-project"
+  - contentinfo [ref=e955]:
+    - generic [ref=e957]:
+      - generic [ref=e958]:
+        - link "GitLab Docs logo" [ref=e960] [cursor=pointer]:
+          - /url: /
+          - img "GitLab Docs logo" [ref=e961]
+        - list [ref=e962]:
+          - listitem [ref=e963]:
+            - link "Facebook" [ref=e964] [cursor=pointer]:
+              - /url: https://www.facebook.com/gitlab
+              - generic [ref=e965]: Facebook
+          - listitem [ref=e966]:
+            - link "LinkedIn" [ref=e967] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/gitlab-com
+              - generic [ref=e968]: LinkedIn
+          - listitem [ref=e969]:
+            - link "Twitter" [ref=e970] [cursor=pointer]:
+              - /url: https://twitter.com/gitlab
+              - generic [ref=e971]: Twitter
+          - listitem [ref=e972]:
+            - link "YouTube" [ref=e973] [cursor=pointer]:
+              - /url: https://www.youtube.com/channel/UCnMGQ8QHMAnVIsI3xJrihhg
+              - generic [ref=e974]: YouTube
+        - link "Creative Commons License" [ref=e975] [cursor=pointer]:
+          - /url: https://creativecommons.org/licenses/by-sa/4.0/
+          - img "Creative Commons License" [ref=e976]
+      - generic [ref=e977]:
+        - generic [ref=e978]: Company
+        - list [ref=e979]:
+          - listitem [ref=e980]:
+            - link "About GitLab" [ref=e981] [cursor=pointer]:
+              - /url: https://about.gitlab.com/company/
+          - listitem [ref=e982]:
+            - link "View pricing" [ref=e983] [cursor=pointer]:
+              - /url: https://about.gitlab.com/pricing/
+          - listitem [ref=e984]:
+            - link "Try GitLab for free" [ref=e985] [cursor=pointer]:
+              - /url: https://about.gitlab.com/free-trial/
+      - generic [ref=e986]:
+        - generic [ref=e987]: Feedback
+        - list [ref=e988]:
+          - listitem [ref=e989]:
+            - link "View page source" [ref=e990] [cursor=pointer]:
+              - /url: https://gitlab.com/gitlab-org/gitlab/-/blob/master/doc/user/project/merge_requests/approvals/rules.md
+          - listitem [ref=e991]:
+            - link "Edit in Web IDE" [ref=e992] [cursor=pointer]:
+              - /url: https://gitlab.com/-/ide/project/gitlab-org/gitlab/edit/master/-/doc/user/project/merge_requests/approvals/rules.md
+          - listitem [ref=e993]:
+            - link "Contribute to GitLab" [ref=e994] [cursor=pointer]:
+              - /url: https://about.gitlab.com/community/contribute/
+          - listitem [ref=e995]:
+            - link "Suggest updates" [ref=e996] [cursor=pointer]:
+              - /url: https://gitlab.com/gitlab-org/gitlab/-/issues/new?issuable_template=Documentation
+      - generic [ref=e997]:
+        - generic [ref=e998]: Help & Community
+        - list [ref=e999]:
+          - listitem [ref=e1000]:
+            - link "Get certified" [ref=e1001] [cursor=pointer]:
+              - /url: https://university.gitlab.com/pages/certifications
+          - listitem [ref=e1002]:
+            - link "Get support" [ref=e1003] [cursor=pointer]:
+              - /url: https://about.gitlab.com/support/
+          - listitem [ref=e1004]:
+            - link "Post on the GitLab forum" [ref=e1005] [cursor=pointer]:
+              - /url: https://forum.gitlab.com/new-topic?title=topic%20title&body=topic%20body&tags=docs-feedback
+      - generic [ref=e1006]:
+        - generic [ref=e1007]: Resources
+        - list [ref=e1008]:
+          - listitem [ref=e1009]:
+            - link "Terms" [ref=e1010] [cursor=pointer]:
+              - /url: https://about.gitlab.com/terms/
+          - listitem [ref=e1011]:
+            - link "Privacy statement" [ref=e1012] [cursor=pointer]:
+              - /url: https://about.gitlab.com/privacy/
+          - listitem [ref=e1013]:
+            - link "Use of generative AI" [ref=e1014] [cursor=pointer]:
+              - /url: /legal/use_generative_ai/
+          - listitem [ref=e1015]:
+            - link "Acceptable use of user licenses" [ref=e1016] [cursor=pointer]:
+              - /url: /legal/licensing_policy/
+          - listitem [ref=e1017]:
+            - button "Cookie Preferences" [ref=e1018] [cursor=pointer]

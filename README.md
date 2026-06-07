@@ -16,17 +16,28 @@ webview.
 
 ## Run it
 
-These are native modules (Skia, blur, audio synth, purchases, Game Center), so
-**Expo Go is not enough** — you need a development build.
+These are native modules (Skia, blur, purchases, Game Center), so **Expo Go is
+not enough** — you need a development build.
 
 ```bash
 npm install                       # .npmrc forces legacy-peer-deps
-npx expo run:ios                  # compile dev client (needs Xcode), start Metro
-npx expo export --platform ios    # bundle-only sanity check (no device)
+npx expo run:ios                  # prebuild + compile dev client (needs Xcode), start Metro
+npx expo export --platform ios    # bundle-only sanity check (no device, no Xcode)
 ```
 
-There is no test suite / linter; verification is `expo export` + run in the
-simulator. Play with **headphones** — the adaptive audio is the point.
+Verified here: `npm install` (521 packages) and `expo export` both succeed
+(Metro bundles 1350 modules → Hermes). There is no test suite / linter;
+verification is `expo export` + run in the simulator.
+
+> **Disk space:** a first iOS build writes a large `ios/Pods` + Xcode DerivedData
+> tree (several GB). If `expo run:ios` fails with `ENOSPC: no space left on
+> device`, free space and re-run — the build resumes.
+
+> **If you previously ran with `react-native-audio-api` installed** and hit the
+> `size_t` compile error, do a clean prebuild after pulling these changes:
+> ```bash
+> rm -rf node_modules ios && npm install && npx expo run:ios
+> ```
 
 ## Architecture (where things live)
 
@@ -78,9 +89,12 @@ no-op so the JS bundle always runs.
 The code is complete and runs offline. Before shipping you must do the **manual
 portal work** (only a human can) — see PANDUAN §§15–20.
 
-- **Audio** — works on-device via `react-native-audio-api`. If that module isn't
-  in a build, `audio.js` no-ops and the game stays fully playable (visuals are the
-  source of truth for collision, per the PRD).
+- **Adaptive audio (opt-in)** — `src/audio.js` is a complete Web-Audio synth
+  ("the music is the obstacle") that runs on `react-native-audio-api`. That
+  package is **not installed by default** because its current release has a C++
+  header (`size_t` unqualified in `Constants.h`) that fails to compile on some
+  Xcode toolchains. Without it `audio.js` no-ops and the game stays fully
+  playable. To enable — see "Enabling adaptive audio" below.
 - **RevenueCat** — paste your `appl_…` key into `src/config.js`; create the
   `lifetime` non-consumable + entitlement `Attune Pro` + a default offering +
   paywall. Until then the paywall **simulates** the unlock so the flow is walkable.
@@ -97,3 +111,30 @@ portal work** (only a human can) — see PANDUAN §§15–20.
 Gift codes: run `node scripts/gen-gift-codes.js` to (re)generate
 `src/giftcodes.js` (hashes, committed) + `GIFT_CODES.txt` (plaintext, gitignored).
 Codes are redeemed in **Settings → Redeem gift code** and unlock the same as Pro.
+
+## Enabling adaptive audio
+
+`src/audio.js` already implements the full procedural synth and is wired into the
+game; it just needs the native Web-Audio module present:
+
+```bash
+npx expo install react-native-audio-api
+npx expo run:ios
+```
+
+If your Xcode toolchain hits `unknown type name 'size_t'` in
+`react-native-audio-api/.../Constants.h`, it's a missing include in that library.
+Fix it durably with `patch-package`:
+
+```bash
+npm i -D patch-package
+# add the missing include to the offending header(s):
+#   #include <cstddef>   // for size_t
+# in node_modules/react-native-audio-api/common/cpp/audioapi/core/Constants.h
+npx patch-package react-native-audio-api          # writes patches/react-native-audio-api+<ver>.patch
+npm pkg set scripts.postinstall="patch-package"   # re-applies on every install
+rm -rf ios && npx expo run:ios
+```
+
+No code changes are needed in this repo — `audio.js` picks the module up
+automatically (and falls back to silent no-op if it's ever missing).

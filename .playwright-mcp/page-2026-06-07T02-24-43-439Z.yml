@@ -1,0 +1,690 @@
+- generic [active] [ref=e1]:
+  - navigation:
+    - generic [ref=e3]:
+      - generic [ref=e4]:
+        - link "Skip to main content" [ref=e5] [cursor=pointer]:
+          - /url: "#skipTarget"
+        - link "Go to GitLab Docs homepage" [ref=e6] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e7]: Go to GitLab Docs homepage
+        - generic [ref=e9]:
+          - generic [ref=e14]:
+            - generic [ref=e15]:
+              - img [ref=e16]
+              - searchbox "Search" [ref=e18]
+            - generic "Use the shortcut keys<br><kbd>/</kbd> or <kbd>s</kbd> to start a search" [ref=e19]: /
+          - generic [ref=e20]:
+            - link "What's new?" [ref=e21] [cursor=pointer]:
+              - /url: https://about.gitlab.com/releases/whats-new/
+            - generic [ref=e22]:
+              - combobox "English" [ref=e25] [cursor=pointer]:
+                - img [ref=e26]
+                - generic:
+                  - generic: English
+                  - img [ref=e28]
+              - button "v19.1" [ref=e32] [cursor=pointer]:
+                - generic [ref=e33]:
+                  - generic [ref=e34]: v19.1
+                  - img [ref=e35]
+              - generic "Select theme and layout" [ref=e38]:
+                - combobox "Select theme and layout" [ref=e39] [cursor=pointer]:
+                  - img [ref=e40]
+                  - generic [ref=e42]:
+                    - generic [ref=e43]: Select theme and layout
+                    - img [ref=e44]
+            - button "Get free trial" [ref=e47] [cursor=pointer]
+      - list [ref=e49]:
+        - listitem [ref=e50]:
+          - link "Use GitLab" [ref=e51] [cursor=pointer]:
+            - /url: /user/
+        - listitem [ref=e52]:
+          - link "GitLab Duo" [ref=e53] [cursor=pointer]:
+            - /url: /user/gitlab_duo/
+        - listitem [ref=e54]:
+          - link "Orbit" [ref=e55] [cursor=pointer]:
+            - /url: /orbit/
+        - listitem [ref=e56]:
+          - link "Extend" [ref=e57] [cursor=pointer]:
+            - /url: /api/
+        - listitem [ref=e58]:
+          - link "Install" [ref=e59] [cursor=pointer]:
+            - /url: /install/
+        - listitem [ref=e60]:
+          - link "Administer" [ref=e61] [cursor=pointer]:
+            - /url: /administration/
+        - listitem [ref=e62]:
+          - link "Subscribe" [ref=e63] [cursor=pointer]:
+            - /url: /subscriptions/
+        - listitem [ref=e64]:
+          - link "Contribute" [ref=e65] [cursor=pointer]:
+            - /url: /development/
+        - listitem [ref=e66]:
+          - link "Solutions" [ref=e67] [cursor=pointer]:
+            - /url: /solutions/
+  - main [ref=e68]:
+    - generic [ref=e69]:
+      - complementary "Main Navigation" [ref=e72]:
+        - navigation "Main" [ref=e74]:
+          - link "Getting started" [ref=e78] [cursor=pointer]:
+            - /url: /user/get_started/
+          - generic [ref=e81]:
+            - link "Tutorials" [ref=e82] [cursor=pointer]:
+              - /url: /tutorials/
+            - button "Expand" [ref=e83] [cursor=pointer]:
+              - img [ref=e85]
+          - generic [ref=e89]:
+            - link "Manage your organization" [ref=e90] [cursor=pointer]:
+              - /url: /topics/set_up_organization/
+            - button "Expand" [ref=e91] [cursor=pointer]:
+              - img [ref=e93]
+          - generic [ref=e97]:
+            - link "Organize work with projects" [ref=e98] [cursor=pointer]:
+              - /url: /user/project/organize_work_with_projects/
+            - button "Expand" [ref=e99] [cursor=pointer]:
+              - img [ref=e101]
+          - generic [ref=e105]:
+            - link "Plan and track work" [ref=e106] [cursor=pointer]:
+              - /url: /topics/plan_and_track/
+            - button "Expand" [ref=e107] [cursor=pointer]:
+              - img [ref=e109]
+          - generic [ref=e113]:
+            - link "Manage authentication and authorization" [ref=e114] [cursor=pointer]:
+              - /url: /auth/
+            - button "Expand" [ref=e115] [cursor=pointer]:
+              - img [ref=e117]
+          - generic [ref=e121]:
+            - link "Use Git" [ref=e122] [cursor=pointer]:
+              - /url: /topics/git/
+            - button "Expand" [ref=e123] [cursor=pointer]:
+              - img [ref=e125]
+          - generic [ref=e127]:
+            - generic [ref=e129]:
+              - link "Manage your code" [ref=e130] [cursor=pointer]:
+                - /url: /topics/manage_code/
+              - button "Collapse" [ref=e131] [cursor=pointer]:
+                - img [ref=e133]
+            - generic [ref=e136]:
+              - link "Getting started" [ref=e140] [cursor=pointer]:
+                - /url: /user/get_started/get_started_managing_code/
+              - generic [ref=e141]:
+                - generic [ref=e143]:
+                  - link "Repositories" [ref=e144] [cursor=pointer]:
+                    - /url: /user/project/repository/
+                  - button "Collapse" [ref=e145] [cursor=pointer]:
+                    - img [ref=e147]
+                - generic [ref=e150]:
+                  - link "Protect your repository" [ref=e154] [cursor=pointer]:
+                    - /url: /user/project/repository/protect/
+                  - generic [ref=e157]:
+                    - link "Branches" [ref=e158] [cursor=pointer]:
+                      - /url: /user/project/repository/branches/
+                    - button "Expand" [ref=e159] [cursor=pointer]:
+                      - img [ref=e161]
+                  - link "Compare revisions" [ref=e166] [cursor=pointer]:
+                    - /url: /user/project/repository/compare_revisions/
+                  - link "Commits" [ref=e170] [cursor=pointer]:
+                    - /url: /user/project/repository/commits/
+                  - link "Forks" [ref=e174] [cursor=pointer]:
+                    - /url: /user/project/repository/forking_workflow/
+                  - generic [ref=e177]:
+                    - link "File management" [ref=e178] [cursor=pointer]:
+                      - /url: /user/project/repository/files/
+                    - button "Expand" [ref=e179] [cursor=pointer]:
+                      - img [ref=e181]
+                  - link "File tree browser" [ref=e186] [cursor=pointer]:
+                    - /url: /user/project/repository/files/file_tree_browser/
+                  - link "Repository size" [ref=e190] [cursor=pointer]:
+                    - /url: /user/project/repository/repository_size/
+                  - generic [ref=e193]:
+                    - link "Tags" [ref=e194] [cursor=pointer]:
+                      - /url: /user/project/repository/tags/
+                    - button "Expand" [ref=e195] [cursor=pointer]:
+                      - img [ref=e197]
+                  - generic [ref=e199]:
+                    - generic [ref=e201]:
+                      - link "Code Owners" [ref=e202] [cursor=pointer]:
+                        - /url: /user/project/codeowners/
+                      - button "Collapse" [ref=e203] [cursor=pointer]:
+                        - img [ref=e205]
+                    - generic [ref=e208]:
+                      - link "CODEOWNERS syntax" [ref=e212] [cursor=pointer]:
+                        - /url: /user/project/codeowners/reference/
+                      - link "Advanced configuration" [ref=e216] [cursor=pointer]:
+                        - /url: /user/project/codeowners/advanced/
+                      - link "Troubleshooting" [ref=e220] [cursor=pointer]:
+                        - /url: /user/project/codeowners/troubleshooting/
+                  - generic [ref=e223]:
+                    - link "Mirroring" [ref=e224] [cursor=pointer]:
+                      - /url: /user/project/repository/mirror/
+                    - button "Expand" [ref=e225] [cursor=pointer]:
+                      - img [ref=e227]
+                  - link "Changelogs" [ref=e232] [cursor=pointer]:
+                    - /url: /user/project/changelogs/
+                  - link "Snippets" [ref=e236] [cursor=pointer]:
+                    - /url: /user/snippets/
+                  - link "Push rules" [ref=e240] [cursor=pointer]:
+                    - /url: /user/project/repository/push_rules/
+                  - generic [ref=e243]:
+                    - link "Signed commits" [ref=e244] [cursor=pointer]:
+                      - /url: /user/project/repository/signed_commits/
+                    - button "Expand" [ref=e245] [cursor=pointer]:
+                      - img [ref=e247]
+                  - generic [ref=e251]:
+                    - link "Managing monorepos" [ref=e252] [cursor=pointer]:
+                      - /url: /user/project/repository/monorepos/
+                    - button "Expand" [ref=e253] [cursor=pointer]:
+                      - img [ref=e255]
+                  - generic [ref=e259]:
+                    - link "MLOps" [ref=e260] [cursor=pointer]:
+                      - /url: /user/project/ml/
+                    - button "Expand" [ref=e261] [cursor=pointer]:
+                      - img [ref=e263]
+              - generic [ref=e267]:
+                - link "Merge requests" [ref=e268] [cursor=pointer]:
+                  - /url: /user/project/merge_requests/
+                - button "Expand" [ref=e269] [cursor=pointer]:
+                  - img [ref=e271]
+              - generic [ref=e275]:
+                - link "Remote development" [ref=e276] [cursor=pointer]:
+                  - /url: /user/project/remote_development/
+                - button "Expand" [ref=e277] [cursor=pointer]:
+                  - img [ref=e279]
+          - generic [ref=e283]:
+            - link "Use CI/CD to build your application" [ref=e284] [cursor=pointer]:
+              - /url: /topics/build_your_application/
+            - button "Expand" [ref=e285] [cursor=pointer]:
+              - img [ref=e287]
+          - generic [ref=e291]:
+            - link "Secure your application" [ref=e292] [cursor=pointer]:
+              - /url: /user/application_security/secure_your_application/
+            - button "Expand" [ref=e293] [cursor=pointer]:
+              - img [ref=e295]
+          - generic [ref=e299]:
+            - link "Deploy and release your application" [ref=e300] [cursor=pointer]:
+              - /url: /topics/release_your_application/
+            - button "Expand" [ref=e301] [cursor=pointer]:
+              - img [ref=e303]
+          - generic [ref=e307]:
+            - link "Manage your infrastructure" [ref=e308] [cursor=pointer]:
+              - /url: /user/infrastructure/
+            - button "Expand" [ref=e309] [cursor=pointer]:
+              - img [ref=e311]
+          - generic [ref=e315]:
+            - link "Monitor your application" [ref=e316] [cursor=pointer]:
+              - /url: /operations/
+            - button "Expand" [ref=e317] [cursor=pointer]:
+              - img [ref=e319]
+          - generic [ref=e323]:
+            - link "Analyze GitLab usage" [ref=e324] [cursor=pointer]:
+              - /url: /user/analytics/
+            - button "Expand" [ref=e325] [cursor=pointer]:
+              - img [ref=e327]
+          - generic [ref=e331]:
+            - link "Release notes" [ref=e332] [cursor=pointer]:
+              - /url: /releases/
+            - button "Expand" [ref=e333] [cursor=pointer]:
+              - img [ref=e335]
+          - link "Feature support" [ref=e340] [cursor=pointer]:
+            - /url: /policy/development_stages_support/
+          - link "Find your GitLab version" [ref=e344] [cursor=pointer]:
+            - /url: /user/version/
+      - generic [ref=e345]:
+        - generic [ref=e346]:
+          - navigation "Breadcrumb" [ref=e349]:
+            - list [ref=e350]:
+              - listitem [ref=e351]:
+                - link "GitLab Docs" [ref=e352] [cursor=pointer]:
+                  - /url: /
+                - text: /
+              - listitem [ref=e353]:
+                - link "Use GitLab" [ref=e354] [cursor=pointer]:
+                  - /url: /user/
+                - text: /
+              - listitem [ref=e355]:
+                - link "Manage your code" [ref=e356] [cursor=pointer]:
+                  - /url: /topics/manage_code/
+                - text: /
+              - listitem [ref=e357]:
+                - link "Repositories" [ref=e358] [cursor=pointer]:
+                  - /url: /user/project/repository/
+                - text: /
+              - listitem [ref=e359]:
+                - link "Code Owners" [ref=e360] [cursor=pointer]:
+                  - /url: /user/project/codeowners/
+          - heading "Code Owners" [level=1] [ref=e362]
+          - generic [ref=e363]:
+            - list [ref=e365]:
+              - listitem [ref=e366]: "Tier: Premium, Ultimate"
+              - listitem [ref=e367]: "Offering: GitLab.com, GitLab Self-Managed, GitLab Dedicated"
+            - paragraph [ref=e368]: Use the Code Owners feature to define who has expertise for specific parts of your project’s codebase.
+            - paragraph [ref=e369]: "Define the owners of files and directories in a repository to:"
+            - list [ref=e370]:
+              - listitem [ref=e371]:
+                - paragraph [ref=e372]:
+                  - text: Require owners to approve changes. Combine protected branches with Code Owners to require experts to approve merge requests before they merge into a protected branch. For more information, see
+                  - link "Code Owners and protected branches" [ref=e373] [cursor=pointer]:
+                    - /url: /user/project/codeowners/#code-owners-and-protected-branches
+                  - text: .
+              - listitem [ref=e374]:
+                - paragraph [ref=e375]: "Identify owners. Code Owner names are displayed on the files and directories they own:"
+                - paragraph [ref=e376]:
+                  - link "File view showing the Code Owners listed below a description of the most recent change." [ref=e377] [cursor=pointer]:
+                    - /url: /user/project/codeowners/img/codeowners_in_UI_v15_10.png
+                    - img "File view showing the Code Owners listed below a description of the most recent change." [ref=e378]
+            - heading "Code Owners and approval rules#" [level=2] [ref=e379]:
+              - text: Code Owners and approval rules
+              - link "#" [ref=e380] [cursor=pointer]:
+                - /url: "#code-owners-and-approval-rules"
+            - paragraph [ref=e381]:
+              - text: Combine Code Owners with merge request
+              - link "approval rules" [ref=e382] [cursor=pointer]:
+                - /url: /user/project/merge_requests/approvals/rules/
+              - text: "(either optional or required) to build a flexible approval workflow:"
+            - list [ref=e383]:
+              - listitem [ref=e384]: Use Code Owners to ensure quality. Define the users who have domain expertise for specific paths in your repository.
+              - listitem [ref=e385]: Use approval rules to define areas of expertise that don’t correspond to specific file paths in your repository. Approval rules help guide merge request creators to the correct set of reviewers, such as frontend developers or a security team.
+            - paragraph [ref=e386]: "For example:"
+            - table [ref=e388]:
+              - rowgroup [ref=e389]:
+                - row "Type Name Scope Comment" [ref=e390]:
+                  - columnheader "Type"
+                  - columnheader "Name"
+                  - columnheader "Scope"
+                  - columnheader "Comment"
+              - rowgroup [ref=e391]:
+                - row "Approval rule UX All files A user experience (UX) team member reviews the user experience of all changes made in your project." [ref=e392]:
+                  - cell "Approval rule" [ref=e393]
+                  - cell "UX" [ref=e394]
+                  - cell "All files" [ref=e395]
+                  - cell "A user experience (UX) team member reviews the user experience of all changes made in your project." [ref=e396]
+                - row "Approval rule Security All files A security team member reviews all changes for vulnerabilities." [ref=e397]:
+                  - cell "Approval rule" [ref=e398]
+                  - cell "Security" [ref=e399]
+                  - cell "All files" [ref=e400]
+                  - cell "A security team member reviews all changes for vulnerabilities." [ref=e401]
+                - 'row "Code Owner approval rule Frontend: Code Style *.css files A frontend engineer reviews CSS file changes for adherence to project style standards." [ref=e402]':
+                  - cell "Code Owner approval rule" [ref=e403]
+                  - 'cell "Frontend: Code Style" [ref=e404]'
+                  - cell "*.css files" [ref=e405]:
+                    - code [ref=e406]: "*.css"
+                    - text: files
+                  - cell "A frontend engineer reviews CSS file changes for adherence to project style standards." [ref=e407]
+                - 'row "Code Owner approval rule Backend: Code Review *.rb files A backend engineer reviews the logic and code style of Ruby files." [ref=e408]':
+                  - cell "Code Owner approval rule" [ref=e409]
+                  - 'cell "Backend: Code Review" [ref=e410]'
+                  - cell "*.rb files" [ref=e411]:
+                    - code [ref=e412]: "*.rb"
+                    - text: files
+                  - cell "A backend engineer reviews the logic and code style of Ruby files." [ref=e413]
+            - figure [ref=e414]:
+              - iframe [ref=e415]:
+                - generic [active] [ref=f16e1]:
+                  - generic "YouTube Video Player" [ref=f16e3]
+                  - generic [ref=f16e5]:
+                    - generic:
+                      - generic:
+                        - button "Play video" [ref=f16e10] [cursor=pointer]:
+                          - generic [ref=f16e13]:
+                            - img
+                        - button "Hide player controls" [ref=f16e14] [cursor=pointer]
+                        - generic [ref=f16e16]:
+                          - generic [ref=f16e21]:
+                            - generic [ref=f16e22]:
+                              - link "Code Owners - Faster Code Review (HD)" [ref=f16e23] [cursor=pointer]:
+                                - /url: https://www.youtube.com/watch?v=RoyBySTUSB0
+                              - link "GitLab" [ref=f16e24] [cursor=pointer]:
+                                - /url: /channel/UCnMGQ8QHMAnVIsI3xJrihhg
+                                - generic [ref=f16e25]: GitLab
+                            - generic [ref=f16e26]:
+                              - button [ref=f16e27] [cursor=pointer]
+                              - generic [ref=f16e29]:
+                                - generic: GitLab
+                                - generic: 47.2K subscribers
+                          - generic [ref=f16e30]:
+                            - button "Copy link" [ref=f16e33] [cursor=pointer]:
+                              - generic [ref=f16e37]:
+                                - img
+                            - link "Watch on YouTube" [ref=f16e44] [cursor=pointer]:
+                              - /url: https://www.youtube.com/watch?v=RoyBySTUSB0
+                              - generic [ref=f16e47]:
+                                - text: Watch on
+                                - img [ref=f16e49]:
+                                  - generic [ref=f16e51]:
+                                    - img
+            - paragraph [ref=e416]:
+              - text: For information about who is eligible to approve merge requests as either an approver or Code Owner, see
+              - link "approver by membership type" [ref=e417] [cursor=pointer]:
+                - /url: /user/project/merge_requests/approvals/rules/#approver-by-membership-type
+              - text: .
+            - heading "Code Owners and protected branches#" [level=2] [ref=e418]:
+              - text: Code Owners and protected branches
+              - link "#" [ref=e419] [cursor=pointer]:
+                - /url: "#code-owners-and-protected-branches"
+            - paragraph [ref=e420]:
+              - text: To ensure merge request changes are reviewed and approved by Code Owners, specified in the
+              - link "CODEOWNERS file" [ref=e421] [cursor=pointer]:
+                - /url: /user/project/codeowners/#codeowners-file
+                - code [ref=e422]: CODEOWNERS
+                - text: file
+              - text: ", the merge request’s target branch must be"
+              - link "protected" [ref=e423] [cursor=pointer]:
+                - /url: /user/project/repository/branches/protected/
+              - text: and
+              - link "Code Owner approval" [ref=e424] [cursor=pointer]:
+                - /url: /user/project/repository/branches/protected/#require-code-owner-approval
+              - text: must be enabled.
+            - paragraph [ref=e425]: "The following features are available when you enable Code Owner approvals on protected branches:"
+            - list [ref=e426]:
+              - listitem [ref=e427]:
+                - link "Require approvals from Code Owners" [ref=e428] [cursor=pointer]:
+                  - /url: /user/project/repository/branches/protected/#require-code-owner-approval
+                - text: .
+              - listitem [ref=e429]:
+                - link "Require multiple approvals from Code Owners" [ref=e430] [cursor=pointer]:
+                  - /url: /user/project/codeowners/advanced/#require-multiple-approvals-from-code-owners
+                - text: .
+              - listitem [ref=e431]:
+                - link "Optional approvals from Code Owners" [ref=e432] [cursor=pointer]:
+                  - /url: /user/project/codeowners/reference/#optional-sections
+                - text: .
+            - heading "Practical example#" [level=3] [ref=e433]:
+              - text: Practical example
+              - link "#" [ref=e434] [cursor=pointer]:
+                - /url: "#practical-example"
+            - paragraph [ref=e435]:
+              - text: Your project contains sensitive and important information in a
+              - code [ref=e436]: config/
+              - text: "directory. You can:"
+            - list [ref=e437]:
+              - listitem [ref=e438]:
+                - text: Assign ownership of the directory. To do this, set up a
+                - code [ref=e439]: CODEOWNERS
+                - text: file.
+              - listitem [ref=e440]:
+                - text: Create a protected branch for your default branch. For example,
+                - code [ref=e441]: main
+                - text: .
+              - listitem [ref=e442]:
+                - text: Enable
+                - strong [ref=e443]: Required approval from code owners
+                - text: on the protected branch.
+              - listitem [ref=e444]:
+                - text: Optional. Edit the
+                - code [ref=e445]: CODEOWNERS
+                - text: file to add a rule for multiple approvals.
+            - paragraph [ref=e446]:
+              - text: With this configuration, merge requests that change files in the
+              - code [ref=e447]: config/
+              - text: directory and target the
+              - code [ref=e448]: main
+              - text: branch require approval from the designated Code Owners before merging.
+            - heading "Allowed to push and merge to a protected branch#" [level=3] [ref=e449]:
+              - text: Allowed to push and merge to a protected branch
+              - link "#" [ref=e450] [cursor=pointer]:
+                - /url: "#allowed-to-push-and-merge-to-a-protected-branch"
+            - paragraph [ref=e451]:
+              - text: Users who are
+              - strong [ref=e452]: Allowed to push and merge
+              - text: can choose to create a merge request for their changes, or push the changes directly to a branch. If the user skips the merge request process, the protected branch features and Code Owner approvals built into merge requests are also skipped.
+            - paragraph [ref=e453]:
+              - text: This permission is often granted to accounts associated with automation (
+              - link "internal users" [ref=e454] [cursor=pointer]:
+                - /url: /administration/internal_users/
+              - text: ) and release tooling.
+            - paragraph [ref=e455]:
+              - text: All changes from users without the
+              - strong [ref=e456]: Allowed to push
+              - text: permission must be routed through a merge request.
+            - heading "View Code Owners of a file or directory#" [level=2] [ref=e457]:
+              - text: View Code Owners of a file or directory
+              - link "#" [ref=e458] [cursor=pointer]:
+                - /url: "#view-code-owners-of-a-file-or-directory"
+            - paragraph [ref=e459]: "To view the Code Owners of a file or directory:"
+            - list [ref=e460]:
+              - listitem [ref=e461]:
+                - text: In the top bar, select
+                - strong [ref=e462]: Search or go to
+                - text: and find your project.
+              - listitem [ref=e463]:
+                - text: In the left sidebar, select
+                - strong [ref=e464]: Code
+                - text: ">"
+                - strong [ref=e465]: Repository
+                - text: .
+              - listitem [ref=e466]: Go to the file or directory you want to see the Code Owners for.
+              - listitem [ref=e467]: Optional. Select a branch or tag.
+            - paragraph [ref=e468]: GitLab shows the Code Owners at the top of the page.
+            - heading "Set up Code Owners#" [level=2] [ref=e469]:
+              - text: Set up Code Owners
+              - link "#" [ref=e470] [cursor=pointer]:
+                - /url: "#set-up-code-owners"
+            - paragraph [ref=e471]: "Prerequisites:"
+            - list [ref=e472]:
+              - listitem [ref=e473]: You must have permissions to push to the default branch or to create a merge request.
+            - list [ref=e474]:
+              - listitem [ref=e475]:
+                - text: Create a
+                - code [ref=e476]: CODEOWNERS
+                - text: file in your
+                - link "preferred location" [ref=e477] [cursor=pointer]:
+                  - /url: /user/project/codeowners/#codeowners-file
+                - text: .
+              - listitem [ref=e478]:
+                - text: Define some rules in the file following the
+                - link "CODEOWNERS syntax" [ref=e479] [cursor=pointer]:
+                  - /url: /user/project/codeowners/reference/
+                  - code [ref=e480]: CODEOWNERS
+                  - text: syntax
+                - text: ". Some suggestions:"
+                - list [ref=e481]:
+                  - listitem [ref=e482]:
+                    - text: Configure the
+                    - link "All eligible users" [ref=e483] [cursor=pointer]:
+                      - /url: /user/project/merge_requests/approvals/rules/#code-owners-as-approvers
+                      - strong [ref=e484]: All eligible users
+                    - text: approval rule.
+                  - listitem [ref=e485]:
+                    - link "Require code owner approval" [ref=e486] [cursor=pointer]:
+                      - /url: /user/project/repository/branches/protected/#require-code-owner-approval
+                    - text: on a protected branch.
+              - listitem [ref=e487]: Commit your changes, and push them up to GitLab.
+            - heading "CODEOWNERS file#" [level=2] [ref=e488]:
+              - code [ref=e489]: CODEOWNERS
+              - text: file
+              - link "#" [ref=e490] [cursor=pointer]:
+                - /url: "#codeowners-file"
+            - paragraph [ref=e491]:
+              - text: The
+              - code [ref=e492]: CODEOWNERS
+              - text: "file defines who is responsible for code in a GitLab project. Its purpose is to:"
+            - list [ref=e493]:
+              - listitem [ref=e494]: Define Code Owners for specific files and directories.
+              - listitem [ref=e495]: Enforce approval requirements for protected branches.
+              - listitem [ref=e496]: Communicate code ownership in a project.
+            - paragraph [ref=e497]: This file determines who should review and approve changes and ensures the right experts are involved in code changes.
+            - paragraph [ref=e498]:
+              - text: Each repository uses a single
+              - code [ref=e499]: CODEOWNERS
+              - text: file. GitLab checks these locations in your repository in this order. The first
+              - code [ref=e500]: CODEOWNERS
+              - text: "file found is used, and all others are ignored:"
+            - list [ref=e501]:
+              - listitem [ref=e502]:
+                - text: "In the root directory:"
+                - code [ref=e503]: ./CODEOWNERS
+                - text: .
+              - listitem [ref=e504]:
+                - text: In the
+                - code [ref=e505]: docs
+                - text: "directory:"
+                - code [ref=e506]: ./docs/CODEOWNERS
+                - text: .
+              - listitem [ref=e507]:
+                - text: In the
+                - code [ref=e508]: .gitlab
+                - text: "directory:"
+                - code [ref=e509]: ./.gitlab/CODEOWNERS
+                - text: .
+            - paragraph [ref=e510]:
+              - text: For more information, see
+              - link "CODEOWNERS syntax" [ref=e511] [cursor=pointer]:
+                - /url: /user/project/codeowners/reference/
+                - code [ref=e512]: CODEOWNERS
+                - text: syntax
+              - text: and
+              - link "advanced CODEOWNERS configuration" [ref=e513] [cursor=pointer]:
+                - /url: /user/project/codeowners/advanced/
+                - text: advanced
+                - code [ref=e514]: CODEOWNERS
+                - text: configuration
+              - text: .
+            - heading "Related topics#" [level=2] [ref=e515]:
+              - text: Related topics
+              - link "#" [ref=e516] [cursor=pointer]:
+                - /url: "#related-topics"
+            - list [ref=e517]:
+              - listitem [ref=e518]:
+                - link "CODEOWNERS syntax" [ref=e519] [cursor=pointer]:
+                  - /url: /user/project/codeowners/reference/
+                  - code [ref=e520]: CODEOWNERS
+                  - text: syntax
+              - listitem [ref=e521]:
+                - link "Advanced CODEOWNERS configuration" [ref=e522] [cursor=pointer]:
+                  - /url: /user/project/codeowners/advanced/
+                  - text: Advanced
+                  - code [ref=e523]: CODEOWNERS
+                  - text: configuration
+              - listitem [ref=e524]:
+                - link "Troubleshooting Code Owners" [ref=e525] [cursor=pointer]:
+                  - /url: /user/project/codeowners/troubleshooting/
+              - listitem [ref=e526]:
+                - link "Protect your repository" [ref=e527] [cursor=pointer]:
+                  - /url: /user/project/repository/protect/
+              - listitem [ref=e528]:
+                - link "Protected branches" [ref=e529] [cursor=pointer]:
+                  - /url: /user/project/repository/branches/protected/
+        - generic [ref=e534]:
+          - generic [ref=e535]: Was this page helpful?
+          - button "Yes, this page was helpful" [ref=e536] [cursor=pointer]:
+            - img [ref=e537]
+            - generic [ref=e539]: "Yes"
+          - button "No, this page was not helpful" [ref=e540] [cursor=pointer]:
+            - img [ref=e541]
+            - generic [ref=e543]: "No"
+      - complementary [ref=e544]:
+        - button "Edit this page" [ref=e547] [cursor=pointer]:
+          - img [ref=e548]
+          - generic [ref=e550]:
+            - generic [ref=e551]: Edit this page
+            - img [ref=e552]
+        - button "Copy for LLM" [ref=e556] [cursor=pointer]:
+          - img [ref=e557]
+          - generic [ref=e559]: Copy for LLM
+        - navigation "Table of Contents" [ref=e561]:
+          - list [ref=e562]:
+            - listitem [ref=e563]:
+              - link "Code Owners and approval rules" [ref=e564] [cursor=pointer]:
+                - /url: "#code-owners-and-approval-rules"
+            - listitem [ref=e565]:
+              - link "Code Owners and protected branches" [ref=e566] [cursor=pointer]:
+                - /url: "#code-owners-and-protected-branches"
+            - listitem [ref=e567]:
+              - link "Practical example" [ref=e568] [cursor=pointer]:
+                - /url: "#practical-example"
+            - listitem [ref=e569]:
+              - link "Allowed to push and merge to a protected branch" [ref=e570] [cursor=pointer]:
+                - /url: "#allowed-to-push-and-merge-to-a-protected-branch"
+            - listitem [ref=e571]:
+              - link "View Code Owners of a file or directory" [ref=e572] [cursor=pointer]:
+                - /url: "#view-code-owners-of-a-file-or-directory"
+            - listitem [ref=e573]:
+              - link "Set up Code Owners" [ref=e574] [cursor=pointer]:
+                - /url: "#set-up-code-owners"
+            - listitem [ref=e575]:
+              - link "CODEOWNERS file" [ref=e576] [cursor=pointer]:
+                - /url: "#codeowners-file"
+            - listitem [ref=e577]:
+              - link "Related topics" [ref=e578] [cursor=pointer]:
+                - /url: "#related-topics"
+  - contentinfo [ref=e579]:
+    - generic [ref=e581]:
+      - generic [ref=e582]:
+        - link "GitLab Docs logo" [ref=e584] [cursor=pointer]:
+          - /url: /
+          - img "GitLab Docs logo" [ref=e585]
+        - list [ref=e586]:
+          - listitem [ref=e587]:
+            - link "Facebook" [ref=e588] [cursor=pointer]:
+              - /url: https://www.facebook.com/gitlab
+              - generic [ref=e589]: Facebook
+          - listitem [ref=e590]:
+            - link "LinkedIn" [ref=e591] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/gitlab-com
+              - generic [ref=e592]: LinkedIn
+          - listitem [ref=e593]:
+            - link "Twitter" [ref=e594] [cursor=pointer]:
+              - /url: https://twitter.com/gitlab
+              - generic [ref=e595]: Twitter
+          - listitem [ref=e596]:
+            - link "YouTube" [ref=e597] [cursor=pointer]:
+              - /url: https://www.youtube.com/channel/UCnMGQ8QHMAnVIsI3xJrihhg
+              - generic [ref=e598]: YouTube
+        - link "Creative Commons License" [ref=e599] [cursor=pointer]:
+          - /url: https://creativecommons.org/licenses/by-sa/4.0/
+          - img "Creative Commons License" [ref=e600]
+      - generic [ref=e601]:
+        - generic [ref=e602]: Company
+        - list [ref=e603]:
+          - listitem [ref=e604]:
+            - link "About GitLab" [ref=e605] [cursor=pointer]:
+              - /url: https://about.gitlab.com/company/
+          - listitem [ref=e606]:
+            - link "View pricing" [ref=e607] [cursor=pointer]:
+              - /url: https://about.gitlab.com/pricing/
+          - listitem [ref=e608]:
+            - link "Try GitLab for free" [ref=e609] [cursor=pointer]:
+              - /url: https://about.gitlab.com/free-trial/
+      - generic [ref=e610]:
+        - generic [ref=e611]: Feedback
+        - list [ref=e612]:
+          - listitem [ref=e613]:
+            - link "View page source" [ref=e614] [cursor=pointer]:
+              - /url: https://gitlab.com/gitlab-org/gitlab/-/blob/master/doc/user/project/codeowners/_index.md
+          - listitem [ref=e615]:
+            - link "Edit in Web IDE" [ref=e616] [cursor=pointer]:
+              - /url: https://gitlab.com/-/ide/project/gitlab-org/gitlab/edit/master/-/doc/user/project/codeowners/_index.md
+          - listitem [ref=e617]:
+            - link "Contribute to GitLab" [ref=e618] [cursor=pointer]:
+              - /url: https://about.gitlab.com/community/contribute/
+          - listitem [ref=e619]:
+            - link "Suggest updates" [ref=e620] [cursor=pointer]:
+              - /url: https://gitlab.com/gitlab-org/gitlab/-/issues/new?issuable_template=Documentation
+      - generic [ref=e621]:
+        - generic [ref=e622]: Help & Community
+        - list [ref=e623]:
+          - listitem [ref=e624]:
+            - link "Get certified" [ref=e625] [cursor=pointer]:
+              - /url: https://university.gitlab.com/pages/certifications
+          - listitem [ref=e626]:
+            - link "Get support" [ref=e627] [cursor=pointer]:
+              - /url: https://about.gitlab.com/support/
+          - listitem [ref=e628]:
+            - link "Post on the GitLab forum" [ref=e629] [cursor=pointer]:
+              - /url: https://forum.gitlab.com/new-topic?title=topic%20title&body=topic%20body&tags=docs-feedback
+      - generic [ref=e630]:
+        - generic [ref=e631]: Resources
+        - list [ref=e632]:
+          - listitem [ref=e633]:
+            - link "Terms" [ref=e634] [cursor=pointer]:
+              - /url: https://about.gitlab.com/terms/
+          - listitem [ref=e635]:
+            - link "Privacy statement" [ref=e636] [cursor=pointer]:
+              - /url: https://about.gitlab.com/privacy/
+          - listitem [ref=e637]:
+            - link "Use of generative AI" [ref=e638] [cursor=pointer]:
+              - /url: /legal/use_generative_ai/
+          - listitem [ref=e639]:
+            - link "Acceptable use of user licenses" [ref=e640] [cursor=pointer]:
+              - /url: /legal/licensing_policy/
+          - listitem [ref=e641]:
+            - button "Cookie Preferences" [ref=e642] [cursor=pointer]

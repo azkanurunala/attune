@@ -1,0 +1,9 @@
+[    2690ms] [LOG] ✅ Sentry client config loaded successfully @ https://about.gitlab.com/_nuxt/D6uK7Qpn.js:8
+[    5271ms] [ERROR] Hydration completed but contains mismatches. @ https://about.gitlab.com/_nuxt/D6uK7Qpn.js:8
+[    8776ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ https://player.vimeo.com/api/player.js:0
+[   14041ms] Uncaught (in promise) TypeError: window.ga is not a function
+    at <anonymous> (https://js.qualified.com/packs/js/analytics-bc611ace.js:0:753)
+    at l (https://js.qualified.com/packs/js/analytics-bc611ace.js:0:730)
+    at o (https://js.qualified.com/packs/js/analytics-bc611ace.js:0:1152)
+    at init (https://js.qualified.com/packs/js/analytics-bc611ace.js:0:1587)
+    at initializeAnalytics (https://js.qualified.com/qualified.js?token=q2kjzSUxjtgnCEEB:6:360832)

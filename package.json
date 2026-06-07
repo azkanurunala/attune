@@ -26,7 +26,6 @@
     "expo-status-bar": "~56.0.4",
     "react": "19.2.3",
     "react-native": "0.85.3",
-    "react-native-audio-api": "^0.8.4",
     "react-native-purchases": "^10.2.0",
     "react-native-purchases-ui": "^10.2.0",
     "react-native-reanimated": "4.3.1",

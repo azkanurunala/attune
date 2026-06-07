@@ -3,26 +3,50 @@
     "name": "Attune",
     "slug": "attune",
     "version": "1.0.0",
+    "icon": "./assets/icon.png",
     "orientation": "portrait",
     "userInterfaceStyle": "dark",
     "backgroundColor": "#05070D",
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.attune.game",
-      "infoPlist": { "ITSAppUsesNonExemptEncryption": false },
-      "entitlements": { "com.apple.developer.game-center": true }
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      },
+      "entitlements": {
+        "com.apple.developer.game-center": true
+      }
     },
     "android": {
       "package": "com.attune.game",
-      "permissions": ["VIBRATE"]
+      "permissions": [
+        "VIBRATE"
+      ],
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#05070D"
+      }
     },
     "plugins": [
       "expo-asset",
       "expo-font",
       "expo-status-bar",
-      ["expo-splash-screen", { "backgroundColor": "#05070D", "resizeMode": "contain" }]
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#05070D",
+          "resizeMode": "contain"
+        }
+      ]
     ],
-    "extra": { "eas": { "projectId": "<your-eas-project-id>" } }
+    "extra": {
+      "eas": {
+        "projectId": "60de682b-1c31-4925-b79c-75f167756084"
+      }
+    },
+    "owner": "azkanura"
   }
 }
