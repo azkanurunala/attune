@@ -1,0 +1,28 @@
+{
+  "expo": {
+    "name": "Attune",
+    "slug": "attune",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#05070D",
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.attune.game",
+      "infoPlist": { "ITSAppUsesNonExemptEncryption": false },
+      "entitlements": { "com.apple.developer.game-center": true }
+    },
+    "android": {
+      "package": "com.attune.game",
+      "permissions": ["VIBRATE"]
+    },
+    "plugins": [
+      "expo-asset",
+      "expo-font",
+      "expo-status-bar",
+      ["expo-splash-screen", { "backgroundColor": "#05070D", "resizeMode": "contain" }]
+    ],
+    "extra": { "eas": { "projectId": "<your-eas-project-id>" } }
+  }
+}
